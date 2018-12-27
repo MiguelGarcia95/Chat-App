@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Orbit Chat</title>
-    <link rel="stylesheet" href="/style/css/style.css">
-    <link rel="stylesheet" href="/style/css/navbar.css">
-    <link rel="stylesheet" href="/style/css/menu-bar.css">
-    <link rel="stylesheet" href="/style/css/chat-panel.css">
+    <link rel="stylesheet" href="./style/css/style.css">
+    <link rel="stylesheet" href="./style/css/navbar.css">
+    <link rel="stylesheet" href="./style/css/menu-bar.css">
+    <link rel="stylesheet" href="./style/css/chat-panel.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">  -->
   </head>
   <body>
     <!-- App -->
@@ -23,18 +25,29 @@
       <section class="chat-panel">
         <!-- Panel Header -->
         <nav class="panel-header">
+          <i class="fas fa-plus fa-2x"></i>
+          <span class="panel-box first"><p class="active">All</p></span>
+          <span class="panel-box"><p>Online</p></span>
+          <span class="panel-box"><p>Pending</p></span>
         </nav> <!-- Panel Header End -->
         <!-- friend list -->
         <section class="friend-list">
-          <!-- Friend Row -->
-          <section class="row">
-            <section class="username">
-
+           <!-- Container -->
+          <section class="container">
+            <section class="row-header">
+              <section class="username"><p>Username</p></section>
+              <section class="status"><p>Status</p></section>
             </section>
-            <section class="status">
+            <!-- Friend Row -->
+            <section class="row">
+              <section class="username">
 
-            </section>
-          </section> <!-- Friend Row End -->
+              </section>
+              <section class="status">
+
+              </section>
+            </section> <!-- Friend Row End -->
+          </section> <!-- Container End -->
         </section> <!-- Friend List End -->
       </section> <!-- Chat Panel End -->
     </section> <!-- App End -->
