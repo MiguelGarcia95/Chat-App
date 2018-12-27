@@ -82,6 +82,47 @@
       }
     }
 
+    .row {
+      width: 100%;
+      // height: 30px;
+      margin: 10px 0;
+      .username, .status {
+        // height: 100%;
+        float: left;
+        box-sizing: border-box;
+        padding-left: 10px;
+        // p {margin-top: 0; line-height: 30px;}
+      }
+      .username {
+        width: 25%;
+        position: relative;
+        .avatar, .name { position: absolute; height: 80px; }
+        .avatar {
+          width: 80px;
+          border-radius: 50%;
+          overflow: hidden;
+          z-index: 2;
+          img {width: 100%; height: 100%;}
+        }
+        .name {
+          width: 100%;
+          padding-left: 90px; box-sizing: border-box;
+          z-index: 1;
+          p { line-height: 80px; margin-top: 0; }
+        }
+      }
+
+      .status {
+        width: 75%;
+        .status-light {
+          .light {}
+        }
+        .info {
+
+        }
+      }
+    }
+
     .container {} // if needed its here and in place html
   }
 
