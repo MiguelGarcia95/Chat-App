@@ -18,7 +18,7 @@
 .env.test.local
 .env.production.local
 .env
-src/config/apiKeys.js
+/src/config/apiKeys.js
 
 npm-debug.log*
 yarn-debug.log*
