@@ -1,28 +1,56 @@
 //out: style.css, compress: true, sourcemap: false
 
+@transparent: rgba(0,0,0,0);
+
 .login {
   width: 350px;
   position: absolute;
   left: 0; right: 0; top: 0; bottom: 0;
   margin: auto;
-
+  height: 330px;
+  .form-header {
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    h1 {
+      line-height: 40px;
+      margin: 0;
+      font-size: 2em;
+      font-weight: 300;
+    }
+  }
+  .form-footer {
+    text-align: center;
+    height: 20px; margin-top: 10px;
+    a {
+      color: #232323;
+      text-decoration: none;
+      line-height: 20px;
+      font-size: 0.9em;
+    }
+  }
   form {
     width: 100%;
     .form-group {
       width: 100%;
+      input, button {background-color: @transparent; width: 100%; padding: 10px;}
       input {
         box-sizing: border-box;
-        background-color: rgba(0,0,0,0);
         width: 100%;
         border: 1px solid rgba(0,0,0,0.5);
         margin: 5px 0;
         border-radius: 2px;
-        padding: 10px;
+        height: 40px;
       }
-    }
-    button {
-      width: 100%;
-      margin: 0;
+      button {
+        margin: 0;
+        border: none;
+        color: white;
+        background-color: #655ee5;
+        height: 40px;
+      }
     }
   }
 }
