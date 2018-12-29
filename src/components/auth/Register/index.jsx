@@ -8,7 +8,9 @@ class Register extends React.Component {
     username: '',
     email: '',
     password: '',
-    confirmedPassword: ''
+    confirmedPassword: '',
+    errors: [],
+    loading: false
   }
 
   handleInputChange = e => this.setState({[e.target.name]: e.target.value});
