@@ -4,6 +4,19 @@ import {Link} from 'react-router-dom';
 import './style.css';
 
 class Register extends React.Component {
+  state = {
+    username: '',
+    email: '',
+    password: '',
+    confirmedPassword: ''
+  }
+
+  handleInputChange = e => this.setState({[e.target.name]: e.target.value});
+
+  handleSubmit = e => {
+    e.preventDefault();
+  }
+
   render () {
     return (
       <section id="app">
@@ -11,18 +24,18 @@ class Register extends React.Component {
           <section className="form-header">
             <h1>Register</h1>
           </section>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <section className="form-group">
-              <input type="text" name='username' placeholder='Username'/>
+              <input type="text" name='username' placeholder='Username' onChange={this.handleInputChange}/>
             </section>
             <section className="form-group">
-              <input type="email" name='email' placeholder='Email'/>
+              <input type="email" name='email' placeholder='Email' onChange={this.handleInputChange}/>
             </section>
             <section className="form-group">
-              <input type="password" name='password' placeholder='Password'/>
+              <input type="password" name='password' placeholder='Password' onChange={this.handleInputChange}/>
             </section>
             <section className="form-group">
-              <input type="password" name='confirm-password' placeholder='Confirm Password'/>
+              <input type="password" name='confirmedPassword' placeholder='Confirm Password' onChange={this.handleInputChange}/>
             </section>
             <section className="form-group">
               <button type='submit'>Register</button>

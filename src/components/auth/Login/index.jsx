@@ -4,6 +4,12 @@ import {Link} from 'react-router-dom';
 import './style.css';
 
 class Login extends React.Component {
+  handleInputChange = e => this.setState({[e.target.name]: e.target.value});
+
+  handleSubmit = e => {
+    e.preventDefault();
+  }
+
   render () {
     return (
       <section id="app">
@@ -11,12 +17,12 @@ class Login extends React.Component {
           <section className="form-header">
             <h1>Login</h1>
           </section>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <section className="form-group">
-              <input type="text" name='username' placeholder='Username'/>
+              <input type="text" name='username' placeholder='Username' onChange={this.handleInputChange}/>
             </section>
             <section className="form-group">
-              <input type="password" name='password' placeholder='Password'/>
+              <input type="password" name='password' placeholder='Password' onChange={this.handleInputChange}/>
             </section>
             <section className="form-group">
               <button type='submit'>Login</button>
