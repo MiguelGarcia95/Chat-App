@@ -23,7 +23,7 @@ class Login extends React.Component {
             </section>
           </form>
           <section className="form-footer">
-            <Link to='/register'>Not a memeber? Click here.</Link>
+            <Link to='/register'>Register Here</Link>
           </section>
         </section>
       </section>

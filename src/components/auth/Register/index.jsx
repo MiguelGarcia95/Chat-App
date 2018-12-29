@@ -1,11 +1,16 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 // import PropTypes from 'prop-types';
+import './style.css';
 
 class Register extends React.Component {
   render () {
     return (
       <section id="app">
         <section className='register'>
+          <section className="form-header">
+            <h1>Register</h1>
+          </section>
           <form>
             <section className="form-group">
               <input type="text" name='username' placeholder='Username'/>
@@ -23,6 +28,9 @@ class Register extends React.Component {
               <button type='submit'>Register</button>
             </section>
           </form>
+          <section className="form-footer">
+            <Link to='/login'>Login Here</Link>
+          </section>
         </section>
       </section>
     )
