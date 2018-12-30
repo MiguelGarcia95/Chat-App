@@ -25,10 +25,23 @@ class Register extends React.Component {
   }
 
   isFormValid = () => {
-    if (!this.isFormEmpty(this.state)) {
+    let errors = [];
+    let error;
 
-    } else {
+    if (this.isFormEmpty(this.state)) {
+      error = {message: 'Fill in all the fields!'};
+      this.setState({errors: errors.concat(error)});
       return false;
+    } else if (!this.isPasswordValid(this.state)) {
+      error = {message: 'Password is not valid.'};
+      this.setState({errors: errors.concat(error)});
+      return false;
+    } else if (!this.isConfirmedPasswordValid(this.state)) {
+      error = {message: 'Confirm Password is not valid.'};
+      this.setState({errors: errors.concat(error)});
+      return false;
+    } else {
+      return true;
     }
   }
 
@@ -36,17 +49,23 @@ class Register extends React.Component {
     return !username.length || !email.length || !password.length || !confirmedPassword.length;
   }
 
-  isPasswordValid = ({password, confirmedPassword}) => {
-    if ((password.length < 6 || confirmedPassword.length < 6) || password !== confirmedPassword) {
-      return false;
-    } else {
-      return true;
-    }
+  isPasswordValid = ({password}) => (password.length < 6) ? false : true;
+
+  isConfirmedPasswordValid = ({password, confirmedPassword}) => {
+    return password !== confirmedPassword ? false : true;
   }
 
+  displayErrors = errors => errors.map((error, i) => <p className='auth-error' key={i}>{error.message}</p>)
+
   render () {
+    const {errors} = this.state;
     return (
       <section id="app">
+        {(errors.length > 0 )&& (
+          <section className="auth-errors">
+            {this.displayErrors(errors)}
+          </section>
+        )}
         <section className='register'>
           <section className="form-header">
             <h1>Register</h1>
@@ -59,7 +78,7 @@ class Register extends React.Component {
               <input type="email" name='email' placeholder='Email' onChange={this.handleInputChange}/>
             </section>
             <section className="form-group">
-              <input type="password" name='password' placeholder='Password' onChange={this.handleInputChange}/>
+              <input type="password" name='password' placeholder='Password, Min of 6 letters' onChange={this.handleInputChange}/>
             </section>
             <section className="form-group">
               <input type="password" name='confirmedPassword' placeholder='Confirm Password' onChange={this.handleInputChange}/>

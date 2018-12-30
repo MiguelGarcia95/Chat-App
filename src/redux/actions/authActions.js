@@ -16,8 +16,7 @@ export const signUp = (newUser) => {
       }).then(() => {
         dispatch({type: actionTypes.SIGNUP_SUCCESS, payload: null});
       }).catch(err => {
-        console.log(err);
-        dispatch({type: actionTypes.SIGNUP_ERROR, payload: err});
+        dispatch({type: actionTypes.SIGNUP_ERROR, payload: err.message});
       })
 
   }
