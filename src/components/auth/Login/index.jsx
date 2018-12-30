@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {login} from '../../../redux/actions/authActions';
 import './style.css';
 
 class Login extends React.Component {
@@ -37,4 +39,14 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  login: PropTypes.func.isRequired
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: (userData) => dispatch(login(userData))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login);

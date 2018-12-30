@@ -18,6 +18,9 @@ export const signUp = (newUser) => {
       }).catch(err => {
         dispatch({type: actionTypes.SIGNUP_ERROR, payload: err.message});
       })
-
   }
+}
+
+export const login = (userData) => {
+  
 }
