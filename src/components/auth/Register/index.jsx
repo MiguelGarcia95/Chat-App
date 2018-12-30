@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {signUp} from '../../../redux/actions/authActions';
 import './style.css';
 
 class Register extends React.Component {
@@ -17,6 +19,7 @@ class Register extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.props.signUp(this.state);
   }
 
   render () {
@@ -52,4 +55,10 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+const mapDispatchToProps = dispatch => {
+  return {
+    signUp: (newUser) => dispatch(signUp(newUser))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Register);
