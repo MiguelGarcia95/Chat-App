@@ -1,11 +1,11 @@
-import {createStore, compose, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import {composeWithDevTools} from 'redux-devtools-extension';
-import rootReducer from './reducers/rootReducer';
-import firebase from 'firebase';
-import {reduxFirestore, getFirestore} from 'redux-firestore';
 import {reactReduxFirebase, getFirebase} from 'react-redux-firebase';
+import {reduxFirestore, getFirestore} from 'redux-firestore';
+import {createStore, compose, applyMiddleware} from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import firebase from 'firebase/app';
+import thunk from 'redux-thunk';
 
+import rootReducer from './reducers/rootReducer';
 import fbConfig from './firebase';
 
 const initialState = {}

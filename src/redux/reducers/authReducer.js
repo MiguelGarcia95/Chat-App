@@ -13,7 +13,6 @@ const authReducer = (state = initialState, action) => {
         ...state,
         authError: action.payload
       }
-      break;
     default:
       return state
   }

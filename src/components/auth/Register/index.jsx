@@ -55,6 +55,10 @@ class Register extends React.Component {
   }
 }
 
+Register.propTypes = {
+  signUp: PropTypes.func.isRequired
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     signUp: (newUser) => dispatch(signUp(newUser))
