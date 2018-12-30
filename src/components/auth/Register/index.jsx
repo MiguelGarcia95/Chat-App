@@ -19,7 +19,29 @@ class Register extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.signUp(this.state);
+    if (this.isFormValid()) {
+      this.props.signUp(this.state);
+    }
+  }
+
+  isFormValid = () => {
+    if (!this.isFormEmpty(this.state)) {
+
+    } else {
+      return false;
+    }
+  }
+
+  isFormEmpty = ({username, email, password, confirmedPassword}) => {
+    return !username.length || !email.length || !password.length || !confirmedPassword.length;
+  }
+
+  isPasswordValid = ({password, confirmedPassword}) => {
+    if ((password.length < 6 || confirmedPassword.length < 6) || password !== confirmedPassword) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   render () {
