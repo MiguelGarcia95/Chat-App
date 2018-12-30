@@ -8,13 +8,25 @@ const initialState =  {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SIGNUP_SUCCESS:
-    console.log('User Created!');
+      console.log('User Created!');
       return {
         ...state,
-        authError: null
+        authError: action.payload
       }
     case actionTypes.SIGNUP_ERROR:
-    console.log('User Could Not BE Created!');
+      console.log('User Could Not BE Created!');
+      return {
+        ...state,
+        authError: action.payload
+      }
+    case actionTypes.LOGIN_SUCCESS:
+      console.log('User logged in!');
+      return {
+        ...state,
+        authError: action.payload
+      }
+    case actionTypes.LOGIN_ERROR:
+      console.log('User could not log in!');
       return {
         ...state,
         authError: action.payload

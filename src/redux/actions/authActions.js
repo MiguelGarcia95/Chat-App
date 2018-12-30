@@ -17,10 +17,19 @@ export const signUp = (newUser) => {
         dispatch({type: actionTypes.SIGNUP_SUCCESS, payload: null});
       }).catch(err => {
         dispatch({type: actionTypes.SIGNUP_ERROR, payload: err.message});
-      })
+      });
   }
 }
 
 export const login = (userData) => {
-  
+  return (dispatch, getState, {getFirebase}) => {
+    const firebase = getFirebase();
+
+    firebase.auth().signInWithEmailAndPassword(userData.email, userData.password)
+      .then(() => {
+        dispatch({type: actionTypes.LOGIN_SUCCESS, payload: null});
+      }).catch(err => {
+        dispatch({type: actionTypes.LOGIN_ERROR, payload: err.message});
+      });
+  }
 }
