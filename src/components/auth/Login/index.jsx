@@ -6,10 +6,16 @@ import {login} from '../../../redux/actions/authActions';
 import './style.css';
 
 class Login extends React.Component {
+  state = {
+    email: '',
+    password: ''
+  }
+  
   handleInputChange = e => this.setState({[e.target.name]: e.target.value});
 
   handleSubmit = e => {
     e.preventDefault();
+    this.props.login(this.state);
   }
 
   render () {
@@ -21,7 +27,7 @@ class Login extends React.Component {
           </section>
           <form onSubmit={this.handleSubmit}>
             <section className="form-group">
-              <input type="text" name='username' placeholder='Username' onChange={this.handleInputChange}/>
+              <input type="email" name='email' placeholder='Email' onChange={this.handleInputChange}/>
             </section>
             <section className="form-group">
               <input type="password" name='password' placeholder='Password' onChange={this.handleInputChange}/>
