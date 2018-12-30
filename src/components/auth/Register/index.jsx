@@ -16,7 +16,11 @@ class Register extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(newProps) {
-    this.setState({errors: [{message: newProps.errors}]})
+    if (newProps.errors === null) {
+      this.setState({errors: []})
+    } else {
+      this.setState({errors: [{message: newProps.errors}]})
+    }
   }
 
   handleInputChange = e => this.setState({[e.target.name]: e.target.value});
@@ -106,7 +110,7 @@ Register.propTypes = {
   signUp: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     errors: state.auth.authError
   }

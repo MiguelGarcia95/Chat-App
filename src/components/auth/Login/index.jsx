@@ -8,9 +8,18 @@ import './style.css';
 class Login extends React.Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    errors: ''
   }
-  
+
+  UNSAFE_componentWillReceiveProps(newProps) {
+    if (newProps.errors === null) {
+      this.setState({errors: []})
+    } else {
+      this.setState({errors: [{message: newProps.errors}]})
+    }
+  }
+
   handleInputChange = e => this.setState({[e.target.name]: e.target.value});
 
   handleSubmit = e => {
@@ -18,9 +27,19 @@ class Login extends React.Component {
     this.props.login(this.state);
   }
 
+  displayErrors = errors => errors.map((error, i) => {
+    return <p className='auth-error' key={i}>{error.message}</p>
+  });
+
   render () {
+    const {errors} = this.state;
     return (
       <section id="app">
+        {(errors.length > 0 )&& (
+          <section className="auth-errors">
+            {this.displayErrors(errors)}
+          </section>
+        )}
         <section className='login'>
           <section className="form-header">
             <h1>Login</h1>
@@ -49,10 +68,16 @@ Login.propTypes = {
   login: PropTypes.func.isRequired
 }
 
+const mapStateToProps = state => {
+  return {
+    errors: state.auth.authError
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     login: (userData) => dispatch(login(userData))
   }
 }
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
