@@ -15,6 +15,10 @@ class Register extends React.Component {
     loading: false
   }
 
+  UNSAFE_componentWillReceiveProps(newProps) {
+    this.setState({errors: [{message: newProps.errors}]})
+  }
+
   handleInputChange = e => this.setState({[e.target.name]: e.target.value});
 
   handleSubmit = e => {
@@ -55,7 +59,9 @@ class Register extends React.Component {
     return password !== confirmedPassword ? false : true;
   }
 
-  displayErrors = errors => errors.map((error, i) => <p className='auth-error' key={i}>{error.message}</p>)
+  displayErrors = errors => errors.map((error, i) => {
+    return <p className='auth-error' key={i}>{error.message}</p>
+  });
 
   render () {
     const {errors} = this.state;
@@ -100,10 +106,16 @@ Register.propTypes = {
   signUp: PropTypes.func.isRequired
 }
 
+const mapStateToProps = (state) => {
+  return {
+    errors: state.auth.authError
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     signUp: (newUser) => dispatch(signUp(newUser))
   }
 }
 
-export default connect(null, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
