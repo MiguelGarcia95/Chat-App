@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/types';
 
 const initialState =  {
   authError: null,
-  currentUser: null
+  currentUser: null,
+  isLoading: true
 }
 
 const authReducer = (state = initialState, action) => {
@@ -36,7 +37,8 @@ const authReducer = (state = initialState, action) => {
       console.log('User set!');
       return {
         ...state,
-        currentUser: action.payload
+        currentUser: action.payload,
+        isLoading: false
       }
     default:
       return state

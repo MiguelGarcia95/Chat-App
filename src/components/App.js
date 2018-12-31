@@ -20,7 +20,6 @@ class AppWithRoutes extends Component {
   }
 
   render() {
-    // console.log(this.props);
     return (
       <Switch>
         <Route exact path='/' component={Homeroom} />

@@ -1,12 +1,27 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import Spinner from '../../layout/Spinner/';
 
 class Homeroom extends React.Component {
   render () {
-    return (
-      <h1>THis is root</h1>
+    const {isLoading} = this.props;
+    return isLoading ? <Spinner /> : (
+      <section id="app">
+        <h1>App</h1>
+      </section>
     )
   }
 }
 
-export default Homeroom;
+Homeroom.propTypes = {
+  isLoading: PropTypes.bool.isRequired
+}
+
+const mapStateToProps = state => {
+  return {
+    isLoading: state.auth.isLoading
+  }
+}
+
+export default connect(mapStateToProps)(Homeroom);
