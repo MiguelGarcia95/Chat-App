@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/types';
 
 
 const initialState =  {
-  authError: null
+  authError: null,
+  currentUser: null
 }
 
 const authReducer = (state = initialState, action) => {
@@ -30,6 +31,12 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         authError: action.payload
+      }
+    case actionTypes.SET_USER:
+      console.log('User set!');
+      return {
+        ...state,
+        currentUser: action.payload
       }
     default:
       return state

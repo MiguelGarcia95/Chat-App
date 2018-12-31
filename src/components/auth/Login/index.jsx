@@ -32,7 +32,7 @@ class Login extends React.Component {
   });
 
   render () {
-    const {errors} = this.state;
+    const {email, password, errors} = this.state;
     return (
       <section id="app">
         {(errors.length > 0 )&& (
@@ -46,10 +46,10 @@ class Login extends React.Component {
           </section>
           <form onSubmit={this.handleSubmit}>
             <section className="form-group">
-              <input type="email" name='email' placeholder='Email' onChange={this.handleInputChange}/>
+              <input type="email" name='email' placeholder='Email' onChange={this.handleInputChange} value={email}/>
             </section>
             <section className="form-group">
-              <input type="password" name='password' placeholder='Password' onChange={this.handleInputChange}/>
+              <input type="password" name='password' placeholder='Password' onChange={this.handleInputChange} value={password}/>
             </section>
             <section className="form-group">
               <button type='submit'>Login</button>

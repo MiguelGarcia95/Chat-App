@@ -33,3 +33,14 @@ export const login = (userData) => {
       });
   }
 }
+
+export const setUser = (user) => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.SET_USER,
+      payload: {
+        currentUser: user
+      }
+    })
+  }
+}

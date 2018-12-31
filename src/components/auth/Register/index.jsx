@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {signUp} from '../../../redux/actions/authActions';
@@ -68,7 +68,7 @@ class Register extends React.Component {
   });
 
   render () {
-    const {errors} = this.state;
+    const {username, email, password, confirmedPassword, errors} = this.state;
     return (
       <section id="app">
         {(errors.length > 0 )&& (
@@ -82,16 +82,16 @@ class Register extends React.Component {
           </section>
           <form onSubmit={this.handleSubmit}>
             <section className="form-group">
-              <input type="text" name='username' placeholder='Username' onChange={this.handleInputChange}/>
+              <input type="text" name='username' placeholder='Username' onChange={this.handleInputChange} value={username}/>
             </section>
             <section className="form-group">
-              <input type="email" name='email' placeholder='Email' onChange={this.handleInputChange}/>
+              <input type="email" name='email' placeholder='Email' onChange={this.handleInputChange} value={email}/>
             </section>
             <section className="form-group">
-              <input type="password" name='password' placeholder='Password, Min of 6 letters' onChange={this.handleInputChange}/>
+              <input type="password" name='password' placeholder='Password, Min of 6 letters' onChange={this.handleInputChange} value={password}/>
             </section>
             <section className="form-group">
-              <input type="password" name='confirmedPassword' placeholder='Confirm Password' onChange={this.handleInputChange}/>
+              <input type="password" name='confirmedPassword' placeholder='Confirm Password' onChange={this.handleInputChange} value={confirmedPassword}/>
             </section>
             <section className="form-group">
               <button type='submit'>Register</button>

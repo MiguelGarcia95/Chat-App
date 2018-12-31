@@ -3,11 +3,11 @@ import {reduxFirestore, getFirestore} from 'redux-firestore';
 import {createStore, compose, applyMiddleware} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 // import firebase from 'firebase';
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 import thunk from 'redux-thunk';
 
 import rootReducer from './reducers/rootReducer';
-import fbConfig from './firebase';
+import firebase from './firebase';
 
 const initialState = {}
 
@@ -18,7 +18,7 @@ const store = createStore(
   initialState,
   compose(
     applyMiddleware(...middleware),
-    reduxFirestore(firebase, fbConfig),
+    reduxFirestore(firebase),
     reactReduxFirebase(firebase, {useFirestoreForProfile: true, userProfile: 'users', attachAuthIsReady: true}),
     composeWithDevTools()
   )
