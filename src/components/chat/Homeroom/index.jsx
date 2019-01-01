@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import ChatNavbar from '../../layout/ChatNavbar/';
 import ChatMenu from '../../layout/ChatMenu/';
-import Messages from '../../layout/Messages/';
+import ChatPannel from '../../layout/ChatPannel/';
 
 class Homeroom extends React.Component {
   // Todo
@@ -16,8 +16,7 @@ class Homeroom extends React.Component {
       <section id="app">
         <ChatNavbar />
         <ChatMenu />
-        <Messages />
-
+        <ChatPannel />
       </section>
     )
   }
