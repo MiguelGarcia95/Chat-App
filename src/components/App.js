@@ -8,6 +8,7 @@ import './App.css';
 import Login from './auth/Login/';
 import Register from './auth/Register/';
 import Homeroom from './chat/Homeroom/';
+import Spinner from './layout/Spinner/';
 
 class AppWithRoutes extends Component {
   componentDidMount() {
@@ -15,12 +16,16 @@ class AppWithRoutes extends Component {
       if (user) {
         this.props.setUser(user);
         this.props.history.push('/');
+      } else {
+        this.props.history.push('/login');
       }
     })
   }
 
   render() {
-    return (
+    const {isLoading} = this.props;
+
+    return isLoading ? <Spinner /> : (
       <Switch>
         <Route exact path='/' component={Homeroom} />
         <Route path='/register' component={Register} />
@@ -30,13 +35,19 @@ class AppWithRoutes extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    isLoading: state.auth.isLoading
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     setUser: (user) => dispatch(setUser(user))
   }
 }
 
-const AppWithAuth = withRouter(connect(null, mapDispatchToProps)(AppWithRoutes));
+const AppWithAuth = withRouter(connect(mapStateToProps, mapDispatchToProps)(AppWithRoutes));
 
 const App = () => (
   <Router>
