@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.css'; 
+import './style.css';
+
+import Userbar from '../Userbar';
 
 class ChatMenu extends React.Component {
   render () {
     return (
       <section className="menu-bar">
+        <Userbar />
         <section className="top-menu">
           <section className="option first">
             <i className="fas fa-chart-line fa-2x"></i><p> Activities</p>
