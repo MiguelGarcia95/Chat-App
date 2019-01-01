@@ -8,7 +8,7 @@ class ChatNavbar extends React.Component {
     return (
       <nav className="nav-bar">
         <section className="logo">
-          <img src="./logo.png" alt="" />
+          <img src="img/ChatLogo.png" alt="" />
         </section>
         <section className="add-icon"><i className="fas fa-plus fa-2x"></i></section>
         <section className="channel-icons">
