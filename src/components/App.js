@@ -44,22 +44,4 @@ const App = () => (
   </Router>
 );
 
-// class App extends Component {
-//
-//   render() {
-//     console.log(this.props);
-//     return (
-//       <Router>
-//         <Switch>
-//           <Route exact path='/' component={Homeroom} />
-//           <Route path='/register' component={Register} />
-//           <Route path='/login' component={Login} />
-//         </Switch>
-//       </Router>
-//     );
-//   }
-// }
-
-
 export default App;
-// export default connect(null, mapDispatchToProps)(App);
