@@ -7,6 +7,11 @@ import ChatMenu from '../../layout/ChatMenu/';
 import ChatPannel from '../../layout/ChatPannel/';
 
 class Homeroom extends React.Component {
+  state = {
+    chat: null,
+    chats: []
+  }
+
   // Todo
   // Build Chat Console, chat format, signout, add avatar
   // Create and Display Channels

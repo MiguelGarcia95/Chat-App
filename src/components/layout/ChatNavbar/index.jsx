@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
+import {connect} from 'react-redux';
 
 class ChatNavbar extends React.Component {
   render () {
-    // {/* Navigation Bar */}
     return (
       <nav className="nav-bar">
         <section className="logo">
