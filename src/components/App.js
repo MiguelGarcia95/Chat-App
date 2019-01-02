@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Switch, Route, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {setUser} from '../redux/actions/authActions';
+import {setUser, unsetUser} from '../redux/actions/authActions';
 import firebase from '../redux/firebase';
 import './App.css';
 
 import Login from './auth/Login/';
 import Register from './auth/Register/';
 import Homeroom from './chat/Homeroom/';
-import Spinner from './layout/Spinner/';
 
 class AppWithRoutes extends Component {
   componentDidMount() {
@@ -43,7 +42,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setUser: (user) => dispatch(setUser(user))
+    setUser: (user) => dispatch(setUser(user)),
+    unsetUser: () => dispatch(unsetUser())
   }
 }
 

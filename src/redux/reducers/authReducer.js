@@ -37,12 +37,24 @@ const authReducer = (state = initialState, action) => {
         authError: action.payload,
         isLoading: false
       }
+    case actionTypes.LOGOUT_SUCCESS:
+      console.log('User was logged out!');
+      return {
+        ...state,
+        isLoading: false
+      }
     case actionTypes.SET_USER:
       console.log('User set!');
       return {
         ...state,
-        currentUser: action.payload,
-        isLoading: false
+        currentUser: action.payload.currentUser,
+        isLoading: action.payload.isLoading
+      }
+    case actionTypes.UNSET_USER:
+      console.log('User unset!');
+      return {
+        ...state,
+        isLoading: action.payload.isLoading
       }
     default:
       return state

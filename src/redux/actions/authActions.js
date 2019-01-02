@@ -34,12 +34,30 @@ export const login = (userData) => {
   }
 }
 
+export const logout = () => {
+  return (dispatch, getState, {getFirebase}) => {
+
+  }
+}
+
 export const setUser = (user) => {
   return (dispatch) => {
     dispatch({
       type: actionTypes.SET_USER,
       payload: {
-        currentUser: user
+        currentUser: user,
+        isLoading: false
+      }
+    })
+  }
+}
+
+export const unsetUser = () => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.UNSET_USER,
+      payload: {
+        isLoading: false
       }
     })
   }
