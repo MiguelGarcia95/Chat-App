@@ -13,7 +13,7 @@ class ChatMenu extends React.Component {
     console.log(user)
     return (
       <section className="menu-bar">
-        <Userbar />
+        <Userbar user={user} />
         <section className="top-menu">
           <section className="option first">
             <i className="fas fa-chart-line fa-2x"></i><p> Activities</p>

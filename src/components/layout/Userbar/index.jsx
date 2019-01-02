@@ -5,7 +5,8 @@ import SettingsModal from '../SettingsModal/';
 
 class Userbar extends React.Component {
   state = {
-    settingsModal: false
+    settingsModal: false,
+    user: this.props.user
   }
 
   openModal = () => this.setState({settingsModal: true});
@@ -13,16 +14,15 @@ class Userbar extends React.Component {
   closeModal = () => this.setState({settingsModal: false});
 
   render() {
-    const {settingsModal} = this.state;
+    const {settingsModal, user} = this.state;
     return (
       <React.Fragment>
         <SettingsModal isOpen={settingsModal} onClickClose={this.closeModal} />
         <section className="userbar">
           <section className="avatar">
-            <img src="https://uploads.disquscdn.com/images/e3a640f5ae1bf628977c502faea357f8f91eb619e66b30d00c179401f180d39b.jpg" alt="avatar" />
-            <section className="dot"><section className="light"></section></section>
+            <img src={user.photoURL} alt="avatar" />
           </section>
-          <section className="name"><p>Username</p></section>
+          <section className="name"><p>{user.displayName}</p></section>
           <section className="setting-box">
             <i className="fas fa-cog fa-lg" onClick={this.openModal}></i>
           </section>
