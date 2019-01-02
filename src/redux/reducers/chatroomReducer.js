@@ -7,7 +7,7 @@ const initialState = {
   chatrooms: null
 }
 
-const chatReducer = (state = initialState, action) => {
+const chatroomReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.CHATROOM_CREATED:
       return state
@@ -16,4 +16,4 @@ const chatReducer = (state = initialState, action) => {
   }
 }
 
-export default chatReducer;
+export default chatroomReducer;

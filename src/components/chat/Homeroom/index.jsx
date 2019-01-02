@@ -8,8 +8,6 @@ import ChatPannel from '../../layout/ChatPannel/';
 
 class Homeroom extends React.Component {
   state = {
-    chat: null,
-    chats: []
   }
 
   // Todo
