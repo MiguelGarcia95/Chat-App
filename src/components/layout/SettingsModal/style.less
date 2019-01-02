@@ -1,12 +1,14 @@
 //out: style.css, sourcemap: false, compress: true
 
 .settingsModal {
-  width: 100vw;
-  height: 100vh;
+  width: 0px; height: 0px;
   background-color: #232323;
   z-index: 10;
   position: fixed;
   left: 0; top: 0;
+  &.open {
+    overflow: hidden; width: 100vw; height: 100vh;
+  }
   .modal {
     width: 1000px;
     height: 600px;
