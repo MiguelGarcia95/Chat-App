@@ -5,7 +5,12 @@ import './style.css';
 import Userbar from '../Userbar';
 
 class ChatMenu extends React.Component {
+  state = {
+    user: this.props.user
+  }
   render () {
+    const {user} = this.state;
+    console.log(user)
     return (
       <section className="menu-bar">
         <Userbar />

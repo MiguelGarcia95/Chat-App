@@ -12,14 +12,15 @@ class Homeroom extends React.Component {
   }
 
   // Todo
-  // Build Chat Console, chat format, signout, add avatar
+  // Build Chat Console, chat format, add avatar
   // Create and Display Channels
   // Create and Display Comments
   render () {
+    const {user} = this.props;
     return (
       <section id="app">
         <ChatNavbar />
-        <ChatMenu />
+        <ChatMenu user={user} />
         <ChatPannel />
       </section>
     )
@@ -27,12 +28,12 @@ class Homeroom extends React.Component {
 }
 
 Homeroom.propTypes = {
-  // isLoading: PropTypes.bool.isRequired
+  user: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => {
   return {
-    // isLoading: state.auth.isLoading
+    user: state.auth.currentUser
   }
 }
 

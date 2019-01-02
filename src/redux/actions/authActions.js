@@ -9,6 +9,11 @@ export const signUp = (newUser) => {
 
     firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
       .then(createdUser => {
+        createdUser.user.updateProfile({
+          displayName: newUser.username,
+          photoURL: `http://gravatar.com/avatar/${md5(createdUser.user.email)}?d=identicon`
+        });
+
         return firestore.add('users', {
           username: newUser.username,
           avatar: `http://gravatar.com/avatar/${md5(createdUser.user.email)}?d=identicon`
