@@ -5,10 +5,10 @@ import {connect} from 'react-redux';
 import ChatNavbar from '../../layout/ChatNavbar/';
 import ChatMenu from '../../layout/ChatMenu/';
 import ChatPannel from '../../layout/ChatPannel/';
-import Spinner from '../../layout/Spinner/';
 
 class Homeroom extends React.Component {
   state = {
+
   }
 
   // Todo

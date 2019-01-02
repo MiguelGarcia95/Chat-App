@@ -8,6 +8,7 @@ import './App.css';
 import Login from './auth/Login/';
 import Register from './auth/Register/';
 import Homeroom from './chat/Homeroom/';
+import Spinner from './layout/Spinner/';
 
 class AppWithRoutes extends Component {
   componentDidMount() {
