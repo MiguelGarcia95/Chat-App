@@ -23,8 +23,8 @@ class Userbar extends React.Component {
             <section className="dot"><section className="light"></section></section>
           </section>
           <section className="name"><p>Username</p></section>
-          <section className="setting-box" onClick={this.openModal}>
-            <i className="fas fa-cog fa-lg"></i>
+          <section className="setting-box">
+            <i className="fas fa-cog fa-lg" onClick={this.openModal}></i>
           </section>
         </section>
       </React.Fragment>

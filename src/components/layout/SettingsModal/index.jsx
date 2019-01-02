@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const SettingsModal = (props) => {
-  const classes =  props.isOpen ? 'open' : '';
+  // const classes =  props.isOpen ? 'open' : '';
+  const classes =  true ? 'open' : '';
   return (
     <section className={`settingsModal ${classes}`}>
+      <section className="exit">
+        <i className="fas fa-times fa-2x" onClick={props.onClickClose}></i>
+      </section>
       <section className='modal'>
         <section className="nav-menu">
           <section className='menu-item'><p>Color Theme</p></section>
           <section className='menu-item menu-close'>
-            <i class="fas fa-power-off fa-2x" onClick={props.onClickClose}></i>
+            <i className="fas fa-power-off fa-2x" onClick={props.onClickClose}></i>
           </section>
         </section>
         <section className="menu-settings">
