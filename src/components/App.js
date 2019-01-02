@@ -17,6 +17,7 @@ class AppWithRoutes extends Component {
         this.props.setUser(user);
         this.props.history.push('/');
       } else {
+        this.props.unsetUser();
         this.props.history.push('/login');
       }
     })

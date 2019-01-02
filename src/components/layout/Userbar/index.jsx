@@ -32,4 +32,4 @@ class Userbar extends React.Component {
   }
 }
 
-export default Userbar
+export default Userbar;

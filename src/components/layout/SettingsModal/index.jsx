@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {logout} from '../../../redux/actions/authActions';
 import './style.css';
 
 const SettingsModal = (props) => {
@@ -12,8 +14,9 @@ const SettingsModal = (props) => {
       <section className='modal'>
         <section className="nav-menu">
           <section className='menu-item'><p>Color Theme</p></section>
-          <section className='menu-item menu-close'>
-            <i className="fas fa-power-off fa-2x" onClick={props.onClickClose}></i>
+          <section className='menu-item menu-close' onClick={props.logout}>
+            <p>Log Out</p>
+            <i className="fas fa-power-off fa-2x"></i>
           </section>
         </section>
         <section className="menu-settings">
@@ -23,4 +26,10 @@ const SettingsModal = (props) => {
   )
 }
 
-export default SettingsModal;
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(logout())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SettingsModal);

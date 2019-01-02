@@ -36,7 +36,16 @@ export const login = (userData) => {
 
 export const logout = () => {
   return (dispatch, getState, {getFirebase}) => {
-
+    const firebase = getFirebase();
+    firebase.auth().signOut().then(() => {
+      dispatch({
+        type: actionTypes.LOGOUT_SUCCESS,
+        payload: {
+          currentUser: null,
+          isLoading: false
+        }
+      })
+    })
   }
 }
 

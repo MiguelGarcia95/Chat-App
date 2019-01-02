@@ -41,7 +41,8 @@ const authReducer = (state = initialState, action) => {
       console.log('User was logged out!');
       return {
         ...state,
-        isLoading: false
+        isLoading: action.payload.isLoading,
+        currentUser: action.payload.currentUser
       }
     case actionTypes.SET_USER:
       console.log('User set!');
