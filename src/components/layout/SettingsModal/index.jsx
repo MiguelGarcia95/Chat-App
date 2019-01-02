@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const SettingsModal = (props) => {
-  // const classes =  props.isOpen ? 'open' : '';
-  const classes =  true ? 'open' : '';
+  const classes =  props.isOpen ? 'open' : '';
   return (
     <section className={`settingsModal ${classes}`}>
       <section className="exit">
