@@ -12,7 +12,7 @@ export const signUp = (newUser) => {
         createdUser.user.updateProfile({
           displayName: newUser.username,
           photoURL: `http://gravatar.com/avatar/${md5(createdUser.user.email)}?d=identicon`
-        });
+        }); 
 
         return firestore.add('users', {
           username: newUser.username,
