@@ -5,12 +5,12 @@ import {logout} from '../../../redux/actions/authActions';
 import './style.css';
 
 const ChatroomModal = (props) => {
-  const classes =  true ? 'open' : '';
+  const classes =  props.isOpen ? 'open' : '';
   return (
     <section className={`chatroom-modal ${classes}`}>
       <section className='modal'>
         <section className="exit">
-          <i className="fas fa-times fa-2x" onClick={() => {}}></i>
+          <i className="fas fa-times fa-2x" onClick={props.onClickClose}></i>
         </section>
         <section className="input-group">
           <input type="text" name='chatroom-name'/>
