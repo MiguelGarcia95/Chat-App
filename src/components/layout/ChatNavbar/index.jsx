@@ -7,13 +7,16 @@ import ChatroomModal from '../ChatroomModal/';
 
 class ChatNavbar extends React.Component {
   state = {
-    newChatroomName: '',
-    chatroomModal: false
+    chatroomModal: false,
+    chatroomName: '',
+    avatar: 'avatar.png'
   }
 
   handleChatroomSubmit = () => {
     this.props.createChatroom(this.state);
   }
+
+  handleChange = (e) => this.setState({[e.target.name]: e.target.value});
 
   openModal = () => this.setState({chatroomModal: true});
 
@@ -23,12 +26,17 @@ class ChatNavbar extends React.Component {
     const {chatroomModal} = this.state;
     return (
       <nav className="nav-bar">
-        <ChatroomModal isOpen={chatroomModal} onClickClose={this.closeModal} />
+        <ChatroomModal
+          isOpen={chatroomModal}
+          onClickClose={this.closeModal}
+          handleChange={this.handleChange}
+          handleChatroomSubmit={this.handleChatroomSubmit}
+        />
         <section className="logo">
           <img src="img/ChatLogo.png" alt="" />
         </section>
         <section className="add-icon" onClick={this.openModal}>
-          <i className="fas fa-plus fa-2x" onClick={this.handleChatroomSubmit}></i>
+          <i className="fas fa-plus fa-2x" ></i>
         </section>
         <section className="channel-icons">
           <section className="channel-icon active"></section>
