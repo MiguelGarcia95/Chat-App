@@ -21,7 +21,7 @@ class Homeroom extends React.Component {
       <section id="app">
         <ChatNavbar user={user} />
         <ChatMenu user={user} />
-        <ChatPannel />
+        <ChatPannel user={user} />
       </section>
     )
   }

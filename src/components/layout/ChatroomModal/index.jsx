@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-// import {createChatroom} from '../../../redux/actions/chatroomActions';
 import './style.css';
 
 const ChatroomModal = (props) => {
@@ -28,10 +26,10 @@ const ChatroomModal = (props) => {
   )
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    // createChatroom: (newChatroom) => dispatch(createChatroom(newChatroom))
-  }
+ChatroomModal.propTypes = {
+  onClickClose: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleChatroomSubmit: PropTypes.func.isRequired
 }
 
-export default connect(null, mapDispatchToProps)(ChatroomModal);
+export default ChatroomModal;

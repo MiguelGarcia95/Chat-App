@@ -78,4 +78,8 @@ class ChatPannel extends React.Component {
   }
 }
 
+ChatPannel.propTypes = {
+  user: PropTypes.object.isRequired
+}
+
 export default ChatPannel;

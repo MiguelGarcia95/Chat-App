@@ -2,6 +2,9 @@ import * as actionTypes from '../actions/types';
 
 export const createChatroom = (newChatroom) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
-    console.log(newChatroom);
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+    console.log(firebase);
+    console.log(firestore);
   }
 }

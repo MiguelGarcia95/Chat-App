@@ -52,6 +52,11 @@ class ChatNavbar extends React.Component {
   }
 }
 
+ChatNavbar.propTypes = {
+  user: PropTypes.object.isRequired,
+  createChatroom: PropTypes.func.isRequired 
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     createChatroom: (newChatroom) => dispatch(createChatroom(newChatroom))

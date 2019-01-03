@@ -26,6 +26,12 @@ const SettingsModal = (props) => {
   )
 }
 
+SettingsModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClickClose: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout())

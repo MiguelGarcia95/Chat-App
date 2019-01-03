@@ -32,4 +32,8 @@ class Userbar extends React.Component {
   }
 }
 
+Userbar.propTypes = {
+  user: PropTypes.object.isRequired
+}
+
 export default Userbar;
