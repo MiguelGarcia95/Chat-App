@@ -24,6 +24,7 @@ class ChatNavbar extends React.Component {
 
   render () {
     const {chatroomModal} = this.state;
+    console.log(this.props.user)
     return (
       <nav className="nav-bar">
         <ChatroomModal

@@ -19,7 +19,7 @@ class Homeroom extends React.Component {
     const {user} = this.props;
     return (
       <section id="app">
-        <ChatNavbar />
+        <ChatNavbar user={user} />
         <ChatMenu user={user} />
         <ChatPannel />
       </section>

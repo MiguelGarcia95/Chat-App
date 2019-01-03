@@ -16,7 +16,9 @@ export const signUp = (newUser) => {
 
         return firestore.add('users', {
           username: newUser.username,
-          avatar: `http://gravatar.com/avatar/${md5(createdUser.user.email)}?d=identicon`
+          avatar: `http://gravatar.com/avatar/${md5(createdUser.user.email)}?d=identicon`,
+          uid: createdUser.uid,
+          email: createdUser.user.email
         })
       }).then(() => {
         dispatch({type: actionTypes.SIGNUP_SUCCESS, payload: null});
