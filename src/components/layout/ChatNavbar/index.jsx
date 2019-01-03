@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './style.css';
 import {connect} from 'react-redux';
 import {createChatroom} from '../../../redux/actions/chatroomActions';
+import ChatroomModal from '../ChatroomModal/';
 
 class ChatNavbar extends React.Component {
   state = {
@@ -16,6 +17,7 @@ class ChatNavbar extends React.Component {
   render () {
     return (
       <nav className="nav-bar">
+        <ChatroomModal />
         <section className="logo">
           <img src="img/ChatLogo.png" alt="" />
         </section>

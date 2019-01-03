@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {logout} from '../../../redux/actions/authActions';
-// import './style.css';
+import './style.css';
 
 const ChatroomModal = (props) => {
   const classes =  true ? 'open' : '';
