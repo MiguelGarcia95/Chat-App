@@ -34,7 +34,7 @@ class ChatNavbar extends React.Component {
           handleChatroomSubmit={this.handleChatroomSubmit}
         />
         <section className="logo">
-          <img src="img/ChatLogo.png" alt="" />
+          <img src="/img/ChatLogo.png" alt="" />
         </section>
         <section className="add-icon" onClick={this.openModal}>
           <i className="fas fa-plus fa-2x" ></i>

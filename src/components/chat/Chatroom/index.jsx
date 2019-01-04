@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getChatroom} from '../../../redux/actions/chatroomActions';
 
+import ChatNavbar from '../../layout/ChatNavbar/';
 
 class Chatroom extends React.Component {
   state = {
-    chatroomID: this.props.match.params.id
+    chatroomID: this.props.match.params.id,
+    user: this.props.user
   }
 
   componentDidMount() {
@@ -15,16 +17,25 @@ class Chatroom extends React.Component {
   
 
   render() {
+    const {user} = this.state;
     return (
-      <div>
-        <p>{this.state.chatroomID}</p>
-      </div>
+      <section id="app">
+        <ChatNavbar user={user} />
+        {/* <ChatMenu user={user} /> */}
+        {/* <ChatPannel user={user} /> */}
+      </section>
     )
   }
 }
 
 Chatroom.propTypes = {
   getChatroom: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => {
+  return {
+    user: state.auth.currentUser
+  }
 }
 
 const mapDispatchToProps = dispatch => {
