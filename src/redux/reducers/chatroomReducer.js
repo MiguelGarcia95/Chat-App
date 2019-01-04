@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/types';
 
 const initialState = {
   currentChatroom: null,
-  currentChatroomRef: null,
+  currentChatroomId: null,
   chatroomError: null,
   isLoading: false,
   chatrooms: null
@@ -13,13 +13,13 @@ const chatroomReducer = (state = initialState, action) => {
     case actionTypes.CHATROOM_CREATED:
       return {
         ...state,
-        currentChatroomRef: action.payload.currentChatroomRef,
+        currentChatroomId: action.payload.currentChatroomId,
         chatroomError: action.payload.chatroomError
       }
     case actionTypes.CHATROOM_CREATED_ERROR:
       return {
         ...state,
-        currentChatroomRef: action.payload.currentChatroomRef,
+        currentChatroomId: action.payload.currentChatroomId,
         chatroomError: action.payload.chatroomError
       }
     default:

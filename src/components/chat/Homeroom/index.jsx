@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {createChatroom} from '../../../redux/actions/chatroomActions';
 
 import ChatNavbar from '../../layout/ChatNavbar/';
 import ChatMenu from '../../layout/ChatMenu/';
 import ChatPannel from '../../layout/ChatPannel/';
+import { dispatch } from 'rxjs/internal/observable/pairs';
 
 class Homeroom extends React.Component {
   state = {
@@ -34,6 +36,11 @@ Homeroom.propTypes = {
 const mapStateToProps = state => {
   return {
     user: state.auth.currentUser
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
   }
 }
 

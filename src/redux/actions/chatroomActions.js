@@ -10,10 +10,11 @@ export const createChatroom = (newChatroom) => {
       name: newChatroom.chatroomName,
       user: firebase.firestore().doc(`users/${newChatroom.user.uid}`)
     }).then(docRef => {
+      // newChatroom ID
       dispatch({
         type: actionTypes.CHATROOM_CREATED,
         payload: {
-          currentChatroomRef: docRef,
+          currentChatroomID: docRef._key.path.segments[1],
           chatroomError: null
         }
       })
@@ -21,7 +22,7 @@ export const createChatroom = (newChatroom) => {
       dispatch({
         type: actionTypes.CHATROOM_CREATED_ERROR,
         payload: {
-          currentChatroomRef: null,
+          currentChatroomID: null,
           chatroomError: err.message
         }
       })
