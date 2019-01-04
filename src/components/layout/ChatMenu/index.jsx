@@ -10,7 +10,6 @@ const ChatMenu = ({user}) => {
       <Userbar user={user} />
       {/* Chatroom section */}
       <section className="chatroom-section first">
-        <p className="section-name"><i className="fas fa-chevron-down"></i> Game Recommendations</p>
         <section className="section-name"><i className="fas fa-chevron-down"></i> <p>Game Recommendations</p></section>
         <section className="channels">
           <section className="channel first active"><i className="fas fa-hashtag"></i> <p>rpg</p></section>
@@ -21,44 +20,6 @@ const ChatMenu = ({user}) => {
         </section>
       </section> 
       {/* Chatroom section End */}
-
-      <section className="direct-messages">
-        <p className="title">Direct Messages</p>
-        <section className="messages">
-          <section className="message online">
-            <section className="avatar">
-              <img src="https://uploads.disquscdn.com/images/e3a640f5ae1bf628977c502faea357f8f91eb619e66b30d00c179401f180d39b.jpg" alt="avatar" />
-              <section className="dot"><section className="light"></section></section>
-            </section>
-            <section className="name"><p>Holy Coffee Cup</p></section>
-          </section>
-
-          <section className="message pending">
-            <section className="avatar">
-              <img src="https://uploads.disquscdn.com/images/e3a640f5ae1bf628977c502faea357f8f91eb619e66b30d00c179401f180d39b.jpg" alt="avatar" />
-              <section className="dot"><section className="light"></section></section>
-            </section>
-            <section className="name"><p>Holy Coffee Cup</p></section>
-          </section>
-
-          <section className="message offline">
-            <section className="avatar">
-              <img src="https://uploads.disquscdn.com/images/e3a640f5ae1bf628977c502faea357f8f91eb619e66b30d00c179401f180d39b.jpg" alt="avatar" />
-              <section className="dot"><section className="light"></section></section>
-            </section>
-            <section className="name"><p>Holy Coffee Cup</p></section>
-          </section>
-
-          <section className="message online">
-            <section className="avatar">
-              <img src="https://uploads.disquscdn.com/images/e3a640f5ae1bf628977c502faea357f8f91eb619e66b30d00c179401f180d39b.jpg" alt="avatar" />
-              <section className="dot"><section className="light"></section></section>
-            </section>
-            <section className="name"><p>Holy Coffee Cup</p></section>
-          </section>
-
-        </section>
-      </section>
     </section>
   )
 }
