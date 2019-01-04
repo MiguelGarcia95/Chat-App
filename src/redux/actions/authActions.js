@@ -17,7 +17,7 @@ export const signUp = (newUser) => {
         return firestore.add('users', {
           username: newUser.username,
           avatar: `http://gravatar.com/avatar/${md5(createdUser.user.email)}?d=identicon`,
-          uid: createdUser.uid,
+          uid: createdUser.user.uid,
           email: createdUser.user.email
         })
       }).then(() => {
