@@ -9,7 +9,8 @@ class ChatNavbar extends React.Component {
   state = {
     chatroomModal: false,
     chatroomName: '',
-    avatar: 'avatar.png'
+    avatar: 'avatar.png',
+    user: this.props.user
   }
 
   handleChatroomSubmit = () => {

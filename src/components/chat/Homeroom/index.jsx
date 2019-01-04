@@ -12,7 +12,7 @@ class Homeroom extends React.Component {
   }
 
   // Todo
-  // Build Chat Console, chat format, add avatar
+  // Build Chat Console, chat format
   // Create and Display Channels
   // Create and Display Comments
   render () {
