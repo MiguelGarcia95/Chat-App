@@ -11,6 +11,7 @@ import Homeroom from './chat/Homeroom/';
 import Spinner from './layout/Spinner/';
 
 class AppWithRoutes extends Component {
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {

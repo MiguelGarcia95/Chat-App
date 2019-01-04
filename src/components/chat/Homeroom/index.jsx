@@ -10,7 +10,7 @@ import { dispatch } from 'rxjs/internal/observable/pairs';
 
 class Homeroom extends React.Component {
   state = {
-
+    chatRoomID: this.props.chatRoomID
   }
 
   // Todo
@@ -35,7 +35,8 @@ Homeroom.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    user: state.auth.currentUser
+    user: state.auth.currentUser,
+    chatRoomID: state.chatroom.currentChatroomId
   }
 }
 
