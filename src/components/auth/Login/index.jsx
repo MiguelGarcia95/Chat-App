@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {login} from '../../../redux/actions/authActions';
+import firebase from '../../../redux/firebase';
 import './style.css';
 
 class Login extends React.Component {
@@ -10,6 +11,15 @@ class Login extends React.Component {
     email: '',
     password: '',
     errors: ''
+  }
+  
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.setUser(user);
+        this.props.history.push('/');
+      }
+    })
   }
 
   UNSAFE_componentWillReceiveProps(newProps) {

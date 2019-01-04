@@ -8,6 +8,7 @@ import './App.css';
 import Login from './auth/Login/';
 import Register from './auth/Register/';
 import Homeroom from './chat/Homeroom/';
+import Chatroom from './chat/Chatroom/';
 import Spinner from './layout/Spinner/';
 
 class AppWithRoutes extends Component {
@@ -16,7 +17,6 @@ class AppWithRoutes extends Component {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.props.setUser(user);
-        this.props.history.push('/');
       } else {
         this.props.unsetUser();
         this.props.history.push('/login');
@@ -30,6 +30,7 @@ class AppWithRoutes extends Component {
     return isLoading ? <Spinner /> : (
       <Switch>
         <Route exact path='/' component={Homeroom} />
+        <Route path='/chatroom/:id' component={Chatroom} />
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
       </Switch>

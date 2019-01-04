@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {signUp} from '../../../redux/actions/authActions';
+import firebase from '../../../redux/firebase';
 import './style.css';
 
 class Register extends React.Component {
@@ -13,6 +14,15 @@ class Register extends React.Component {
     confirmedPassword: '',
     errors: [],
     loading: false
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.setUser(user);
+        this.props.history.push('/');
+      }
+    })
   }
 
   UNSAFE_componentWillReceiveProps(newProps) {
