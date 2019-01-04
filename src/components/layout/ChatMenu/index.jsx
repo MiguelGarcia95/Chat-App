@@ -6,16 +6,22 @@ import Userbar from '../Userbar';
 
 const ChatMenu = ({user}) => {
   return (
-    <section className="menu-bar">
+    <section className="menu-bar chatroom-menu">
       <Userbar user={user} />
-      <section className="top-menu">
-        <section className="option first">
-          <i className="fas fa-chart-line fa-2x"></i><p> Activities</p>
+      {/* Chatroom section */}
+      <section className="chatroom-section first">
+        <p className="section-name"><i className="fas fa-chevron-down"></i> Game Recommendations</p>
+        <section className="section-name"><i className="fas fa-chevron-down"></i> <p>Game Recommendations</p></section>
+        <section className="channels">
+          <section className="channel first active"><i className="fas fa-hashtag"></i> <p>rpg</p></section>
+          <section className="channel"><i className="fas fa-hashtag"></i> <p>stg</p></section>
+          <section className="channel"><i className="fas fa-hashtag"></i> <p>jrpg</p></section>
+          <section className="channel"><i className="fas fa-hashtag"></i> <p>metroidvania</p></section>
+          <section className="channel"><i className="fas fa-hashtag"></i> <p>retro</p></section>
         </section>
-        <section className="option active">
-          <i className="fas fa-user-circle fa-2x"></i><p> Friends</p>
-        </section>
-      </section>
+      </section> 
+      {/* Chatroom section End */}
+
       <section className="direct-messages">
         <p className="title">Direct Messages</p>
         <section className="messages">
