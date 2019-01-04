@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {getChatroom} from '../../../redux/actions/chatroomActions';
 
 import ChatNavbar from '../../layout/ChatNavbar/';
+import ChatMenu from '../../layout/ChatMenu/';
 
 class Chatroom extends React.Component {
   state = {
@@ -21,7 +22,7 @@ class Chatroom extends React.Component {
     return (
       <section id="app">
         <ChatNavbar user={user} />
-        {/* <ChatMenu user={user} /> */}
+        <ChatMenu user={user} />
         {/* <ChatPannel user={user} /> */}
       </section>
     )
@@ -44,4 +45,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Chatroom);
+export default connect(mapStateToProps, mapDispatchToProps)(Chatroom);
