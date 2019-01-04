@@ -9,17 +9,21 @@ export const createChatroom = (newChatroom) => {
       avatar: newChatroom.avatar,
       name: newChatroom.chatroomName,
       user: firebase.firestore().doc(`users/${newChatroom.user.uid}`)
-    }).then((currentChatroom) => {
-      console.log(currentChatroom);
-      // dispatch({
-      //   type: actionTypes.CHATROOM_CREATED,
-      //   payload: {
-      //     currentChatroom: null
-      //   }
-      // })
+    }).then(docRef => {
+      dispatch({
+        type: actionTypes.CHATROOM_CREATED,
+        payload: {
+          currentChatroomRef: docRef,
+          chatroomError: null
+        }
+      })
     }).catch((err) => {
       dispatch({
-        type: actionTypes.CHATROOM_CREATED_ERROR
+        type: actionTypes.CHATROOM_CREATED_ERROR,
+        payload: {
+          currentChatroomRef: null,
+          chatroomError: err.message
+        }
       })
     })
 
