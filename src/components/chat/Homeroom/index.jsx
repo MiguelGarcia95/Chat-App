@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import ChatNavbar from '../../layout/ChatNavbar/';
-import ChatMenu from '../../layout/ChatMenu/';
+import HomeMenu from '../../layout/HomeMenu/';
 import ChatPannel from '../../layout/ChatPannel/';
 
 class Homeroom extends React.Component {
@@ -20,7 +20,7 @@ class Homeroom extends React.Component {
     return (
       <section id="app">
         <ChatNavbar user={user} />
-        <ChatMenu user={user} />
+        <HomeMenu user={user} />
         <ChatPannel user={user} />
       </section>
     )
