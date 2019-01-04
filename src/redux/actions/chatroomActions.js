@@ -29,3 +29,9 @@ export const createChatroom = (newChatroom) => {
 
   }
 }
+
+export const getChatroom = (chatroomID) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    console.log(chatroomID);
+  }
+}
