@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 
 import ChatNavbar from '../../layout/ChatNavbar/';
 import ChatMenu from '../../layout/ChatMenu/';
@@ -31,17 +31,16 @@ Homeroom.propTypes = {
   user: PropTypes.object.isRequired
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     user: state.auth.currentUser
-//     // chatRoomID: state.chatroom.currentChatroomId
-//   }
-// }
+const mapStateToProps = state => {
+  return {
+    user: state.auth.currentUser
+    // chatRoomID: state.chatroom.currentChatroomId
+  }
+}
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//   }
-// }
+const mapDispatchToProps = dispatch => {
+  return {
+  }
+}
 
-export default Homeroom;
-// export default connect(mapStateToProps)(Homeroom);
+export default connect(mapStateToProps)(Homeroom);
