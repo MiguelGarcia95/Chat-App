@@ -7,7 +7,7 @@ class Chatroom extends React.Component {
   render() {
     return (
       <div>
-        chatroom here
+        <p>{this.state.chatroomID}</p>
       </div>
     )
   }
