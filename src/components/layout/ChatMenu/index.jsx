@@ -10,7 +10,7 @@ const ChatMenu = ({user}) => {
     <section className="menu-bar chatroom-menu">
       <Userbar user={user} />
       {/* Chatroom section */}
-      <ChatroomSection />
+      <ChatroomSection sectionName={'Game Recommendations'} />
       
 
       {/* Chatroom section End */}
