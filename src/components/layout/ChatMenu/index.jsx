@@ -6,15 +6,14 @@ import Userbar from '../Userbar';
 import ChatroomSection from '../ChatroomSection/';
 
 const ChatMenu = ({user}) => {
+  const chatroomChannel = ['rpg', 'stg', 'jrpg', 'metroidvania', 'retro'];
   return (
     <section className="menu-bar chatroom-menu">
       <Userbar user={user} />
       {/* Chatroom section */}
-      <ChatroomSection sectionName={'Game Recommendations'} />
-      <ChatroomSection sectionName={'Discussion'} />
-      <ChatroomSection sectionName={'Discussion'} />
-      <ChatroomSection sectionName={'Discussion'} />
-      
+      <ChatroomSection sectionName={'Game Recommendations'} channels={chatroomChannel} />
+      <ChatroomSection sectionName={'Discussion'} channels={chatroomChannel} />
+      <ChatroomSection sectionName={'Ranting'} channels={chatroomChannel} />
 
       {/* Chatroom section End */}
     </section>

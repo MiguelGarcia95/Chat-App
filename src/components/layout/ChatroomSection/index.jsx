@@ -4,26 +4,31 @@ import './style.css';
 class ChatroomSection extends React.Component {
   state = {
     isOpen: true,
-    sectionName: this.props.sectionName
+    sectionName: this.props.sectionName,
+    channels: this.props.channels
   }
 
   toggleSection = () => this.setState({isOpen: !this.state.isOpen});
 
-  render() {
-    const {isOpen, sectionName} = this.state;
-    const classes = isOpen ? '' : 'closed';
+  displayChannels = (channels) => {
+    return channels.map((channel, i) => {
+      return (
+        <section className="channel" key={i}><i className="fas fa-hashtag"></i> <p>{channel}</p></section>
+      )
+    })
+  } 
 
+  render() {
+    const {isOpen, sectionName, channels} = this.state;
+    const classes = isOpen ? '' : 'closed';
+    console.log(channels)
     return (
-      <section className='chatroom-section first'>
+      <section className='chatroom-section'>
         <section className='section-name' onClick={this.toggleSection}>
           <i className="fas fa-chevron-down"></i> <p>{sectionName}</p>
         </section>
         <section className={`channels ${classes}`}>
-          <section className="channel first active"><i className="fas fa-hashtag"></i> <p>rpg</p></section>
-          <section className="channel"><i className="fas fa-hashtag"></i> <p>stg</p></section>
-          <section className="channel"><i className="fas fa-hashtag"></i> <p>jrpg</p></section>
-          <section className="channel"><i className="fas fa-hashtag"></i> <p>metroidvania</p></section>
-          <section className="channel"><i className="fas fa-hashtag"></i> <p>retro</p></section>
+          {this.displayChannels(channels)}
         </section>
       </section> 
     )
