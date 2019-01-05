@@ -9,7 +9,8 @@
   z-index: 2;
   padding: 0px 0px;
   box-sizing: border-box;
-
+  overflow-y: scroll;
+  // overflow-x: hidden;
   ////// TOP MENU //////
   .top-menu {
     width: 100%;
@@ -54,7 +55,7 @@
         margin: 15px 0;
         .avatar, .name {
            position: absolute; height: 30px;
-         p {margin-top: 0px; line-height: 30px; }
+         
         }
         .avatar {
           width: 30px;
@@ -75,9 +76,10 @@
           }
         }
         .name {
-          width: 100%;
+          // width: 100%;
           padding-left: 40px; box-sizing: border-box;
           z-index: 1;
+          p {margin-top: 0px; line-height: 30px; }
         }
         &.online {.avatar {.dot {.light {background-color: rgb(40, 255, 40);}}}}
         &.offline {.avatar {.dot {.light {background-color: rgb(255, 40, 40);}}}}
