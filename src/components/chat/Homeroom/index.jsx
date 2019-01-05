@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import ChatNavbar from '../../layout/ChatNavbar/';
 import HomeMenu from '../../layout/HomeMenu/';
-import ChatPannel from '../../layout/ChatPannel/';
+import HomePanel from '../../layout/HomePanel/';
 
 class Homeroom extends React.Component {
   state = {
@@ -21,7 +21,7 @@ class Homeroom extends React.Component {
       <section id="app">
         <ChatNavbar user={user} />
         <HomeMenu user={user} />
-        <ChatPannel user={user} />
+        <HomePanel user={user} />
       </section>
     )
   }

@@ -5,6 +5,7 @@ import {getChatroom} from '../../../redux/actions/chatroomActions';
 
 import ChatNavbar from '../../layout/ChatNavbar/';
 import ChatMenu from '../../layout/ChatMenu/';
+import ChatPanel from '../../layout/ChatPanel/';
 
 class Chatroom extends React.Component {
   state = {
@@ -23,7 +24,7 @@ class Chatroom extends React.Component {
       <section id="app">
         <ChatNavbar user={user} />
         <ChatMenu user={user} />
-        {/* <ChatPannel user={user} /> */}
+        <ChatPanel user={user} />
       </section>
     )
   }
