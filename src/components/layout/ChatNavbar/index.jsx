@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 import {connect} from 'react-redux';
-import {createChatroom} from '../../../redux/actions/chatroomActions';
+import {createChatroom, getChatrooms} from '../../../redux/actions/chatroomActions';
 import ChatroomModal from '../ChatroomModal/';
 
 class ChatNavbar extends React.Component {
@@ -11,6 +11,10 @@ class ChatNavbar extends React.Component {
     chatroomName: '',
     avatar: 'avatar.png',
     user: this.props.user
+  }
+
+  componentDidMount() {
+    this.props.getChatrooms();
   }
 
   handleChatroomSubmit = () => {
@@ -59,7 +63,8 @@ ChatNavbar.propTypes = {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createChatroom: (newChatroom) => dispatch(createChatroom(newChatroom))
+    createChatroom: (newChatroom) => dispatch(createChatroom(newChatroom)),
+    getChatrooms: () => dispatch(getChatrooms())
   }
 }
 

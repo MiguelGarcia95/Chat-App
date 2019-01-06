@@ -22,6 +22,18 @@ const chatroomReducer = (state = initialState, action) => {
         currentChatroomId: action.payload.currentChatroomID,
         chatroomError: action.payload.chatroomError
       }
+    case actionTypes.GET_CHATROOMS:
+      return {
+        ...state,
+        chatroomError: action.payload.chatroomError,
+        chatrooms: action.payload.chatrooms
+      }
+    case actionTypes.GET_CHATROOMS_ERROR:
+      return {
+        ...state,
+        chatroomError: action.payload.chatroomError,
+        chatrooms: action.payload.chatrooms
+      }
     default:
       return state;
   }
