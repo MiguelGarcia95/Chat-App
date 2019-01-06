@@ -4,7 +4,7 @@ const initialState = {
   currentChatroom: null,
   currentChatroomId: null,
   chatroomError: null,
-  isLoading: true,
+  redirect: false,
   chatrooms: []
 }
 
@@ -14,20 +14,21 @@ const chatroomReducer = (state = initialState, action) => {
       return {
         ...state,
         currentChatroomId: action.payload.currentChatroomID,
-        chatroomError: action.payload.chatroomError
+        chatroomError: action.payload.chatroomError,
+        redirect: action.payload.redirect
       }
     case actionTypes.CHATROOM_CREATED_ERROR:
       return {
         ...state,
         currentChatroomId: action.payload.currentChatroomID,
-        chatroomError: action.payload.chatroomError
+        chatroomError: action.payload.chatroomError,
+        redirect: action.payload.redirect
       }
     case actionTypes.GET_CHATROOMS:
       return {
         ...state,
         chatroomError: action.payload.chatroomError,
-        chatrooms: action.payload.chatrooms,
-        isLoading: action.payload.isLoading
+        chatrooms: action.payload.chatrooms
       }
     case actionTypes.GET_CHATROOMS_ERROR:
       return {

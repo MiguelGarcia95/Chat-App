@@ -15,13 +15,25 @@ class ChatNavbar extends React.Component {
     user: this.props.user
   }
 
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.redirect) {
+      console.log(nextProps.redirect)
+    }
+  }
+  
+
   componentDidMount() {
     this.props.getChatrooms();
   }
 
   handleChatroomSubmit = () => {
-    this.props.createChatroom(this.state);
+    this.props.createChatroom(this.state);    
   }
+
+  // setTimeout(() => this.setState({toast: false, toastMessage: ''},
+  //     // if true passed to redirect, go home
+  //     () => redirect && this.props.history.push('/')
+  //   ), 5000);
 
   handleChange = (e) => this.setState({[e.target.name]: e.target.value});
 
@@ -75,7 +87,7 @@ ChatNavbar.propTypes = {
 const mapStateToProps = state => {
   return {
     chatrooms: state.chatroom.chatrooms,
-    isLoading: state.chatroom.isLoading
+    redirect: state.chatroom.redirect
   }
 }
 

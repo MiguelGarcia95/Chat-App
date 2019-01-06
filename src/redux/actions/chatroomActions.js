@@ -14,7 +14,8 @@ export const createChatroom = (newChatroom) => {
         type: actionTypes.CHATROOM_CREATED,
         payload: {
           currentChatroomID: docRef._key.path.segments[1],
-          chatroomError: null
+          chatroomError: null,
+          redirect: true
         }
       })
     }).catch((err) => {
@@ -22,7 +23,8 @@ export const createChatroom = (newChatroom) => {
         type: actionTypes.CHATROOM_CREATED_ERROR,
         payload: {
           currentChatroomID: null,
-          chatroomError: err.message
+          chatroomError: err.message,
+          redirect: false
         }
       })
     })
@@ -48,7 +50,6 @@ export const getChatrooms = () => {
         payload: {
           chatrooms: chatrooms,
           chatroomError:  null,
-          isLoading: false
         }
       })
     }).catch((err) => {
@@ -57,7 +58,6 @@ export const getChatrooms = () => {
         payload: {
           chatroomError: err.message,
           chatrooms: [],
-          isLoading: false
         }
       })
     })
@@ -68,4 +68,13 @@ export const getChatroom = (chatroomID) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     console.log(chatroomID);
   }
+}
+
+export const chatroomRedirect = () => {
+  dispatch({
+    type: actionTypes.CHATROOM_REDIRECT,
+    payload: {
+      redirect: false
+    }
+  })
 }
