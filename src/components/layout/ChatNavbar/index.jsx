@@ -33,7 +33,9 @@ class ChatNavbar extends React.Component {
     return chatrooms.map(chatroom => {
       return (
         <Link to={`chatroom/${chatroom.id}`} key={chatroom.id}>
-          <section className="channel-icon"></section>
+          <section className="channel-icon">
+            <img src={chatroom.chatroom.avatar} alt={chatroom.chatroom.name} />
+          </section>
         </Link>
       )
     })
