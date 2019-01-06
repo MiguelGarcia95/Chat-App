@@ -7,9 +7,6 @@ import HomeMenu from '../../layout/HomeMenu/';
 import HomePanel from '../../layout/HomePanel/';
 
 class Homeroom extends React.Component {
-  state = {
-  }
-
   // Todo
   // Build Chat Console, chat format
   // Create and Display Sections & Comments

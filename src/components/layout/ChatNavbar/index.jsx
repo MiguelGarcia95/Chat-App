@@ -40,7 +40,7 @@ class ChatNavbar extends React.Component {
   displayChatrooms = chatrooms => {
     return chatrooms.map(chatroom => {
       return (
-        <Link to={`chatroom/${chatroom.id}`} key={chatroom.id}>
+        <Link to={`/chatroom/${chatroom.id}`} key={chatroom.id}>
           <section className="channel-icon">
             <img src={chatroom.chatroom.avatar} alt={chatroom.chatroom.name} />
           </section>
@@ -60,9 +60,9 @@ class ChatNavbar extends React.Component {
           handleChange={this.handleChange}
           handleChatroomSubmit={this.handleChatroomSubmit}
         />
-        <section className="logo">
-          <img src="/img/ChatLogo.png" alt="" />
-        </section>
+        <Link to='/'>
+          <section className="logo"><img src="/img/ChatLogo.png" alt="" /></section>
+        </Link>
         <section className="add-icon" onClick={this.openModal}>
           <i className="fas fa-plus fa-2x" ></i>
         </section>

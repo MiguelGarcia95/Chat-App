@@ -10,6 +10,7 @@ import Register from './auth/Register/';
 import Homeroom from './chat/Homeroom/';
 import Chatroom from './chat/Chatroom/';
 import Spinner from './layout/Spinner/';
+import ChatNavbar from './layout/ChatNavbar/';
 
 class AppWithRoutes extends Component {
 
@@ -28,12 +29,15 @@ class AppWithRoutes extends Component {
     const {isLoading} = this.props;
 
     return isLoading ? <Spinner /> : (
-      <Switch>
-        <Route exact path='/' component={Homeroom} />
-        <Route path='/chatroom/:id' component={Chatroom} />
-        <Route path='/register' component={Register} />
-        <Route path='/login' component={Login} />
-      </Switch>
+      <React.Fragment>
+        <Route exact path={['/', '/chatroom/:id']} component={ChatNavbar} />
+        <Switch>
+          <Route exact path='/' component={Homeroom} />
+          <Route path='/chatroom/:id' component={Chatroom} />
+          <Route path='/register' component={Register} />
+          <Route path='/login' component={Login} />
+        </Switch>
+      </React.Fragment>
     );
   }
 }
