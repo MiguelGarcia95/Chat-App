@@ -32,7 +32,7 @@ class ChatNavbar extends React.Component {
   displayChatrooms = chatrooms => {
     return chatrooms.map(chatroom => {
       return (
-        <Link to='/' key={chatroom.id}>
+        <Link to={`chatroom/${chatroom.id}`} key={chatroom.id}>
           <section className="channel-icon"></section>
         </Link>
       )
