@@ -26,7 +26,8 @@ const chatroomReducer = (state = initialState, action) => {
       return {
         ...state,
         chatroomError: action.payload.chatroomError,
-        chatrooms: action.payload.chatrooms
+        chatrooms: action.payload.chatrooms,
+        isLoading: action.payload.isLoading
       }
     case actionTypes.GET_CHATROOMS_ERROR:
       return {

@@ -47,7 +47,8 @@ export const getChatrooms = () => {
         type: actionTypes.GET_CHATROOMS,
         payload: {
           chatrooms: chatrooms,
-          chatroomError:  null
+          chatroomError:  null,
+          isLoading: false
         }
       })
     }).catch((err) => {
@@ -55,7 +56,8 @@ export const getChatrooms = () => {
         type: actionTypes.GET_CHATROOMS_ERROR,
         payload: {
           chatroomError: err.message,
-          chatrooms: null
+          chatrooms: [],
+          isLoading: false
         }
       })
     })
