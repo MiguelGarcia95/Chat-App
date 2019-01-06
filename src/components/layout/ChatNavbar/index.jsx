@@ -4,6 +4,7 @@ import './style.css';
 import {connect} from 'react-redux';
 import {createChatroom, getChatrooms} from '../../../redux/actions/chatroomActions';
 import ChatroomModal from '../ChatroomModal/';
+import {BounceLoader} from 'react-spinners';
 
 class ChatNavbar extends React.Component {
   state = {
@@ -27,6 +28,17 @@ class ChatNavbar extends React.Component {
   openModal = () => this.setState({chatroomModal: true});
 
   closeModal = () => this.setState({chatroomModal: false});
+
+  loadSpinner = () => {
+    return (
+      <BounceLoader
+      sizeUnit={"px"}
+      size={80}
+      color={'#e1e1e1'}
+      loading={true}
+    />
+    )
+  }
 
   render () {
     const {chatroomModal} = this.state;
@@ -66,7 +78,8 @@ ChatNavbar.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    chatrooms: state.chatroom.chatrooms
+    chatrooms: state.chatroom.chatrooms,
+    isLoading: state.chatroom.isLoading
   }
 }
 
