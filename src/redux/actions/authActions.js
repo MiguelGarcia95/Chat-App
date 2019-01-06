@@ -73,7 +73,8 @@ export const unsetUser = () => {
     dispatch({
       type: actionTypes.UNSET_USER,
       payload: {
-        isLoading: false
+        isLoading: false,
+        currentUser: null
       }
     })
   }

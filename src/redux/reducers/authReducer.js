@@ -55,7 +55,8 @@ const authReducer = (state = initialState, action) => {
       console.log('User unset!');
       return {
         ...state,
-        isLoading: action.payload.isLoading
+        isLoading: action.payload.isLoading,
+        currentUser: action.payload.currentUser
       }
     default:
       return state

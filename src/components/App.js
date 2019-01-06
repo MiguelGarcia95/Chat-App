@@ -19,8 +19,8 @@ class AppWithRoutes extends Component {
       if (user) {
         this.props.setUser(user);
       } else {
-        this.props.unsetUser();
         this.props.history.push('/login');
+        this.props.unsetUser();
       }
     })
   }
@@ -30,7 +30,7 @@ class AppWithRoutes extends Component {
 
     return isLoading ? <Spinner /> : (
       <React.Fragment>
-        <Route exact path={['/', '/chatroom/:id']} component={ChatNavbar} />
+        {/* <Route exact path={['/', '/chatroom/:id']} component={ChatNavbar} /> */}
         <Switch>
           <Route exact path='/' component={Homeroom} />
           <Route path='/chatroom/:id' component={Chatroom} />
