@@ -71,10 +71,12 @@ export const getChatroom = (chatroomID) => {
 }
 
 export const chatroomRedirect = () => {
-  dispatch({
-    type: actionTypes.CHATROOM_REDIRECT,
-    payload: {
-      redirect: false
-    }
-  })
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.CHATROOM_REDIRECT,
+      payload: {
+        redirect: false
+      }
+    })
+  }
 }

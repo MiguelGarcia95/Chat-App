@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {createChatroom, getChatrooms} from '../../../redux/actions/chatroomActions';
+import {createChatroom, getChatrooms, chatroomRedirect} from '../../../redux/actions/chatroomActions';
 import ChatroomModal from '../ChatroomModal/';
 
 import './style.css';
@@ -17,8 +17,9 @@ class ChatNavbar extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.redirect) {
-      console.log(nextProps.redirect)
-    }
+      this.props.chatroomRedirect();
+      setTimeout( nextProps.history.push(`/chatroom/${nextProps.currentChatroomID.id}`), 1500);
+    } 
   }
   
 
@@ -27,13 +28,8 @@ class ChatNavbar extends React.Component {
   }
 
   handleChatroomSubmit = () => {
-    this.props.createChatroom(this.state);    
+    this.props.createChatroom(this.state); 
   }
-
-  // setTimeout(() => this.setState({toast: false, toastMessage: ''},
-  //     // if true passed to redirect, go home
-  //     () => redirect && this.props.history.push('/')
-  //   ), 5000);
 
   handleChange = (e) => this.setState({[e.target.name]: e.target.value});
 
@@ -55,7 +51,7 @@ class ChatNavbar extends React.Component {
 
   render () {
     const {chatroomModal} = this.state;
-    const {isLoading, chatrooms} = this.props;
+    const {chatrooms} = this.props;
     return (
       <nav className="nav-bar">
         <ChatroomModal
@@ -87,6 +83,7 @@ ChatNavbar.propTypes = {
 const mapStateToProps = state => {
   return {
     chatrooms: state.chatroom.chatrooms,
+    currentChatroomID: state.chatroom.currentChatroomID,
     redirect: state.chatroom.redirect
   }
 }
@@ -94,7 +91,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     createChatroom: (newChatroom) => dispatch(createChatroom(newChatroom)),
-    getChatrooms: () => dispatch(getChatrooms())
+    getChatrooms: () => dispatch(getChatrooms()),
+    chatroomRedirect: () => dispatch(chatroomRedirect())
   }
 }
 

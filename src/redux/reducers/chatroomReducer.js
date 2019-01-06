@@ -36,6 +36,11 @@ const chatroomReducer = (state = initialState, action) => {
         chatroomError: action.payload.chatroomError,
         chatrooms: action.payload.chatrooms
       }
+    case actionTypes.CHATROOM_REDIRECT:
+      return {
+        ...state,
+        redirect: action.payload.redirect
+      }
     default:
       return state;
   }

@@ -14,10 +14,10 @@ class Homeroom extends React.Component {
   // Build Chat Console, chat format
   // Create and Display Sections & Comments
   render () {
-    const {user} = this.props;
+    const {user, history} = this.props;
     return (
       <section id="app">
-        <ChatNavbar user={user} />
+        <ChatNavbar user={user} history={history} />
         <HomeMenu user={user} />
         <HomePanel user={user} />
       </section>

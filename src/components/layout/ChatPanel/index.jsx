@@ -6,11 +6,11 @@ class ChatPannel extends React.Component {
   render () {
     return (
       <section className="chat-panel">
-        <nav class="chatroom-header">
-          <i class="fas fa-hashtag"></i> <p>RPG - Give us your favorite games of the genre.</p>
+        <nav className="chatroom-header">
+          <i className="fas fa-hashtag"></i> <p>RPG - Give us your favorite games of the genre.</p>
         </nav>
 
-        <sections className="comments">
+        <section className="comments">
 
           <section className="comment-container">
             <section className="avatar">
@@ -30,10 +30,10 @@ class ChatPannel extends React.Component {
             </section>
           </section>
 
-        </sections>
+        </section>
  
-         <section class="chat-box">
-           <section class="input-group">
+         <section className="chat-box">
+           <section className="input-group">
              <textarea name="comment" id="" ></textarea>
            </section>
          </section>
