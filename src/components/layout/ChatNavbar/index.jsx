@@ -11,8 +11,7 @@ class ChatNavbar extends React.Component {
     chatroomModal: false,
     chatroomName: '',
     avatar: 'avatar.png',
-    user: this.props.user,
-    chatrooms: this.props.chatrooms
+    user: this.props.user
   }
 
   componentDidMount() {
@@ -42,7 +41,9 @@ class ChatNavbar extends React.Component {
 
   render () {
     const {chatroomModal} = this.state;
-    console.log(this.props.chatrooms)
+    const {isLoading} = this.props;
+    console.log(isLoading);
+    // console.log(this.props.chatrooms);
     return (
       <nav className="nav-bar">
         <ChatroomModal

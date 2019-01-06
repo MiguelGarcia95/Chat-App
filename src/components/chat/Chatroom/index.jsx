@@ -16,7 +16,6 @@ class Chatroom extends React.Component {
   componentDidMount() {
     this.props.getChatroom(this.props.match.params.id);
   }
-  
 
   render() {
     const {user} = this.state;

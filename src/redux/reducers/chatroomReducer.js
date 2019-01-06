@@ -4,8 +4,8 @@ const initialState = {
   currentChatroom: null,
   currentChatroomId: null,
   chatroomError: null,
-  isLoading: false,
-  chatrooms: null
+  isLoading: true,
+  chatrooms: []
 }
 
 const chatroomReducer = (state = initialState, action) => {
