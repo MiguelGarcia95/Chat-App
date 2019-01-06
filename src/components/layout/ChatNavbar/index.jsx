@@ -10,7 +10,8 @@ class ChatNavbar extends React.Component {
     chatroomModal: false,
     chatroomName: '',
     avatar: 'avatar.png',
-    user: this.props.user
+    user: this.props.user,
+    chatrooms: this.props.chatrooms
   }
 
   componentDidMount() {
@@ -29,6 +30,7 @@ class ChatNavbar extends React.Component {
 
   render () {
     const {chatroomModal} = this.state;
+    console.log(this.props.chatrooms)
     return (
       <nav className="nav-bar">
         <ChatroomModal
@@ -58,7 +60,14 @@ class ChatNavbar extends React.Component {
 
 ChatNavbar.propTypes = {
   user: PropTypes.object.isRequired,
-  createChatroom: PropTypes.func.isRequired 
+  createChatroom: PropTypes.func.isRequired,
+  chatrooms: PropTypes.array.isRequired
+}
+
+const mapStateToProps = state => {
+  return {
+    chatrooms: state.chatroom.chatrooms
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -68,4 +77,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ChatNavbar);
+export default connect(mapStateToProps, mapDispatchToProps)(ChatNavbar);

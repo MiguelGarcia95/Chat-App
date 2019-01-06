@@ -8,7 +8,6 @@ import HomePanel from '../../layout/HomePanel/';
 
 class Homeroom extends React.Component {
   state = {
-    // chatRoomID: this.props.chatRoomID
   }
 
   // Todo
@@ -34,12 +33,6 @@ Homeroom.propTypes = {
 const mapStateToProps = state => {
   return {
     user: state.auth.currentUser
-    // chatRoomID: state.chatroom.currentChatroomId
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
   }
 }
 
