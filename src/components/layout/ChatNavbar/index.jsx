@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {createChatroom, getChatrooms} from '../../../redux/actions/chatroomActions';
 import ChatroomModal from '../ChatroomModal/';
-import {BounceLoader} from 'react-spinners';
+
+import './style.css';
 
 class ChatNavbar extends React.Component {
   state = {
@@ -28,22 +29,19 @@ class ChatNavbar extends React.Component {
 
   closeModal = () => this.setState({chatroomModal: false});
 
-  loadSpinner = () => {
-    return (
-      <BounceLoader
-      sizeUnit={"px"}
-      size={80}
-      color={'#e1e1e1'}
-      loading={true}
-    />
-    )
+  displayChatrooms = chatrooms => {
+    return chatrooms.map(chatroom => {
+      return (
+        <Link to='/' key={chatroom.id}>
+          <section className="channel-icon"></section>
+        </Link>
+      )
+    })
   }
 
   render () {
     const {chatroomModal} = this.state;
-    const {isLoading} = this.props;
-    console.log(isLoading);
-    // console.log(this.props.chatrooms);
+    const {isLoading, chatrooms} = this.props;
     return (
       <nav className="nav-bar">
         <ChatroomModal
@@ -59,12 +57,7 @@ class ChatNavbar extends React.Component {
           <i className="fas fa-plus fa-2x" ></i>
         </section>
         <section className="channel-icons">
-          <section className="channel-icon active"></section>
-          <section className="channel-icon"></section>
-          <section className="channel-icon"></section>
-          <section className="channel-icon"></section>
-          <section className="channel-icon"></section>
-          <section className="channel-icon"></section>
+          {this.displayChatrooms(chatrooms)}
         </section>
       </nav>
     )
