@@ -11,7 +11,7 @@ class ChatNavbar extends React.Component {
   state = {
     chatroomModal: false,
     chatroomName: '',
-    avatar: 'avatar.png',
+    avatar: 'https://uploads.disquscdn.com/images/e3a640f5ae1bf628977c502faea357f8f91eb619e66b30d00c179401f180d39b.jpg',
     user: this.props.user
   }
 
