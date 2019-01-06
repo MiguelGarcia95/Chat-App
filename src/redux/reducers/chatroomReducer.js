@@ -13,14 +13,14 @@ const chatroomReducer = (state = initialState, action) => {
     case actionTypes.CHATROOM_CREATED:
       return {
         ...state,
-        currentChatroomId: action.payload.currentChatroomID,
+        currentChatroomID: action.payload.currentChatroomID,
         chatroomError: action.payload.chatroomError,
         redirect: action.payload.redirect
       }
     case actionTypes.CHATROOM_CREATED_ERROR:
       return {
         ...state,
-        currentChatroomId: action.payload.currentChatroomID,
+        currentChatroomID: action.payload.currentChatroomID,
         chatroomError: action.payload.chatroomError,
         redirect: action.payload.redirect
       }

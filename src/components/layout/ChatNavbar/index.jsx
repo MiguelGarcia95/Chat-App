@@ -18,7 +18,7 @@ class ChatNavbar extends React.Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.redirect) {
       this.props.chatroomRedirect();
-      setTimeout( nextProps.history.push(`/chatroom/${nextProps.currentChatroomID.id}`), 1500);
+      setTimeout( nextProps.history.push(`/chatroom/${nextProps.currentChatroomID}`), 1500);
     } 
   }
   
