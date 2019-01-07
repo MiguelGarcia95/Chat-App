@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getChatroom} from '../../../redux/actions/chatroomActions';
+import {getChatroom, redirectToHome} from '../../../redux/actions/chatroomActions';
 
 import ChatMenu from '../../layout/ChatMenu/';
 import ChatPanel from '../../layout/ChatPanel/';
@@ -15,6 +15,13 @@ class Chatroom extends React.Component {
 
   componentDidMount() {
     this.props.getChatroom(this.props.match.params.id);
+  }
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.redirect) {
+      this.props.redirectToHome();
+      setTimeout( nextProps.history.push('/'), 2500);
+    } 
   }
 
   render() {
@@ -47,7 +54,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getChatroom: (chatroomID) => dispatch(getChatroom(chatroomID))
+    getChatroom: (chatroomID) => dispatch(getChatroom(chatroomID)),
+    redirectToHome: () => dispatch(redirectToHome())
   }
 }
 
