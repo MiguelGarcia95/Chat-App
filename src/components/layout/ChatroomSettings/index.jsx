@@ -1,7 +1,14 @@
 import React from 'react';
 
 export class ChatroomSettings extends React.Component {
+  state  = {
+    // display: this.props.display,
+    // user: this.props.user,
+    // chatroom: this.props.chatroom
+  }
+
   render() {
+    const {display, user, chatroom} = this.props;
     return (
       <section>
         
@@ -10,4 +17,4 @@ export class ChatroomSettings extends React.Component {
   }
 }
 
-export default ChatroomSettings
+export default ChatroomSettings;

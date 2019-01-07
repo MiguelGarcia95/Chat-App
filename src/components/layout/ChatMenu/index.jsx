@@ -10,7 +10,8 @@ import ChatroomSettings from '../ChatroomSettings/';
 class ChatMenu extends React.Component {
   state = {
     user: this.props.user,
-    chatroom: this.props.chatroom
+    chatroom: this.props.chatroom,
+    displaySettings: false
   }
 
   render() {
@@ -18,11 +19,12 @@ class ChatMenu extends React.Component {
     // pull all channels within the chatroom, since only one will be active,
     // sort all of the channels with their approriate section and pass them thru
     const chatroomChannel = ['rpg', 'stg', 'jrpg', 'metroidvania', 'retro'];
-    const {user, chatroom} = this.state;
+    const {user, chatroom, displaySettings} = this.state;
     return (
       <section className="menu-bar chatroom-menu">
         <ChatTitle user={user} chatroom={chatroom} />
         <Userbar user={user} />
+        <ChatroomSettings display={displaySettings} user={user} chatroom={chatroom} />
         {/* Chatroom section */}
         <ChatroomSection sectionName={'Game Recommendations'} channels={chatroomChannel} />
         <ChatroomSection sectionName={'Discussion'} channels={chatroomChannel} />
