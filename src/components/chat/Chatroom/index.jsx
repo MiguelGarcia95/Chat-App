@@ -10,6 +10,7 @@ class Chatroom extends React.Component {
   state = {
     chatroomID: this.props.match.params.id,
     user: this.props.user,
+    redirect: this.props.redirect
   }
 
   componentDidMount() {
@@ -39,7 +40,8 @@ const mapStateToProps = state => {
   return {
     user: state.auth.currentUser,
     chatroom: state.chatroom.currentChatroom,
-    chatroomExists: state.chatroom.chatroomExists
+    chatroomExists: state.chatroom.chatroomExists,
+    redirect: state.chatroom.redirectToHome
   }
 }
 

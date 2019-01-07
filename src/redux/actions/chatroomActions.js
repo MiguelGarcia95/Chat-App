@@ -132,7 +132,7 @@ export const redirectToHome = () => {
     dispatch({
       type: actionTypes.REDIRECT_TO_HOME,
       payload: {
-        chatroomExists: false
+        redirectToHome: false
       }
     })
   }

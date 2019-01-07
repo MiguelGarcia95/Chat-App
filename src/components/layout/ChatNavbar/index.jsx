@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {createChatroom, getChatrooms, chatroomRedirect} from '../../../redux/actions/chatroomActions';
+import {createChatroom, getChatrooms, redirectToChat} from '../../../redux/actions/chatroomActions';
 import ChatroomModal from '../ChatroomModal/';
 
 import './style.css';
@@ -17,7 +17,7 @@ class ChatNavbar extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.redirect) {
-      this.props.chatroomRedirect();
+      this.props.redirectToChat();
       setTimeout( nextProps.history.push(`/chatroom/${nextProps.currentChatroomID}`), 1500);
     } 
   }
@@ -84,7 +84,7 @@ const mapStateToProps = state => {
   return {
     chatrooms: state.chatroom.chatrooms,
     currentChatroomID: state.chatroom.currentChatroomID,
-    redirect: state.chatroom.redirect,
+    redirect: state.chatroom.redirectToChat,
     user: state.auth.currentUser
   }
 }
@@ -93,7 +93,7 @@ const mapDispatchToProps = dispatch => {
   return {
     createChatroom: (newChatroom) => dispatch(createChatroom(newChatroom)),
     getChatrooms: () => dispatch(getChatrooms()),
-    chatroomRedirect: () => dispatch(chatroomRedirect())
+    redirectToChat: () => dispatch(redirectToChat())
   }
 }
 
