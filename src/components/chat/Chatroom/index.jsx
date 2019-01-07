@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getChatroom, redirectToHome} from '../../../redux/actions/chatroomActions';
+import {getChatroom, redirectToHome, createChatroomCategory} from '../../../redux/actions/chatroomActions';
 
 import ChatMenu from '../../layout/ChatMenu/';
 import ChatPanel from '../../layout/ChatPanel/';
 import Userbar from '../../layout/Userbar';
+import ChatTitle from '../../layout/ChatTitle/';
+import ChatroomSettings from '../../layout/ChatroomSettings/';
 
 class Chatroom extends React.Component {
   state = {
     chatroomID: this.props.match.params.id,
     user: this.props.user,
-    redirect: this.props.redirect
+    redirect: this.props.redirect,
+    displaySettings: false
   }
 
   componentDidMount() {
@@ -25,12 +28,16 @@ class Chatroom extends React.Component {
     } 
   }
 
+  toggleSettings = () => this.setState({displaySettings: !this.state.displaySettings});
+
   render() {
-    const {user} = this.state;
+    const {user, displaySettings} = this.state;
     const {chatroomExists, chatroom} = this.props;
     return !chatroomExists ? (<section>test</section>) : (
       <section id="app">
         <ChatMenu user={user} chatroom={chatroom} />
+        <ChatTitle user={user} chatroom={chatroom} toggle={this.toggleSettings} />
+        <ChatroomSettings display={displaySettings} user={user} chatroom={chatroom} toggle={this.toggleSettings} />
         <Userbar user={user} />
         <ChatPanel user={user} />
       </section>
@@ -54,7 +61,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getChatroom: (chatroomID) => dispatch(getChatroom(chatroomID)),
-    redirectToHome: () => dispatch(redirectToHome())
+    redirectToHome: () => dispatch(redirectToHome()),
+    createChatroomCategory: (category) => dispatch(createChatroomCategory(category))
   }
 }
 
