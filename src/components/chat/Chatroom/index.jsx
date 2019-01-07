@@ -8,6 +8,7 @@ import ChatPanel from '../../layout/ChatPanel/';
 import Userbar from '../../layout/Userbar';
 import ChatTitle from '../../layout/ChatTitle/';
 import ChatroomSettings from '../../layout/ChatroomSettings/';
+import CreateCategoryModal from '../../layout/CreateCategoryModal/';
 
 class Chatroom extends React.Component {
   state = {
