@@ -75,7 +75,8 @@ export const getChatroom = (chatroomID) => {
           type: actionTypes.GET_CHATROOM,
           payload: {
             currentChatroom: chatroom,
-            chatroomError: null
+            chatroomError: null,
+            redirect: false
           }
         })
       } else {
@@ -83,7 +84,8 @@ export const getChatroom = (chatroomID) => {
           type: actionTypes.GET_CHATROOM_ERROR,
           payload: {
             currentChatroom: null,
-            chatroomError: 'Chatroom does not exist'
+            chatroomError: 'Chatroom does not exist',
+            redirect: true
           }
         })
       }
@@ -92,7 +94,8 @@ export const getChatroom = (chatroomID) => {
         type: actionTypes.GET_CHATROOM_ERROR,
         payload: {
           currentChatroom: null,
-          chatroomError: err.message
+          chatroomError: err.message,
+          redirect: true
         }
       })
     })
