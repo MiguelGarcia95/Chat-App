@@ -77,7 +77,7 @@ export const getChatroom = (chatroomID) => {
             currentChatroom: chatroom,
             chatroomExists: true,
             chatroomError: null,
-            redirect: false
+            redirectToHome: false
           }
         })
       } else {
@@ -87,7 +87,7 @@ export const getChatroom = (chatroomID) => {
             currentChatroom: null,
             chatroomExists: false,
             chatroomError: 'Chatroom does not exist',
-            redirect: true
+            redirectToHome: true
           }
         })
       }
@@ -98,20 +98,9 @@ export const getChatroom = (chatroomID) => {
           currentChatroom: null,
           chatroomExists: false,
           chatroomError: err.message,
-          redirectToChat: true
+          redirectToHome: true
         }
       })
-    })
-  }
-}
-
-export const chatroomRedirect = () => {
-  return (dispatch) => {
-    dispatch({
-      type: actionTypes.CHATROOM_REDIRECT,
-      payload: {
-        redirect: false
-      }
     })
   }
 }

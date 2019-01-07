@@ -44,12 +44,17 @@ const chatroomReducer = (state = initialState, action) => {
         ...state,
         redirectToChat: action.payload.redirectToChat
       }
+    case actionTypes.REDIRECT_TO_HOME:
+      return {
+        ...state,
+        redirectToHome: action.payload.redirectToHome
+      }
     case actionTypes.GET_CHATROOM:
       return {
         ...state,
         currentChatroom: action.payload.currentChatroom,
         chatroomError: action.payload.chatroomError,
-        redirect: action.payload.redirect,
+        redirectToHome: action.payload.redirectToHome,
         chatroomExists: action.payload.chatroomExists
       }
       case actionTypes.GET_CHATROOM_ERROR:
@@ -57,8 +62,8 @@ const chatroomReducer = (state = initialState, action) => {
           ...state,
           currentChatroom: action.payload.currentChatroom,
           chatroomError: action.payload.chatroomError,
-          chatroomExists: action.payload.chatroomExists
-          // redirect: action.payload.redirect
+          chatroomExists: action.payload.chatroomExists,
+          redirectToHome: action.payload.redirectToHome
         }
     default:
       return state;
