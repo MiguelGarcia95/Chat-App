@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 const ChatTitle = (props) => {
   const {chatroom} = props;
