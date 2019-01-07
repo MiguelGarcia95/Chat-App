@@ -15,7 +15,8 @@ class Chatroom extends React.Component {
     chatroomID: this.props.match.params.id,
     user: this.props.user,
     redirect: this.props.redirect,
-    displaySettings: false
+    displaySettings: false,
+    displayCategoryModal: true
   }
 
   componentDidMount() {
@@ -32,7 +33,7 @@ class Chatroom extends React.Component {
   toggleSettings = () => this.setState({displaySettings: !this.state.displaySettings});
 
   render() {
-    const {user, displaySettings} = this.state;
+    const {user, displaySettings, displayCategoryModal} = this.state;
     const {chatroomExists, chatroom} = this.props;
     return !chatroomExists ? (<section>test</section>) : (
       <section id="app">
@@ -44,6 +45,10 @@ class Chatroom extends React.Component {
           chatroom={chatroom} 
           toggle={this.toggleSettings} 
           createChatroomCategory={this.props.createChatroomCategory}
+        />
+        <CreateCategoryModal 
+          createChatroomCategory={this.props.createChatroomCategory}
+          display={displayCategoryModal} 
         />
         <Userbar user={user} />
         <ChatPanel user={user} />
