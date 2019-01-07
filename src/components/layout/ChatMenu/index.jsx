@@ -13,7 +13,7 @@ class ChatMenu extends React.Component {
     displaySettings: true
   }
 
-  openSettings = () => this.setState({displaySettings: true});
+  toggleSettings = () => this.setState({displaySettings: !this.state.displaySettings});
   closeSettings = () => this.setState({displaySettings: false});
 
   render() {
@@ -24,7 +24,7 @@ class ChatMenu extends React.Component {
     const {user, chatroom, displaySettings} = this.state;
     return (
       <section className="menu-bar chatroom-menu">
-        <ChatTitle user={user} chatroom={chatroom} toggle={this.openSettings} />
+        <ChatTitle user={user} chatroom={chatroom} toggle={this.toggleSettings} />
         <ChatroomSettings display={displaySettings} user={user} chatroom={chatroom} toggle={this.closeSettings} />
         {/* Chatroom section */}
         <ChatroomSection sectionName={'Game Recommendations'} channels={chatroomChannel} />

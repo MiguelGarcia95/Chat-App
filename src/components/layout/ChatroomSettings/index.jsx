@@ -22,7 +22,9 @@ export class ChatroomSettings extends React.Component {
     return (
       <section className={`chatroom-settings ${classes}` }>
         <section className="options">
-          <section className="option">Leaev Server</section>
+          <section className="option"><p>Leave Server</p></section>
+          <section className="option"><p>Leave Server</p></section>
+          <section className="option" onClick={this.props.toggle}><p>Close</p></section>
         </section>
       </section>
     )
