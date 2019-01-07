@@ -8,12 +8,16 @@ export class ChatroomSettings extends React.Component {
   }
 
   isUserOpOrAdmin = (chatroom, user) => {
+    if (chatroom.chatroom.creatorId === user.uid) {
+      console.log('You are the chat creator');
+    } else {
+      console.log('You are not the chat creator');
+    }
   }
 
   render() {
     const {display, user, chatroom, toggle} = this.props;
-    console.log(user.uid);
-    console.log(chatroom.chatroom);
+    this.isUserOpOrAdmin(chatroom, user);
     return (
       <section className='chatroom-settings'>
         <section className="options">

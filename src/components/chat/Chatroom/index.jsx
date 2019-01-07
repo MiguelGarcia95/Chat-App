@@ -28,12 +28,7 @@ class Chatroom extends React.Component {
   render() {
     const {user} = this.state;
     const {chatroomExists, chatroom} = this.props;
-    const random = () => {
-      return (
-        <section></section>
-      )
-    }
-    return !chatroomExists ? random : (
+    return !chatroomExists ? (<section>test</section>) : (
       <section id="app">
         <ChatMenu user={user} chatroom={chatroom} />
         <Userbar user={user} />
