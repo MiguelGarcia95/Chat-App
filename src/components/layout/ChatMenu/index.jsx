@@ -14,6 +14,9 @@ class ChatMenu extends React.Component {
     displaySettings: false
   }
 
+  openSettings = () => this.setState({displaySettings: true});
+  closeSettings = () => this.setState({displaySettings: false});
+
   render() {
     // pull all chatroom sections,
     // pull all channels within the chatroom, since only one will be active,
@@ -22,9 +25,9 @@ class ChatMenu extends React.Component {
     const {user, chatroom, displaySettings} = this.state;
     return (
       <section className="menu-bar chatroom-menu">
-        <ChatTitle user={user} chatroom={chatroom} />
+        <ChatTitle user={user} chatroom={chatroom} toggle={this.openSettings} />
         <Userbar user={user} />
-        <ChatroomSettings display={displaySettings} user={user} chatroom={chatroom} />
+        <ChatroomSettings display={displaySettings} user={user} chatroom={chatroom} toggle={this.closeSettings} />
         {/* Chatroom section */}
         <ChatroomSection sectionName={'Game Recommendations'} channels={chatroomChannel} />
         <ChatroomSection sectionName={'Discussion'} channels={chatroomChannel} />

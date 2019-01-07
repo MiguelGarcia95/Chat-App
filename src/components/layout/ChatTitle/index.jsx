@@ -7,7 +7,9 @@ const ChatTitle = (props) => {
     <section className="chat-title">
       <section className="title-row">
         <section className="title"><p>{chatroom.chatroom.name}</p></section>
-        <section className="title-icon"><i className="fas fa-ellipsis-v"></i></section>
+        <section className="title-icon">
+          <i className="fas fa-ellipsis-v" onClick={props.toggle}></i>
+        </section>
       </section>
     </section>
   )

@@ -8,7 +8,7 @@ export class ChatroomSettings extends React.Component {
   }
 
   render() {
-    const {display, user, chatroom} = this.props;
+    const {display, user, chatroom, toggle} = this.props;
     return (
       <section>
         
