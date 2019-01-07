@@ -79,12 +79,11 @@ export const getChatroom = (chatroomID) => {
           }
         })
       } else {
-        const error = 'Chatroom does not exist';
         dispatch({
           type: actionTypes.GET_CHATROOM_ERROR,
           payload: {
             currentChatroom: null,
-            chatroomError: error
+            chatroomError: 'Chatroom does not exist'
           }
         })
       }
