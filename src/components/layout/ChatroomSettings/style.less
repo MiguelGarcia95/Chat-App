@@ -1,13 +1,15 @@
 //out: style.css, sourcemap: false, compress: true
 
 .chatroom-settings {
-  width: 100%; 
+  width: 90%; 
   margin: auto;
   margin-top: 0px;
   height: 0px;
   overflow: hidden;
   position: absolute;
   top: 50px;
+  left: 5%;
+  border-radius: 10px;
   &.opened {
     height: auto;
   }
@@ -17,6 +19,7 @@
     background-color: red;
     .option {
       height: 40px;
+      cursor: pointer;
       p {margin: 0; line-height: 40px;}
       &:hover {
         background-color: rgba(0,0,0,0.5);

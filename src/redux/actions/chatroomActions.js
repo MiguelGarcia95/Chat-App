@@ -31,9 +31,20 @@ export const createChatroom = (newChatroom) => {
   }
 }
 
+export const createChatroomCategory = (category) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    // CREATE_CHATROOM_CATEGORY
+    console.log('this is where we create a category/section')
+  }
+}
+
+// Features
+
 export const joinChatroom = (user, chatroom) => {
   //get user, and chatroom data, and get permission to join chatroom
 }
+
+// Get Chatroom actions 
 
 export const getChatrooms = () => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
