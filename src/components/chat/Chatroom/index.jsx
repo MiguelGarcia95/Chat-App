@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getChatroom} from '../../../redux/actions/chatroomActions';
 
-import ChatNavbar from '../../layout/ChatNavbar/';
 import ChatMenu from '../../layout/ChatMenu/';
 import ChatPanel from '../../layout/ChatPanel/';
 
@@ -21,7 +20,6 @@ class Chatroom extends React.Component {
     const {user} = this.state;
     return (
       <section id="app">
-        {/* <ChatNavbar user={user} /> */}
         <ChatMenu user={user} />
         <ChatPanel user={user} />
       </section>

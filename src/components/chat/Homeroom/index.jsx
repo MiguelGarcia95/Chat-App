@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import ChatNavbar from '../../layout/ChatNavbar/';
 import HomeMenu from '../../layout/HomeMenu/';
 import HomePanel from '../../layout/HomePanel/';
 
@@ -14,7 +13,6 @@ class Homeroom extends React.Component {
     const {user, history} = this.props;
     return (
       <section id="app">
-        {/* <ChatNavbar user={user} history={history} /> */}
         <HomeMenu user={user} />
         <HomePanel user={user} />
       </section>
