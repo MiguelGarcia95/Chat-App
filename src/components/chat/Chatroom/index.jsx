@@ -9,7 +9,8 @@ import ChatPanel from '../../layout/ChatPanel/';
 class Chatroom extends React.Component {
   state = {
     chatroomID: this.props.match.params.id,
-    user: this.props.user
+    user: this.props.user,
+    chatroom: this.props.chatroom
   }
 
   componentDidMount() {
@@ -33,7 +34,8 @@ Chatroom.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    user: state.auth.currentUser
+    user: state.auth.currentUser,
+    chatroom: state.chatroom.currentChatroom    
   }
 }
 

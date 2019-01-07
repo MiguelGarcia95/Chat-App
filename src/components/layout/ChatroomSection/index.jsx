@@ -21,7 +21,7 @@ class ChatroomSection extends React.Component {
   render() {
     const {isOpen, sectionName, channels} = this.state;
     const classes = isOpen ? '' : 'closed';
-    console.log(channels)
+    // console.log(channels)
     return (
       <section className='chatroom-section'>
         <section className='section-name' onClick={this.toggleSection}>
