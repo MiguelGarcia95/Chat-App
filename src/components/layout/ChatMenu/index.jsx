@@ -5,6 +5,7 @@ import './style.css';
 import Userbar from '../Userbar';
 import ChatroomSection from '../ChatroomSection/';
 import ChatTitle from '../ChatTitle/';
+import ChatroomSettings from '../ChatroomSettings/';
 
 class ChatMenu extends React.Component {
   state = {
