@@ -15,7 +15,7 @@ export const createChatroom = (newChatroom) => {
         payload: {
           currentChatroomID: docRef._key.path.segments[1],
           chatroomError: null,
-          redirect: true
+          redirectToChat: true
         }
       })
     }).catch((err) => {
@@ -24,7 +24,7 @@ export const createChatroom = (newChatroom) => {
         payload: {
           currentChatroomID: null,
           chatroomError: err.message,
-          redirect: false
+          redirectToChat: false
         }
       })
     })
@@ -98,7 +98,7 @@ export const getChatroom = (chatroomID) => {
           currentChatroom: null,
           chatroomExists: false,
           chatroomError: err.message,
-          redirect: true
+          redirectToChat: true
         }
       })
     })

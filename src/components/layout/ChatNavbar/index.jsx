@@ -28,7 +28,8 @@ class ChatNavbar extends React.Component {
   }
 
   handleChatroomSubmit = () => {
-    this.props.createChatroom(this.state); 
+    this.props.createChatroom(this.state);
+    this.closeModal();
   }
 
   handleChange = (e) => this.setState({[e.target.name]: e.target.value});
