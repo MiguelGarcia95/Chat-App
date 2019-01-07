@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './style.css';
 import Userbar from '../Userbar';
 import ChatroomSection from '../ChatroomSection/';
+import ChatTitle from '../ChatTitle/';
 
 class ChatMenu extends React.Component {
   state = {
@@ -16,9 +17,10 @@ class ChatMenu extends React.Component {
     // pull all channels within the chatroom, since only one will be active,
     // sort all of the channels with their approriate section and pass them thru
     const chatroomChannel = ['rpg', 'stg', 'jrpg', 'metroidvania', 'retro'];
-    const {user} = this.state;
+    const {user, chatroom} = this.state;
     return (
       <section className="menu-bar chatroom-menu">
+        <ChatTitle user={user} chatroom={chatroom} />
         <Userbar user={user} />
         {/* Chatroom section */}
         <ChatroomSection sectionName={'Game Recommendations'} channels={chatroomChannel} />
