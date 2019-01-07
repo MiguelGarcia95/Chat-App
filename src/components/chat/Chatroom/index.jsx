@@ -37,7 +37,13 @@ class Chatroom extends React.Component {
       <section id="app">
         <ChatMenu user={user} chatroom={chatroom} />
         <ChatTitle user={user} chatroom={chatroom} toggle={this.toggleSettings} />
-        <ChatroomSettings display={displaySettings} user={user} chatroom={chatroom} toggle={this.toggleSettings} />
+        <ChatroomSettings 
+          display={displaySettings} 
+          user={user} 
+          chatroom={chatroom} 
+          toggle={this.toggleSettings} 
+          createChatroomCategory={this.props.createChatroomCategory}
+        />
         <Userbar user={user} />
         <ChatPanel user={user} />
       </section>
