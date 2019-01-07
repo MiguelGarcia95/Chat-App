@@ -5,6 +5,7 @@ const initialState = {
   currentChatroomId: null,
   chatroomError: null,
   redirect: false,
+  chatroomExists: false,
   chatrooms: []
 }
 
@@ -46,13 +47,15 @@ const chatroomReducer = (state = initialState, action) => {
         ...state,
         currentChatroom: action.payload.currentChatroom,
         chatroomError: action.payload.chatroomError,
-        redirect: action.payload.redirect
+        redirect: action.payload.redirect,
+        chatroomExists: action.payload.chatroomExists
       }
       case actionTypes.GET_CHATROOM_ERROR:
         return {
           ...state,
           currentChatroom: action.payload.currentChatroom,
-          chatroomError: action.payload.chatroomError
+          chatroomError: action.payload.chatroomError,
+          chatroomExists: action.payload.chatroomExists
           // redirect: action.payload.redirect
         }
     default:

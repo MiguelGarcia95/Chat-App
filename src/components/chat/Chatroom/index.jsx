@@ -10,7 +10,6 @@ class Chatroom extends React.Component {
   state = {
     chatroomID: this.props.match.params.id,
     user: this.props.user,
-    chatroom: this.props.chatroom
   }
 
   componentDidMount() {
@@ -19,6 +18,10 @@ class Chatroom extends React.Component {
 
   render() {
     const {user} = this.state;
+    const {chatroomExists, chatroom} = this.props;
+    if (chatroomExists) {
+      console.log(chatroom)
+    }
     return (
       <section id="app">
         <ChatMenu user={user} />
@@ -35,7 +38,8 @@ Chatroom.propTypes = {
 const mapStateToProps = state => {
   return {
     user: state.auth.currentUser,
-    chatroom: state.chatroom.currentChatroom    
+    chatroom: state.chatroom.currentChatroom,
+    chatroomExists: state.chatroom.chatroomExists
   }
 }
 
