@@ -7,11 +7,18 @@ export class ChatroomSettings extends React.Component {
     // chatroom: this.props.chatroom
   }
 
+  isUserOpOrAdmin = (chatroom, user) => {
+  }
+
   render() {
     const {display, user, chatroom, toggle} = this.props;
+    console.log(user.uid);
+    console.log(chatroom.chatroom);
     return (
-      <section>
-        
+      <section className='chatroom-settings'>
+        <section className="options">
+          <section className="option">Leave Server</section>
+        </section>
       </section>
     )
   }
