@@ -71,26 +71,34 @@ export const getChatroom = (chatroomID) => {
     chatRef.get().then(doc => {
       if (doc.exists) {
         const chatroom = {id: doc.id, chatroom: doc.data()};
-        
+        dispatch({
+          type: actionTypes.GET_CHATROOM,
+          payload: {
+            currentChatroom: chatroom,
+            chatroomError: null
+          }
+        })
       } else {
-        console.log('nsd')
+        const error = 'Chatroom does not exist';
+        dispatch({
+          type: actionTypes.GET_CHATROOM_ERROR,
+          payload: {
+            currentChatroom: null,
+            chatroomError: error
+          }
+        })
       }
     }).catch(err => {
-      console.log('Error geting document: ', err);
+      dispatch({
+        type: actionTypes.GET_CHATROOM_ERROR,
+        payload: {
+          currentChatroom: null,
+          chatroomError: err.message
+        }
+      })
     })
   }
 }
-
-// docRef.get().then(function(doc) {
-//   if (doc.exists) {
-//       console.log("Document data:", doc.data());
-//   } else {
-//       // doc.data() will be undefined in this case
-//       console.log("No such document!");
-//   }
-// }).catch(function(error) {
-//   console.log("Error getting document:", error);
-// });
 
 export const chatroomRedirect = () => {
   return (dispatch) => {
