@@ -14,7 +14,7 @@ class Homeroom extends React.Component {
     const {user, history} = this.props;
     return (
       <section id="app">
-        <ChatNavbar user={user} history={history} />
+        {/* <ChatNavbar user={user} history={history} /> */}
         <HomeMenu user={user} />
         <HomePanel user={user} />
       </section>

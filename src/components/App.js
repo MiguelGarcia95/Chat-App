@@ -30,7 +30,7 @@ class AppWithRoutes extends Component {
 
     return isLoading ? <Spinner /> : (
       <React.Fragment>
-        {/* <Route exact path={['/', '/chatroom/:id']} component={ChatNavbar} /> */}
+        <Route exact path={['/', '/chatroom/:id']} component={ChatNavbar} />
         <Switch>
           <Route exact path='/' component={Homeroom} />
           <Route path='/chatroom/:id' component={Chatroom} />

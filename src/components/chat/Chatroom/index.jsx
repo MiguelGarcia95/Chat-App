@@ -21,7 +21,7 @@ class Chatroom extends React.Component {
     const {user} = this.state;
     return (
       <section id="app">
-        <ChatNavbar user={user} />
+        {/* <ChatNavbar user={user} /> */}
         <ChatMenu user={user} />
         <ChatPanel user={user} />
       </section>

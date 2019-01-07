@@ -84,7 +84,8 @@ const mapStateToProps = state => {
   return {
     chatrooms: state.chatroom.chatrooms,
     currentChatroomID: state.chatroom.currentChatroomID,
-    redirect: state.chatroom.redirect
+    redirect: state.chatroom.redirect,
+    user: state.auth.currentUser
   }
 }
 
