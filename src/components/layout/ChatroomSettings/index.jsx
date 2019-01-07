@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 export class ChatroomSettings extends React.Component {
   state  = {
@@ -17,11 +18,11 @@ export class ChatroomSettings extends React.Component {
 
   render() {
     const {display, user, chatroom, toggle} = this.props;
-    this.isUserOpOrAdmin(chatroom, user);
+    const classes = display ? 'opened' : '';
     return (
-      <section className='chatroom-settings'>
+      <section className={`chatroom-settings ${classes}` }>
         <section className="options">
-          <section className="option">Leave Server</section>
+          <section className="option">Leaev Server</section>
         </section>
       </section>
     )

@@ -10,7 +10,7 @@ class ChatMenu extends React.Component {
   state = {
     user: this.props.user,
     chatroom: this.props.chatroom,
-    displaySettings: false
+    displaySettings: true
   }
 
   openSettings = () => this.setState({displaySettings: true});
