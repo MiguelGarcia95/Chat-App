@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 
 import HomeMenu from '../../layout/HomeMenu/';
 import HomePanel from '../../layout/HomePanel/';
+import Userbar from '../../layout/Userbar';
+
 
 class Homeroom extends React.Component {
   // Todo
@@ -14,6 +16,7 @@ class Homeroom extends React.Component {
     return (
       <section id="app">
         <HomeMenu user={user} />
+        <Userbar user={user} />
         <HomePanel user={user} />
       </section>
     )

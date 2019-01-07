@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import {connect} from 'react-redux';
 import './style.css';
-import Userbar from '../Userbar';
 import ChatroomSection from '../ChatroomSection/';
 import ChatTitle from '../ChatTitle/';
 import ChatroomSettings from '../ChatroomSettings/';
@@ -26,7 +25,6 @@ class ChatMenu extends React.Component {
     return (
       <section className="menu-bar chatroom-menu">
         <ChatTitle user={user} chatroom={chatroom} toggle={this.openSettings} />
-        <Userbar user={user} />
         <ChatroomSettings display={displaySettings} user={user} chatroom={chatroom} toggle={this.closeSettings} />
         {/* Chatroom section */}
         <ChatroomSection sectionName={'Game Recommendations'} channels={chatroomChannel} />

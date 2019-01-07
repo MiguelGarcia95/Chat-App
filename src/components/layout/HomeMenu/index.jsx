@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-import Userbar from '../Userbar';
 
 const HomeMenu = ({user}) => {
   return (
     <section className="menu-bar">
-      <Userbar user={user} />
       <section className="top-menu">
         <section className="option first">
           <i className="fas fa-chart-line fa-2x"></i><p> Activities</p>

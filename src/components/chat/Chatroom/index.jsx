@@ -5,6 +5,7 @@ import {getChatroom, redirectToHome} from '../../../redux/actions/chatroomAction
 
 import ChatMenu from '../../layout/ChatMenu/';
 import ChatPanel from '../../layout/ChatPanel/';
+import Userbar from '../../layout/Userbar';
 
 class Chatroom extends React.Component {
   state = {
@@ -35,6 +36,7 @@ class Chatroom extends React.Component {
     return !chatroomExists ? random : (
       <section id="app">
         <ChatMenu user={user} chatroom={chatroom} />
+        <Userbar user={user} />
         <ChatPanel user={user} />
       </section>
     )
