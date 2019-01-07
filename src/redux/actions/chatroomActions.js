@@ -115,3 +115,25 @@ export const chatroomRedirect = () => {
     })
   }
 }
+
+export const redirectToChat = () => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.REDIRECT_TO_CHAT,
+      payload: {
+        redirectToChat: false
+      }
+    })
+  }
+}
+
+export const redirectToHome = () => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.REDIRECT_TO_HOME,
+      payload: {
+        chatroomExists: false
+      }
+    })
+  }
+}
