@@ -10,7 +10,7 @@ class Homeroom extends React.Component {
   // Build Chat Console, chat format
   // Create and Display Sections & Comments
   render () {
-    const {user, history} = this.props;
+    const {user} = this.props;
     return (
       <section id="app">
         <HomeMenu user={user} />

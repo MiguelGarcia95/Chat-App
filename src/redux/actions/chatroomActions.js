@@ -66,9 +66,31 @@ export const getChatrooms = () => {
 
 export const getChatroom = (chatroomID) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
-    console.log(chatroomID);
+    const firestore = getFirestore();
+    const chatRef = firestore.collection('chatrooms').doc(chatroomID);
+    chatRef.get().then(doc => {
+      if (doc.exists) {
+        const chatroom = {id: doc.id, chatroom: doc.data()};
+        
+      } else {
+        console.log('nsd')
+      }
+    }).catch(err => {
+      console.log('Error geting document: ', err);
+    })
   }
 }
+
+// docRef.get().then(function(doc) {
+//   if (doc.exists) {
+//       console.log("Document data:", doc.data());
+//   } else {
+//       // doc.data() will be undefined in this case
+//       console.log("No such document!");
+//   }
+// }).catch(function(error) {
+//   console.log("Error getting document:", error);
+// });
 
 export const chatroomRedirect = () => {
   return (dispatch) => {

@@ -9,6 +9,7 @@ class ChatMenu extends React.Component {
   state = {
     user: this.props.user
   }
+  
   render() {
     // pull all chatroom sections,
     // pull all channels within the chatroom, since only one will be active,
