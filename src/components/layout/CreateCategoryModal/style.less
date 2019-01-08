@@ -4,7 +4,7 @@
   width: 0px; height: 0px;
   background-color: rgba(0,0,0,0.8);
   z-index: 10;
-  position: fixed;
+  position: absolute;
   left: 0; top: 0;
   overflow: hidden;
   &.opened {
@@ -26,11 +26,22 @@
   }
   .modal {
     width: 350px; height: 450px;
-    background-color: red;
+    background-color: #232323;
+    color: white;
+    box-sizing: border-box;
+    padding: 10px;
+    position: absolute;
+    right: 0; left: 0;
+    top: 0; bottom: 0;
+    margin: auto;
     text-align: center;
-    h2 {}
-    input {}
-    p {}
+    h2, p, small {font-weight: 300; width: 100%;}
+    input {
+      width: 100%; padding: 5px; border: none;
+      box-sizing: border-box;
+    }
+    p {margin-top: 10px; margin-bottom: 5px; }
+    small {margin-top: 5px; margin-bottom: 10px;}
   }
 }
 
