@@ -1,1 +1,33 @@
 //out: style.css, sourcemap: false, compress: true
+
+.category-modal {
+  width: 0px; height: 0px;
+  background-color: #232323;
+  z-index: 10;
+  position: fixed;
+  left: 0; top: 0;
+  overflow: hidden;
+  &.opened {
+    width: 100vw; height: 100vh;
+    overflow: hidden;
+  }
+  .exit {
+    height: 50px; width: 50px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    border-radius: 50%;
+    &:hover {background-color: rgba(255,255,255,0.1);}
+    .fas {
+      margin-top: 9px;
+      color: white;
+      cursor: pointer;
+    }
+  }
+  .modal {
+    h2 {}
+    input {}
+    p {}
+  }
+}
+

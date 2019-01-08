@@ -15,8 +15,8 @@ class Chatroom extends React.Component {
     chatroomID: this.props.match.params.id,
     user: this.props.user,
     redirect: this.props.redirect,
-    displaySettings: false,
-    displayCategoryModal: true
+    displayChatSettings: false,
+    displayCategoryModal: false
   }
 
   componentDidMount() {
@@ -30,25 +30,27 @@ class Chatroom extends React.Component {
     } 
   }
 
-  toggleSettings = () => this.setState({displaySettings: !this.state.displaySettings});
+  toggleChatSettings = () => this.setState({displayChatSettings: !this.state.displayChatSettings});
+  toggleSettings = () => this.setState({displayCategoryModal: !this.state.displayCategoryModal});
 
   render() {
-    const {user, displaySettings, displayCategoryModal} = this.state;
+    const {user, displayChatSettings, displayCategoryModal} = this.state;
     const {chatroomExists, chatroom} = this.props;
     return !chatroomExists ? (<section>test</section>) : (
       <section id="app">
         <ChatMenu user={user} chatroom={chatroom} />
-        <ChatTitle user={user} chatroom={chatroom} toggle={this.toggleSettings} />
+        <ChatTitle user={user} chatroom={chatroom} toggle={this.toggleChatSettings} />
         <ChatroomSettings 
-          display={displaySettings} 
+          display={displayChatSettings} 
           user={user} 
           chatroom={chatroom} 
-          toggle={this.toggleSettings} 
-          createChatroomCategory={this.props.createChatroomCategory}
+          toggle={this.toggleChatSettings} 
+          toggleSettings={this.props.toggleSettings}
         />
         <CreateCategoryModal 
           createChatroomCategory={this.props.createChatroomCategory}
-          display={displayCategoryModal} 
+          display={displayCategoryModal}
+          toggle={this.toggleSettings}
         />
         <Userbar user={user} />
         <ChatPanel user={user} />

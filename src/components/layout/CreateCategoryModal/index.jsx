@@ -7,6 +7,7 @@ class CreateCategoryModal extends React.Component {
     const classes = display ? 'opened' : '';
     return (
       <section className={`category-modal ${classes}`}>
+        <section className="exit"><i className="fas fa-times fa-2x" onClick={this.props.toggle}></i></section>
         <section className="modal">
           <h2>Create a new Category</h2>
           <input type="text" placeholder='Enter Category Name' />
