@@ -17,6 +17,7 @@ class Chatroom extends React.Component {
     redirect: this.props.redirect,
     displayChatSettings: false,
     displayCategoryModal: true,
+    changeChat: false,
     categoryName: '',
     channelName: ''
   }
@@ -33,6 +34,13 @@ class Chatroom extends React.Component {
     }
     if (nextProps.newChatClicked) {
       this.props.chatClicked()
+      console.log('this should change once')
+      // this.setState({chatroomID: this.props.match.params.id})
+      this.setState({changeChat: true})
+      // this.props.getChatroom(this.props.match.params.id);
+    }
+    if(this.state.changeChat) {
+      this.setState({changeChat: false})
       this.props.getChatroom(this.props.match.params.id);
     }
   }
