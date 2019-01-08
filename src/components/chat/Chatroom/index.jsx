@@ -16,7 +16,7 @@ class Chatroom extends React.Component {
     user: this.props.user,
     redirect: this.props.redirect,
     displayChatSettings: false,
-    displayCategoryModal: false
+    displayCategoryModal: true
   }
 
   componentDidMount() {
@@ -45,11 +45,11 @@ class Chatroom extends React.Component {
           user={user} 
           chatroom={chatroom} 
           toggle={this.toggleChatSettings} 
-          toggleSettings={this.props.toggleSettings}
+          toggleSettings={this.toggleSettings}
         />
         <CreateCategoryModal 
-          createChatroomCategory={this.props.createChatroomCategory}
           display={displayCategoryModal}
+          createChatroomCategory={this.props.createChatroomCategory}
           toggle={this.toggleSettings}
         />
         <Userbar user={user} />
