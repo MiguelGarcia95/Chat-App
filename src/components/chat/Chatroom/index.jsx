@@ -26,6 +26,7 @@ class Chatroom extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
+    console.log('this ran')
     if (nextProps.redirect) {
       this.props.redirectToHome();
       setTimeout( nextProps.history.push('/'), 2500);
