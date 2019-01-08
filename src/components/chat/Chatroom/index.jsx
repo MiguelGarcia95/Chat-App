@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getChatroom, redirectToHome, createChatroomCategory} from '../../../redux/actions/chatroomActions';
+import {getChatroom, redirectToHome, createChatroomCategory, chatClicked} from '../../../redux/actions/chatroomActions';
 
 import ChatMenu from '../../layout/ChatMenu/';
 import ChatPanel from '../../layout/ChatPanel/';
@@ -30,7 +30,11 @@ class Chatroom extends React.Component {
     if (nextProps.redirect) {
       this.props.redirectToHome();
       setTimeout( nextProps.history.push('/'), 2500);
-    } 
+    }
+    if (nextProps.newChatClicked) {
+      this.props.chatClicked()
+      this.props.getChatroom(this.props.match.params.id);
+    }
   }
 
   categoryOnChange = (e) => this.setState({[e.target.name]: e.target.value});
@@ -78,7 +82,8 @@ const mapStateToProps = state => {
     user: state.auth.currentUser,
     chatroom: state.chatroom.currentChatroom,
     chatroomExists: state.chatroom.chatroomExists,
-    redirect: state.chatroom.redirectToHome
+    redirect: state.chatroom.redirectToHome,
+    newChatClicked: state.chatroom.newChatClicked
   }
 }
 
@@ -86,7 +91,8 @@ const mapDispatchToProps = dispatch => {
   return {
     getChatroom: (chatroomID) => dispatch(getChatroom(chatroomID)),
     redirectToHome: () => dispatch(redirectToHome()),
-    createChatroomCategory: (category) => dispatch(createChatroomCategory(category))
+    createChatroomCategory: (category) => dispatch(createChatroomCategory(category)),
+    chatClicked: () => dispatch(chatClicked())
   }
 }
 

@@ -7,7 +7,8 @@ const initialState = {
   redirectToHome: false,
   redirectToChat: false,
   chatroomExists: false,
-  chatrooms: []
+  chatrooms: [],
+  newChatClicked: false
 }
 
 const chatroomReducer = (state = initialState, action) => {
@@ -51,6 +52,11 @@ const chatroomReducer = (state = initialState, action) => {
       return {
         ...state,
         redirectToHome: action.payload.redirectToHome
+      }
+    case actionTypes.NEW_CHAT_CLICKED:
+      return {
+        ...state,
+        newChatClicked: !state.newChatClicked
       }
     case actionTypes.GET_CHATROOM:
       return {

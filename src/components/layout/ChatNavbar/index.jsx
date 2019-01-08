@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {createChatroom, getChatrooms, redirectToChat} from '../../../redux/actions/chatroomActions';
+import {createChatroom, getChatrooms, redirectToChat, chatClicked} from '../../../redux/actions/chatroomActions';
 import ChatroomModal from '../ChatroomModal/';
 
 import './style.css';
@@ -42,7 +42,7 @@ class ChatNavbar extends React.Component {
   displayChatrooms = chatrooms => {
     return chatrooms.map(chatroom => {
       return (
-        <Link to={`/chatroom/${chatroom.id}`} key={chatroom.id}>
+        <Link to={`/chatroom/${chatroom.id}`} key={chatroom.id} onClick={this.props.chatClicked}>
           <section className="channel-icon">
             <img src={chatroom.chatroom.avatar} alt={chatroom.chatroom.name} />
           </section>
@@ -95,7 +95,8 @@ const mapDispatchToProps = dispatch => {
   return {
     createChatroom: (newChatroom) => dispatch(createChatroom(newChatroom)),
     getChatrooms: () => dispatch(getChatrooms()),
-    redirectToChat: () => dispatch(redirectToChat())
+    redirectToChat: () => dispatch(redirectToChat()),
+    chatClicked: () => dispatch(chatClicked())
   }
 }
 

@@ -46,6 +46,14 @@ export const joinChatroom = (user, chatroom) => {
   //get user, and chatroom data, and get permission to join chatroom
 }
 
+export const chatClicked = () => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.NEW_CHAT_CLICKED
+    })
+  }
+}
+
 // Get Chatroom actions 
 
 export const getChatrooms = () => {
