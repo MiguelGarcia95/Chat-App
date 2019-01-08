@@ -16,7 +16,7 @@ class Chatroom extends React.Component {
     user: this.props.user,
     redirect: this.props.redirect,
     displayChatSettings: false,
-    displayCategoryModal: true,
+    displayCategoryModal: false,
     changeChat: false,
     categoryName: '',
     channelName: ''

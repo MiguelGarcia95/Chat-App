@@ -34,9 +34,17 @@ export const createChatroom = (newChatroom) => {
 export const createChatroomCategory = (category) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     // CREATE_CHATROOM_CATEGORY
+    //chat category will have category name, chatroom id
+    // chat channels will have channel name, description, category id, and chatroom id
     console.log(category.categoryName);
     console.log(category.channelName);
     console.log(category.chatroomID);
+  }
+}
+
+export const createCategoryChannel = (channel) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    
   }
 }
 
