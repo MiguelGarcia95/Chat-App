@@ -12,7 +12,7 @@ class CreateCategoryModal extends React.Component {
           <h2>Create a new Category</h2>
           <input type="text" placeholder='Enter Category Name' />
           <p>Enter one Category Channel</p>
-          <small>You can add more once made</small>
+          {/* <small>You can add more once made</small> */}
           <input type="text" placeholder='Enter Channel Name'/>
         </section>
       </section>
