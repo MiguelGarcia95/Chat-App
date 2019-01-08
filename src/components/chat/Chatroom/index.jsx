@@ -37,6 +37,10 @@ class Chatroom extends React.Component {
   toggleChatSettings = () => this.setState({displayChatSettings: !this.state.displayChatSettings});
   toggleSettings = () => this.setState({displayCategoryModal: !this.state.displayCategoryModal});
 
+  handleCategorySubmit = () => {
+    this.props.createChatroomCategory(this.state);
+  }
+
   render() {
     const {user, displayChatSettings, displayCategoryModal} = this.state;
     const {chatroomExists, chatroom} = this.props;
@@ -53,7 +57,7 @@ class Chatroom extends React.Component {
         />
         <CreateCategoryModal 
           display={displayCategoryModal}
-          createChatroomCategory={this.props.createChatroomCategory}
+          handleCategorySubmit={this.handleCategorySubmit}
           toggle={this.toggleSettings}
           categoryOnChange={this.categoryOnChange}
         />
