@@ -16,7 +16,9 @@ class Chatroom extends React.Component {
     user: this.props.user,
     redirect: this.props.redirect,
     displayChatSettings: false,
-    displayCategoryModal: true
+    displayCategoryModal: true,
+    categoryName: '',
+    channelName: ''
   }
 
   componentDidMount() {
@@ -29,6 +31,8 @@ class Chatroom extends React.Component {
       setTimeout( nextProps.history.push('/'), 2500);
     } 
   }
+
+  categoryOnChange = (e) => this.setState({[e.target.name]: e.target.value});
 
   toggleChatSettings = () => this.setState({displayChatSettings: !this.state.displayChatSettings});
   toggleSettings = () => this.setState({displayCategoryModal: !this.state.displayCategoryModal});
@@ -51,6 +55,7 @@ class Chatroom extends React.Component {
           display={displayCategoryModal}
           createChatroomCategory={this.props.createChatroomCategory}
           toggle={this.toggleSettings}
+          categoryOnChange={this.categoryOnChange}
         />
         <Userbar user={user} />
         <ChatPanel user={user} />

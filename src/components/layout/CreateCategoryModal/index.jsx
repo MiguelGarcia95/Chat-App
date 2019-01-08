@@ -10,10 +10,10 @@ class CreateCategoryModal extends React.Component {
         <section className="exit"><i className="fas fa-times fa-2x" onClick={this.props.toggle}></i></section>
         <section className="modal">
           <h2>Create a new Category</h2>
-          <input type="text" placeholder='Enter Category Name' />
+          <input name='categoryName' type="text" placeholder='Enter Category Name' onChange={this.props.categoryOnChange} />
           <p>Enter one Category Channel</p>
           {/* <small>You can add more once made</small> */}
-          <input type="text" placeholder='Enter Channel Name'/>
+          <input name='channelName' type="text" placeholder='Enter Channel Name' onChange={this.props.categoryOnChange} />
           <button onClick={this.props.createChatroomCategory}>Create</button>
         </section>
       </section>
