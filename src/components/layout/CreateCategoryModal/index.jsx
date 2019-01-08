@@ -14,6 +14,7 @@ class CreateCategoryModal extends React.Component {
           <p>Enter one Category Channel</p>
           {/* <small>You can add more once made</small> */}
           <input type="text" placeholder='Enter Channel Name'/>
+          <button onClick={this.props.createChatroomCategory}>Create</button>
         </section>
       </section>
     )
