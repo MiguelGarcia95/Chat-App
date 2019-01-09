@@ -8,6 +8,7 @@ const initialState = {
   redirectToHome: false,
   redirectToChat: false,
   chatroomExists: false,
+  chatroomCategories: [],
   chatrooms: [],
   newChatClicked: false
 }

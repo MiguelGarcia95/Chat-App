@@ -100,12 +100,30 @@ export const getChatroomCategories = (chatroomId) => {
           })
           category.category.channels = allChannels
         }).catch(err => {
-          
+          dispatch({
+            type: actionTypes.GET_CHATROOM_CATEGORIES_ERROR,
+            payload: {
+              chatroomError: err.message,
+              chatroomCategories: []
+            }
+          })
         })
       })
-      console.log(allCategories)
+      dispatch({
+        type: actionTypes.GET_CHATROOM_CATEGORIES,
+        payload: {
+          chatroomError: null,
+          chatroomCategories: allCategories
+        }
+      })
     }).catch(err => {
-
+      dispatch({
+        type: actionTypes.GET_CHATROOM_CATEGORIES_ERROR,
+        payload: {
+          chatroomError: err.message,
+          chatroomCategories: []
+        }
+      })
     })
   }
 }
