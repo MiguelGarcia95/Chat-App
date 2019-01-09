@@ -42,13 +42,11 @@ export const createChatroomCategory = (category) => {
     // console.log(category.channelName);
     // console.log(category.chatroomID);
 
-    const chatroom = firestore.collection('chatrooms').doc(category.chatroomID);
-
-    // firestore.add('channels', {
-    //   chatroomID: category.chatroomID,
-    //   channelName: category.channelName,
-    //   creatorId: newChatroom.user.uid 
-    // })
+    firestore.add(`chatrooms/${category.chatroomID}/categories`, {
+      chatroomID: category.chatroomID,
+      categoryName: category.categoryName
+    })
+    
   }
 }
 
