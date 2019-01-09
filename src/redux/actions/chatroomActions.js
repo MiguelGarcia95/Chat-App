@@ -87,18 +87,21 @@ export const getChatroomCategories = (chatroomId) => {
     // GET_CHATROOM_CATEGORIES
     const firestore = getFirestore();
 
-    firestore.collection(`chatrooms/${chatroomId}/categories`).get().then(data => {
-      let categories = [];
-      data.forEach(doc => {
-        categories.push({id: doc.id, category: doc.data()})
+    firestore.collection(`chatrooms/${chatroomId}/categories`).get().then(categories => {
+      let allCategories = [];
+      categories.forEach(doc => {
+        allCategories.push({id: doc.id, category: doc.categories()})
       });
-      categories.forEach(category => {
+      allCategories.forEach(category => {
         firestore.collection(`chatrooms/${chatroomId}/categories/${category.id}/channels`).get().then(channels => {
+          let allChannels = [];
           channels.forEach(channel => {
-            console.log(channel.data())
+            allChannels.push({id: channel.id, channel: channel.data()})
           })
+          category.category.channels = allChannels
         })
       })
+      console.log(allCategories)
     })
   }
 }
