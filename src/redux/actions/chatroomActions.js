@@ -3,7 +3,6 @@ import * as actionTypes from '../actions/types';
 export const createChatroom = (newChatroom) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firestore = getFirestore();
-    
     firestore.add('chatrooms', {
       avatar: newChatroom.avatar,
       name: newChatroom.chatroomName,
@@ -34,7 +33,6 @@ export const createChatroom = (newChatroom) => {
 export const createChatroomCategory = (category) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firestore = getFirestore();
-
     firestore.add(`chatrooms/${category.chatroomID}/categories`, {
       chatroomID: category.chatroomID,
       categoryName: category.categoryName
@@ -82,17 +80,15 @@ export const createCategoryChannel = (channel) => {
   }
 }
 
-// Features
+// Get categories 
 
-export const joinChatroom = (user, chatroom) => {
-  //get user, and chatroom data, and get permission to join chatroom
-}
+export const getChatroomCategories = (chatroomId) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    // GET_CHATROOM_CATEGORIES
+    const firestore = getFirestore();
 
-export const chatClicked = () => {
-  return (dispatch) => {
-    dispatch({
-      type: actionTypes.NEW_CHAT_CLICKED
-    })
+    const chatroom = firestore.collection('chatrooms').doc(chatroomId);
+    console.log(chatroom);
   }
 }
 
@@ -163,6 +159,20 @@ export const getChatroom = (chatroomID) => {
           redirectToHome: true
         }
       })
+    })
+  }
+}
+
+// Features
+
+export const joinChatroom = (user, chatroom) => {
+  //get user, and chatroom data, and get permission to join chatroom
+}
+
+export const chatClicked = () => {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.NEW_CHAT_CLICKED
     })
   }
 }

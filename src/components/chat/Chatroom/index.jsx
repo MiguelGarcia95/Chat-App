@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getChatroom, redirectToHome, createChatroomCategory, chatClicked} from '../../../redux/actions/chatroomActions';
+import {getChatroom, redirectToHome, createChatroomCategory, chatClicked, getChatroomCategories} from '../../../redux/actions/chatroomActions';
 
 import ChatMenu from '../../layout/ChatMenu/';
 import ChatPanel from '../../layout/ChatPanel/';
@@ -25,17 +25,16 @@ class Chatroom extends React.Component {
 
   componentDidMount() {
     this.props.getChatroom(this.props.match.params.id);
+    this.props.getChatroomCategories(this.props.match.params.id);
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    console.log('this ran')
     if (nextProps.redirect) {
       this.props.redirectToHome();
       setTimeout( nextProps.history.push('/'), 2500);
     }
     if (nextProps.newChatClicked) {
       this.props.chatClicked()
-      console.log('this should change once')
       this.setState({changeChat: true})
     }
     if(this.state.changeChat) {
@@ -98,10 +97,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getChatroom: (chatroomID) => dispatch(getChatroom(chatroomID)),
+    getChatroom: (chatroomId) => dispatch(getChatroom(chatroomId)),
     redirectToHome: () => dispatch(redirectToHome()),
     createChatroomCategory: (category) => dispatch(createChatroomCategory(category)),
-    chatClicked: () => dispatch(chatClicked())
+    chatClicked: () => dispatch(chatClicked()),
+    getChatroomCategories: (chatroomId) => dispatch(getChatroomCategories(chatroomId))
   }
 }
 

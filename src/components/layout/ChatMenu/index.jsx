@@ -22,11 +22,9 @@ class ChatMenu extends React.Component {
     const {user, chatroom, displaySettings} = this.state;
     return (
       <section className="menu-bar chatroom-menu">
-        {/* Chatroom section */}
         <ChatroomSection sectionName={'Game Recommendations'} channels={chatroomChannel} />
-        <ChatroomSection sectionName={'Discussion'} channels={chatroomChannel} />
-        <ChatroomSection sectionName={'Ranting'} channels={chatroomChannel} />
-        {/* Chatroom section End */}
+        {/* <ChatroomSection sectionName={'Discussion'} channels={chatroomChannel} /> */}
+        {/* <ChatroomSection sectionName={'Ranting'} channels={chatroomChannel} /> */}
       </section>
     )
   }
