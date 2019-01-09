@@ -19,7 +19,8 @@ class Chatroom extends React.Component {
     displayCategoryModal: false,
     changeChat: false,
     categoryName: '',
-    channelName: ''
+    channelName: '',
+    channelDescription: ''
   }
 
   componentDidMount() {
