@@ -51,6 +51,8 @@ class Chatroom extends React.Component {
 
   handleCategorySubmit = () => {
     this.props.createChatroomCategory(this.state);
+    this.toggleChatSettings();
+    this.toggleSettings();
   }
 
   render() {
