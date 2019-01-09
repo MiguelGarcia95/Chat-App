@@ -17,12 +17,12 @@ class ChatMenu extends React.Component {
 
   displayCategories = (categories) => {
     return categories.map((category) => {
-      console.log(category.category)
+      console.log(category)
       return (
         <ChatroomSection 
-        key={category.id} 
-        sectionName={category.category.categoryName} 
-        channels={category.category.channels} 
+          key={category.id} 
+          sectionName={category.category.categoryName} 
+          channels={category.category.channels} 
         />
       )
     })

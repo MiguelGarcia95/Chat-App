@@ -40,6 +40,7 @@ class Chatroom extends React.Component {
     if(this.state.changeChat) {
       this.setState({changeChat: false})
       this.props.getChatroom(this.props.match.params.id);
+      this.props.getChatroomCategories(this.props.match.params.id);
     }
   }
 
