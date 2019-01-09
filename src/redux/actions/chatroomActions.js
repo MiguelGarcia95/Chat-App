@@ -90,13 +90,14 @@ export const getChatroomCategories = (chatroomId) => {
     firestore.collection(`chatrooms/${chatroomId}/categories`).get().then(categories => {
       let allCategories = [];
       categories.forEach(doc => {
-        allCategories.push({id: doc.id, category: doc.categories()})
+        allCategories.push({id: doc.id, category: doc.data()})
       });
       allCategories.forEach(category => {
         firestore.collection(`chatrooms/${chatroomId}/categories/${category.id}/channels`).get().then(channels => {
           let allChannels = [];
           channels.forEach(channel => {
-            allChannels.push({id: channel.id, channel: channel.data()})
+            allChannels.push({id: channel.id, channelData: channel.data()})
+            // console.log(channel)
           })
           category.category.channels = allChannels
         })
