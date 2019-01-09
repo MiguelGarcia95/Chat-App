@@ -42,11 +42,16 @@ export const createChatroomCategory = (category) => {
     // console.log(category.channelName);
     // console.log(category.chatroomID);
 
+    // format
+    // chatrooms/chatroomID/categories/categoriesID/channels/channelID/comments/
+
     firestore.add(`chatrooms/${category.chatroomID}/categories`, {
       chatroomID: category.chatroomID,
       categoryName: category.categoryName
+    }).then(category => {
+      console.log(category._key.path.segments[1])
     })
-    
+
   }
 }
 
