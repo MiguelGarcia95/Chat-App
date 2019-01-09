@@ -59,7 +59,11 @@ export const createChatroomCategory = (category) => {
         categoryName: category.categoryName,
         categoryId: categoryID
       }).then(channel => {
+      
+      }).catch(err => {
+      
       })
+    }).catch(err => {
 
     })
 
