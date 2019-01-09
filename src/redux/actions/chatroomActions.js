@@ -87,8 +87,10 @@ export const getChatroomCategories = (chatroomId) => {
     // GET_CHATROOM_CATEGORIES
     const firestore = getFirestore();
 
-    const chatroom = firestore.collection('chatrooms').get().then(data => {
-      // console.log(data)
+    firestore.collection(`chatrooms/${chatroomId}/categories`).get().then(data => {
+      data.forEach(doc => {
+        console.log({category: doc.data()})
+      })
     })
   }
 }
@@ -126,7 +128,7 @@ export const getChatrooms = () => {
 export const getChatroom = (chatroomID) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firestore = getFirestore();
-    const chatRef = firestore.collection(`chatrooms/${chatroomID}/categories`).doc(chatroomID);
+    const chatRef = firestore.collection(`chatrooms`).doc(chatroomID);
     chatRef.get().then(doc => {
       if (doc.exists) {
         const chatroom = {id: doc.id, chatroom: doc.data()};
