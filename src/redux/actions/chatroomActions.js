@@ -34,7 +34,6 @@ export const createChatroom = (newChatroom) => {
 export const createChatroomCategory = (category) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firestore = getFirestore();
-    // CREATE_CHATROOM_CATEGORY
 
     firestore.add(`chatrooms/${category.chatroomID}/categories`, {
       chatroomID: category.chatroomID,
@@ -48,12 +47,30 @@ export const createChatroomCategory = (category) => {
         categoryName: category.categoryName,
         categoryId: categoryID
       }).then(channel => {
-      
+        dispatch({
+          type: actionTypes.CREATE_CHATROOM_CATEGORY,
+          payload: {
+            categoyId: categoryID,
+            chatroomError: null
+          }
+        })
       }).catch(err => {
-      
+        dispatch({
+          type: actionTypes.CREATE_CHATROOM_CATEGORY_ERROR,
+          payload: {
+            categoyId: null,
+            chatroomError: err.message
+          }
+        })
       })
     }).catch(err => {
-
+      dispatch({
+        type: actionTypes.CREATE_CHATROOM_CATEGORY_ERROR,
+        payload: {
+          categoyId: null,
+          chatroomError: err.message
+        }
+      })
     })
 
   }

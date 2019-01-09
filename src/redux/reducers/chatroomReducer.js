@@ -4,6 +4,7 @@ const initialState = {
   currentChatroom: null,
   currentChatroomId: null,
   chatroomError: null,
+  categoryId: null,
   redirectToHome: false,
   redirectToChat: false,
   chatroomExists: false,
