@@ -88,9 +88,11 @@ export const getChatroomCategories = (chatroomId) => {
     const firestore = getFirestore();
 
     firestore.collection(`chatrooms/${chatroomId}/categories`).get().then(data => {
+      let categories = [];
       data.forEach(doc => {
-        console.log({category: doc.data()})
-      })
+        categories.push({category: doc.data()})
+      });
+      console.log(categories)
     })
   }
 }
