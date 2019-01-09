@@ -35,17 +35,6 @@ export const createChatroomCategory = (category) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firestore = getFirestore();
     // CREATE_CHATROOM_CATEGORY
-    //chat category will have category name, chatroom id
-    // chat channels will have channel name, description, category id, and chatroom id
-
-    // console.log(category.categoryName);
-    // console.log(category.channelName);
-    // console.log(category.chatroomID);
-
-    // format
-    // chatrooms/chatroomID/categories/categoriesID/channels/channelID/comments/
-    // chatrooms/chatroomID/categories/categoriesID/channels/channelID/comments/
-    // 0/1/2/3/4/5/6
 
     firestore.add(`chatrooms/${category.chatroomID}/categories`, {
       chatroomID: category.chatroomID,
