@@ -33,18 +33,28 @@ export const createChatroom = (newChatroom) => {
 
 export const createChatroomCategory = (category) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
+    const firestore = getFirestore();
     // CREATE_CHATROOM_CATEGORY
     //chat category will have category name, chatroom id
     // chat channels will have channel name, description, category id, and chatroom id
-    console.log(category.categoryName);
-    console.log(category.channelName);
-    console.log(category.chatroomID);
+
+    // console.log(category.categoryName);
+    // console.log(category.channelName);
+    // console.log(category.chatroomID);
+
+    const chatroom = firestore.collection('chatrooms').doc(category.chatroomID);
+
+    // firestore.add('channels', {
+    //   chatroomID: category.chatroomID,
+    //   channelName: category.channelName,
+    //   creatorId: newChatroom.user.uid 
+    // })
   }
 }
 
 export const createCategoryChannel = (channel) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
-    
+    // CREATE_CATEGORY_CHANNEL
   }
 }
 
