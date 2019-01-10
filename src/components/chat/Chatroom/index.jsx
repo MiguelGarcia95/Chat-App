@@ -62,10 +62,16 @@ class Chatroom extends React.Component {
     })
   }
 
-  handleCategorySubmit = () => {
+  categorySubmit = () => {
     this.props.createChatroomCategory(this.state);
     this.toggleChatSettings();
     this.toggleSettings();
+  }
+  
+  channelSubmit = () => {
+    // this.props.createChatroomCategory(this.state);
+    // this.toggleChatSettings();
+    // this.toggleSettings();
   }
 
   isUserOpOrAdmin = () => {
@@ -98,7 +104,7 @@ class Chatroom extends React.Component {
         />
         <CreateCategoryModal 
           display={displayCategoryModal}
-          handleCategorySubmit={this.handleCategorySubmit}
+          handleCategorySubmit={this.categorySubmit}
           toggle={this.toggleSettings}
           categoryOnChange={this.modalOnChange}
         />
@@ -107,6 +113,7 @@ class Chatroom extends React.Component {
           toggle={this.displayChannelModal}
           onChange={this.modalOnChange}
           categoryId={categoryId}
+          handleSubmit={this.channelSubmit}
         />
 
         <Userbar user={user} />
