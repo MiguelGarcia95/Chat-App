@@ -20,24 +20,29 @@ class ChatroomSection extends React.Component {
 
   displayChannels = (channels) => {
     if (channels.length > 0) {
-      console.log(channels)
       return channels.map((channel) => {
         return (
           <section className="channel" key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
         )
       })
     }
-  } 
+  }
+
+  displayChannelPanel = () => {
+    console.log('test')
+  }
 
   render() {
     const {isOpen, sectionName} = this.state;
-    const {channels} = this.props;
+    const {channels, isUserAdmin} = this.props;
     const classes = isOpen ? '' : 'closed';
     const iconClass = isOpen ? 'fa-chevron-up' : 'fa-chevron-down';
     return (
       <section className='chatroom-section'>
-        <section className='section-name' onClick={this.toggleSection}>
-          <i className={`fas ${iconClass}`}></i> <p>{sectionName}</p>
+        <section className='section-name'>
+          <i onClick={this.toggleSection} className={`fas ${iconClass}`}></i> 
+          {isUserAdmin && <i onClick={this.displayChannelPanel} className="fas fa-plus fas2"></i> }
+          <p>{sectionName}</p>
         </section>
         <section className={`channels ${classes}`}>
           {this.displayChannels(channels)}

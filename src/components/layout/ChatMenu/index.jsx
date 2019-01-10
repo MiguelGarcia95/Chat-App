@@ -23,15 +23,14 @@ class ChatMenu extends React.Component {
           key={category.id} 
           sectionName={category.category.categoryName}
           category={category}
-          // categoryId={category.id}
-          // chatroomId={category.category.chatroomID}
+          isUserAdmin={this.props.isUserAdmin}
         />
       )
     })
   }
 
   render() {
-    const {user, chatroom, displaySettings} = this.state;
+    // const {user, chatroom, displaySettings} = this.state;
     const {categories} = this.props;
     return (
       <section className="menu-bar chatroom-menu">
