@@ -10,6 +10,7 @@ const initialState = {
   chatroomExists: false,
   chatroomCategories: [],
   chatrooms: [],
+  chatroomChannels: [],
   newChatClicked: false
 }
 

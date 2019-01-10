@@ -89,6 +89,7 @@ export const getChatroomCategories = (chatroomId) => {
 
     firestore.collection(`chatrooms/${chatroomId}/categories`).get().then(categories => {
       let allCategories = [];
+      let allChannels = [];
       categories.forEach(doc => {
         allCategories.push({id: doc.id, category: doc.data()})
       });
@@ -96,14 +97,15 @@ export const getChatroomCategories = (chatroomId) => {
         firestore.collection(`chatrooms/${chatroomId}/categories/${category.id}/channels`).get().then(channels => {
           category.category.channels = [];
           channels.forEach(channel => {
-            category.category.channels.push({id: channel.id, channelData: channel.data()})
+            allChannels.push({id: channel.id, channelData: channel.data()})
           })
         }).catch(err => {
           dispatch({
             type: actionTypes.GET_CHATROOM_CATEGORIES_ERROR,
             payload: {
               chatroomError: err.message,
-              chatroomCategories: []
+              chatroomCategories: [],
+              chatroomChannels: []
             }
           })
         })
@@ -112,7 +114,8 @@ export const getChatroomCategories = (chatroomId) => {
         type: actionTypes.GET_CHATROOM_CATEGORIES,
         payload: {
           chatroomError: null,
-          chatroomCategories: allCategories
+          chatroomCategories: allCategories,
+          chatroomChannels: allChannels
         }
       })
     }).catch(err => {
@@ -120,7 +123,8 @@ export const getChatroomCategories = (chatroomId) => {
         type: actionTypes.GET_CHATROOM_CATEGORIES_ERROR,
         payload: {
           chatroomError: err.message,
-          chatroomCategories: []
+          chatroomCategories: [],
+          chatroomChannels: []
         }
       })
     })
