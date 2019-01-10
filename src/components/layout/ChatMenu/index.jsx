@@ -17,7 +17,6 @@ class ChatMenu extends React.Component {
   closeSettings = () => this.setState({displaySettings: false});
 
   displayCategories = (categories) => {
-    console.log(categories)
     return categories.map((category) => {
       return (
         <ChatroomSection 
