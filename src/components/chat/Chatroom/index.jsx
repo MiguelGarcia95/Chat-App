@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {
-  getChatroom, redirectToHome, createChatroomCategory, chatClicked, getChatroomCategories
+  getChatroom, redirectToHome, createChatroomCategory, chatClicked, getChatroomCategories, createCategoryChannel
 } from '../../../redux/actions/chatroomActions';
 
 import ChatMenu from '../../layout/ChatMenu/';
@@ -69,9 +69,8 @@ class Chatroom extends React.Component {
   }
   
   channelSubmit = () => {
-    // this.props.createChatroomCategory(this.state);
-    // this.toggleChatSettings();
-    // this.toggleSettings();
+    this.props.createCategoryChannel(this.state);
+    this.setState({displayChannelModal: !this.state.displayChannelModal});
   }
 
   isUserOpOrAdmin = () => {
@@ -144,7 +143,8 @@ const mapDispatchToProps = dispatch => {
     redirectToHome: () => dispatch(redirectToHome()),
     createChatroomCategory: (category) => dispatch(createChatroomCategory(category)),
     chatClicked: () => dispatch(chatClicked()),
-    getChatroomCategories: (chatroomId) => dispatch(getChatroomCategories(chatroomId))
+    getChatroomCategories: (chatroomId) => dispatch(getChatroomCategories(chatroomId)),
+    createCategoryChannel: (channel) => dispatch(createCategoryChannel(channel))
   }
 }
 

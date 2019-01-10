@@ -77,6 +77,7 @@ export const createChatroomCategory = (category) => {
 export const createCategoryChannel = (channel) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     // CREATE_CATEGORY_CHANNEL
+    console.log(channel)
   }
 }
 

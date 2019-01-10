@@ -19,7 +19,7 @@ const ChannelModal = (props) => {
           <label htmlFor="chatroomName">Channel Description</label>
           <input type="text" name='channelDescription' placeholder='Channel Name' onChange={props.handleChange}/>
         </section>
-        <button className="modal-submit" onClick={props.handleChannelSubmit}>Create</button>
+        <button className="modal-submit" onClick={props.handleSubmit}>Create</button>
       </section>
     </section>
   )
