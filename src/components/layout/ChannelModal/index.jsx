@@ -12,14 +12,12 @@ const ChannelModal = (props) => {
           <i className="fas fa-times fa-2x" onClick={props.toggle}></i>
         </section>
         <section className="input-group">
-          <label htmlFor="chatroomName">Chatroom Name</label>
-          <input type="text" name='chatroomName' placeholder='Chatroom Name' onChange={props.handleChange}/>
+          <label htmlFor="chatroomName">Channel Name</label>
+          <input type="text" name='channelName' placeholder='Channel Name' onChange={props.handleChange}/>
         </section>
         <section className="input-group">
-          {/* <input type='file' name='chatroom-avatar' className='custom-file-upload' /> */}
-            <label className="custom-file-upload">
-              <input type="file"/> Upload Avatar
-            </label>
+          <label htmlFor="chatroomName">Channel Description</label>
+          <input type="text" name='channelDescription' placeholder='Channel Name' onChange={props.handleChange}/>
         </section>
         <button className="modal-submit" onClick={props.handleChannelSubmit}>Create</button>
       </section>
