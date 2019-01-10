@@ -9,7 +9,7 @@ class ChatroomSection extends React.Component {
     isOpen: true,
     sectionName: this.props.sectionName,
     channels: [],
-    state: this.props.category.id
+    categoryId: this.props.category.id
   }
 
   componentDidMount() {
@@ -32,7 +32,7 @@ class ChatroomSection extends React.Component {
     if (channels.length > 0) {
       return channels.map((channel) => {
         return (
-          <ChatroomChannel channel={channel} categoryId={channel.channelData.categoryId}  />
+          <ChatroomChannel channel={channel} categoryId={this.state.categoryId}  />
         )
       })
     }
