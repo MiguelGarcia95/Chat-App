@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 import './style.css';
 import ChatroomSection from '../ChatroomSection/';
-import { getCategoryChannels } from '../../../redux/actions/chatroomActions';
+// import { getCategoryChannels } from '../../../redux/actions/chatroomActions';
 
 class ChatMenu extends React.Component {
   state = {
@@ -24,6 +24,7 @@ class ChatMenu extends React.Component {
           sectionName={category.category.categoryName}
           category={category}
           isUserAdmin={this.props.isUserAdmin}
+          toggleChannelModal={this.props.toggelChannel}
         />
       )
     })

@@ -23,7 +23,8 @@ class Chatroom extends React.Component {
     channelName: '',
     channelDescription: '',
     isUserCreator: false,
-    ranIsUcerCreator: false
+    ranIsUcerCreator: false,
+    displayChannelModal: false
   }
 
   componentDidMount() {
@@ -52,6 +53,11 @@ class Chatroom extends React.Component {
   toggleChatSettings = () => this.setState({displayChatSettings: !this.state.displayChatSettings});
   toggleSettings = () => this.setState({displayCategoryModal: !this.state.displayCategoryModal});
 
+  displayChannelModal = (category) => {
+    this.setState({displayChannelModal: !this.state.displayChannelModal})
+    console.log(category)
+  }
+
   handleCategorySubmit = () => {
     this.props.createChatroomCategory(this.state);
     this.toggleChatSettings();
@@ -77,7 +83,7 @@ class Chatroom extends React.Component {
     const {chatroomExists, chatroom, chatroomCategories, user} = this.props;
     return !chatroomExists ? (<section>Loading ...</section>) : (
       <section id="app">
-        <ChatMenu user={user} chatroom={chatroom} categories={chatroomCategories} isUserAdmin={this.isUserOpOrAdmin} />
+        <ChatMenu user={user} chatroom={chatroom} categories={chatroomCategories} isUserAdmin={this.isUserOpOrAdmin} toggelChannel={this.displayChannelModal} />
         <ChatTitle user={user} chatroom={chatroom} toggle={this.toggleChatSettings} />
         <ChatroomSettings 
           display={displayChatSettings} 
@@ -92,6 +98,7 @@ class Chatroom extends React.Component {
           toggle={this.toggleSettings}
           categoryOnChange={this.categoryOnChange}
         />
+
         <Userbar user={user} />
         <ChatPanel user={user} />
       </section>

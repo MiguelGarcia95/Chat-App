@@ -28,20 +28,20 @@ class ChatroomSection extends React.Component {
     }
   }
 
-  displayChannelPanel = () => {
+  displayChannelModal = () => {
     console.log('test')
   }
 
   render() {
     const {isOpen, sectionName} = this.state;
-    const {channels, isUserAdmin} = this.props;
+    const {channels, isUserAdmin, category} = this.props;
     const classes = isOpen ? '' : 'closed';
     const iconClass = isOpen ? 'fa-chevron-up' : 'fa-chevron-down';
     return (
       <section className='chatroom-section'>
         <section className='section-name'>
           <i onClick={this.toggleSection} className={`fas ${iconClass}`}></i> 
-          {isUserAdmin && <i onClick={this.displayChannelPanel} className="fas fa-plus fas2"></i> }
+          {isUserAdmin && <i onClick={this.props.toggleChannelModal.bind(null, category)} className="fas fa-plus fas2"></i> }
           <p>{sectionName}</p>
         </section>
         <section className={`channels ${classes}`}>
