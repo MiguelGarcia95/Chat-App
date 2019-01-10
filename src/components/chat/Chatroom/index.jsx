@@ -11,6 +11,7 @@ import Userbar from '../../layout/Userbar';
 import ChatTitle from '../../layout/ChatTitle/';
 import ChatroomSettings from '../../layout/ChatroomSettings/';
 import CreateCategoryModal from '../../layout/CreateCategoryModal/';
+import ChannelModal from '../../layout/ChannelModal/';
 
 class Chatroom extends React.Component {
   state = {
@@ -97,6 +98,9 @@ class Chatroom extends React.Component {
           handleCategorySubmit={this.handleCategorySubmit}
           toggle={this.toggleSettings}
           categoryOnChange={this.categoryOnChange}
+        />
+        <ChannelModal 
+          
         />
 
         <Userbar user={user} />
