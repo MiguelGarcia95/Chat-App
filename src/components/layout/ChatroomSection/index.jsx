@@ -8,7 +8,8 @@ class ChatroomSection extends React.Component {
   state = {
     isOpen: true,
     sectionName: this.props.sectionName,
-    channels: []
+    channels: [],
+    state: this.props.category.id
   }
 
   componentDidMount() {
@@ -31,8 +32,7 @@ class ChatroomSection extends React.Component {
     if (channels.length > 0) {
       return channels.map((channel) => {
         return (
-          <ChatroomChannel channel={channel} />
-          // <section className="channel" key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
+          <ChatroomChannel channel={channel} categoryId={channel.channelData.categoryId}  />
         )
       })
     }

@@ -2,11 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-const ChatroomChannel = (props) => {
-  const {channel} = props;
-  return (
-    <section className="channel" key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
-  )
+class ChatroomChannel extends React.Component {
+  state = {
+    channel: this.props.channel,
+    categoryId: this.props.categoryId
+  }
+  doesItbelongHere = (channel) => {
+    if (channel.channelData.categoryId === this.state.categoryId) {
+      console.log('belongs')
+    }
+  }
+
+  render() {
+    const {channel, categoryId} = this.state;
+    this.doesItbelongHere(channel)
+    console.log(channel)
+    return (
+      <section className={`channel ${categoryId}`} key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
+    )
+  }
 }
 
 // ChatroomChannel.propTypes = {
