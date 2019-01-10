@@ -133,6 +133,34 @@ export const getChatroomCategories = (chatroomId) => {
   }
 }
 
+export const getCategoryChannels = (chatroomId, categoryId) => {
+  return(dispatch, getState, {getFirebase, getFirestore}) => {
+    const firestore = getFirestore();
+    firestore.collection(`chatrooms/${chatroomId}/categories/${categoryId}/channels`).get().then(channels => {
+      let allChannels = [];
+      channels.forEach(channel => {
+          allChannels.push({id: channel.id, channelData: channel.data()})
+      })
+      dispatch({
+        type: actionTypes.GET_CATEGORY_CHANNELS,
+        payload: {
+          chatroomError: null,
+          chatroomChannels: allChannels
+        }
+      })
+    }).catch(err => {
+      dispatch({
+        type: actionTypes.GET_CATEGORY_CHANNELS_ERROR,
+        payload: {
+          chatroomError: err.message,
+          chatroomChannels: []
+        }
+      })
+    })
+  }
+}
+
+
 // Get Chatroom actions 
 
 export const getChatrooms = () => {

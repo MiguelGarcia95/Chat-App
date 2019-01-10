@@ -33,10 +33,10 @@ class ChatMenu extends React.Component {
     // sort all of the channels with their approriate section and pass them thru
     const chatroomChannel = ['rpg', 'stg', 'jrpg', 'metroidvania', 'retro'];
     const {user, chatroom, displaySettings} = this.state;
-    const {categories, channels} = this.props;
+    // const {categories, channels} = this.props;
     return (
       <section className="menu-bar chatroom-menu">
-        {this.displayCategories(categories, channels)}
+        {/* {this.displayCategories(categories, channels)} */}
       </section>
     )
   }
