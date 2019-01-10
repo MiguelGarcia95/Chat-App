@@ -28,7 +28,6 @@ class Chatroom extends React.Component {
   componentDidMount() {
     this.props.getChatroom(this.props.match.params.id);
     this.props.getChatroomCategories(this.props.match.params.id);
-    // this.props.getCategoryChannels('WuoVYqsHqxol7OQB4rhb', 'fXJlndWUo0H7rlyD9pBS')
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {

@@ -33,10 +33,11 @@ class ChatroomSection extends React.Component {
     const {isOpen, sectionName} = this.state;
     const {channels} = this.props;
     const classes = isOpen ? '' : 'closed';
+    const iconClass = isOpen ? 'fa-chevron-up' : 'fa-chevron-down';
     return (
       <section className='chatroom-section'>
         <section className='section-name' onClick={this.toggleSection}>
-          <i className="fas fa-chevron-down"></i> <p>{sectionName}</p>
+          <i className={`fas ${iconClass}`}></i> <p>{sectionName}</p>
         </section>
         <section className={`channels ${classes}`}>
           {this.displayChannels(channels)}
