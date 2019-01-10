@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getChatroom, redirectToHome, createChatroomCategory, chatClicked, getChatroomCategories,getCategoryChannels} from '../../../redux/actions/chatroomActions';
+import {getChatroom, redirectToHome, createChatroomCategory, chatClicked, getChatroomCategories} from '../../../redux/actions/chatroomActions';
 
 import ChatMenu from '../../layout/ChatMenu/';
 import ChatPanel from '../../layout/ChatPanel/';
@@ -25,8 +25,8 @@ class Chatroom extends React.Component {
 
   componentDidMount() {
     this.props.getChatroom(this.props.match.params.id);
-    // this.props.getChatroomCategories(this.props.match.params.id);
-    this.props.getCategoryChannels('WuoVYqsHqxol7OQB4rhb', 'fXJlndWUo0H7rlyD9pBS')
+    this.props.getChatroomCategories(this.props.match.params.id);
+    // this.props.getCategoryChannels('WuoVYqsHqxol7OQB4rhb', 'fXJlndWUo0H7rlyD9pBS')
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -41,8 +41,8 @@ class Chatroom extends React.Component {
     if(this.state.changeChat) {
       this.setState({changeChat: false})
       this.props.getChatroom(this.props.match.params.id);
-      // this.props.getChatroomCategories(this.props.match.params.id);
-    this.props.getCategoryChannels('WuoVYqsHqxol7OQB4rhb', 'fXJlndWUo0H7rlyD9pBS')
+      this.props.getChatroomCategories(this.props.match.params.id);
+    // this.props.getCategoryChannels('WuoVYqsHqxol7OQB4rhb', 'fXJlndWUo0H7rlyD9pBS')
 
     }
   }
@@ -63,7 +63,7 @@ class Chatroom extends React.Component {
     const {chatroomExists, chatroom, chatroomCategories, chatroomChannels} = this.props;
     return !chatroomExists ? (<section>test</section>) : (
       <section id="app">
-        <ChatMenu user={user} chatroom={chatroom} categories={chatroomCategories} channels={chatroomChannels} />
+        <ChatMenu user={user} chatroom={chatroom} categories={chatroomCategories} />
         <ChatTitle user={user} chatroom={chatroom} toggle={this.toggleChatSettings} />
         <ChatroomSettings 
           display={displayChatSettings} 
@@ -96,8 +96,7 @@ const mapStateToProps = state => {
     chatroomExists: state.chatroom.chatroomExists,
     redirect: state.chatroom.redirectToHome,
     newChatClicked: state.chatroom.newChatClicked,
-    chatroomCategories: state.chatroom.chatroomCategories,
-    chatroomChannels: state.chatroom.chatroomChannels
+    chatroomCategories: state.chatroom.chatroomCategories
   }
 }
 
@@ -107,8 +106,7 @@ const mapDispatchToProps = dispatch => {
     redirectToHome: () => dispatch(redirectToHome()),
     createChatroomCategory: (category) => dispatch(createChatroomCategory(category)),
     chatClicked: () => dispatch(chatClicked()),
-    getChatroomCategories: (chatroomId) => dispatch(getChatroomCategories(chatroomId)),
-    getCategoryChannels: (chatroomId, categoryId) => dispatch(getCategoryChannels(chatroomId, categoryId))
+    getChatroomCategories: (chatroomId) => dispatch(getChatroomCategories(chatroomId))
   }
 }
 

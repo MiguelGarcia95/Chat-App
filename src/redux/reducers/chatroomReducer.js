@@ -51,14 +51,12 @@ const chatroomReducer = (state = initialState, action) => {
         ...state,
         chatroomError: action.payload.chatroomError,
         chatroomCategories: action.payload.chatroomCategories
-        // chatroomChannels: action.payload.chatroomChannels
       }
     case actionTypes.GET_CHATROOM_CATEGORIES_ERROR:
       return {
         ...state,
         chatroomError: action.payload.chatroomError,
         chatroomCategories: action.payload.chatroomCategories
-        // chatroomChannels: action.payload.chatroomChannels
       }
     case actionTypes.GET_CATEGORY_CHANNELS:
       return {

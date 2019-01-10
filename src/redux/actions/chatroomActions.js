@@ -84,7 +84,6 @@ export const createCategoryChannel = (channel) => {
 
 export const getChatroomCategories = (chatroomId) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
-    // GET_CHATROOM_CATEGORIES
     const firestore = getFirestore();
 
     firestore.collection(`chatrooms/${chatroomId}/categories`).get().then(categories => {
@@ -93,25 +92,25 @@ export const getChatroomCategories = (chatroomId) => {
       categories.forEach(doc => {
         allCategories.push({id: doc.id, category: doc.data()})
       });
-      allCategories.forEach(category => {
-        firestore.collection(`chatrooms/${chatroomId}/categories/${category.id}/channels`).get().then(channels => {
-          category.category.channels = [];
-          channels.forEach(channel => {
-            allChannels.push({id: channel.id, channelData: channel.data()})
-            category.category.channels[channel.id] = channel.data();
-            // category.category.channels.push({id: channel.id, channelData: channel.data()})
-          })
-        }).catch(err => {
-          dispatch({
-            type: actionTypes.GET_CHATROOM_CATEGORIES_ERROR,
-            payload: {
-              chatroomError: err.message,
-              chatroomCategories: [],
-              chatroomChannels: []
-            }
-          })
-        })
-      })
+      // allCategories.forEach(category => {
+      //   firestore.collection(`chatrooms/${chatroomId}/categories/${category.id}/channels`).get().then(channels => {
+      //     category.category.channels = [];
+      //     channels.forEach(channel => {
+      //       allChannels.push({id: channel.id, channelData: channel.data()})
+      //       category.category.channels[channel.id] = channel.data();
+      //       // category.category.channels.push({id: channel.id, channelData: channel.data()})
+      //     })
+      //   }).catch(err => {
+      //     dispatch({
+      //       type: actionTypes.GET_CHATROOM_CATEGORIES_ERROR,
+      //       payload: {
+      //         chatroomError: err.message,
+      //         chatroomCategories: [],
+      //         chatroomChannels: []
+      //       }
+      //     })
+      //   })
+      // })
       dispatch({
         type: actionTypes.GET_CHATROOM_CATEGORIES,
         payload: {
