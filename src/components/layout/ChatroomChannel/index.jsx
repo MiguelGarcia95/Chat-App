@@ -9,17 +9,24 @@ class ChatroomChannel extends React.Component {
   }
   doesItbelongHere = (channel) => {
     if (channel.channelData.categoryId === this.state.categoryId) {
-      console.log('belongs')
+      return true;
+    } else {
+      return false;
     }
   }
 
   render() {
     const {channel, categoryId} = this.state;
-    this.doesItbelongHere(channel)
-    console.log(channel)
-    return (
-      <section className={`channel ${categoryId}`} key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
-    )
+    
+    if (this.doesItbelongHere(channel)) {
+      return (
+        <section className={`channel ${categoryId}`} key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
+      )
+    } else {
+      return (
+        <p>Loading</p>
+      )
+    }
   }
 }
 
