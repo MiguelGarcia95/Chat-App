@@ -57,10 +57,10 @@ class Chatroom extends React.Component {
 
   render() {
     const {user, displayChatSettings, displayCategoryModal} = this.state;
-    const {chatroomExists, chatroom, chatroomCategories} = this.props;
+    const {chatroomExists, chatroom, chatroomCategories, chatroomChannels} = this.props;
     return !chatroomExists ? (<section>test</section>) : (
       <section id="app">
-        <ChatMenu user={user} chatroom={chatroom} categories={chatroomCategories} />
+        <ChatMenu user={user} chatroom={chatroom} categories={chatroomCategories} channels={chatroomChannels} />
         <ChatTitle user={user} chatroom={chatroom} toggle={this.toggleChatSettings} />
         <ChatroomSettings 
           display={displayChatSettings} 
@@ -93,7 +93,8 @@ const mapStateToProps = state => {
     chatroomExists: state.chatroom.chatroomExists,
     redirect: state.chatroom.redirectToHome,
     newChatClicked: state.chatroom.newChatClicked,
-    chatroomCategories: state.chatroom.chatroomCategories
+    chatroomCategories: state.chatroom.chatroomCategories,
+    chatroomChannels: state.chatroom.chatroomChannels
   }
 }
 

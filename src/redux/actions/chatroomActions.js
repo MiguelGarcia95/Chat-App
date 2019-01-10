@@ -98,6 +98,8 @@ export const getChatroomCategories = (chatroomId) => {
           category.category.channels = [];
           channels.forEach(channel => {
             allChannels.push({id: channel.id, channelData: channel.data()})
+            category.category.channels[channel.id] = channel.data();
+            // category.category.channels.push({id: channel.id, channelData: channel.data()})
           })
         }).catch(err => {
           dispatch({
