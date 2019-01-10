@@ -2,18 +2,23 @@ import React from 'react';
 import './style.css';
 import {connect} from 'react-redux';
 import { getCategoryChannels } from '../../../redux/actions/chatroomActions';
+import ChatroomChannel from '../ChatroomChannel/';
 
 class ChatroomSection extends React.Component {
   state = {
     isOpen: true,
-    sectionName: this.props.sectionName
+    sectionName: this.props.sectionName,
+    channels: []
   }
 
   componentDidMount() {
     this.props.getCategoryChannels(this.props.category.category.chatroomID, this.props.category.id);
+    // this.setState({channels: this.props.channels})
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
+    this.setState({channels: this.props.channels})
+
     if(this.props.newChannelMade) {
       this.props.toggleChannelState();
       this.props.getCategoryChannels(this.props.category.category.chatroomID, this.props.category.id);
@@ -26,7 +31,8 @@ class ChatroomSection extends React.Component {
     if (channels.length > 0) {
       return channels.map((channel) => {
         return (
-          <section className="channel" key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
+          <ChatroomChannel channel={channel} />
+          // <section className="channel" key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
         )
       })
     }
@@ -34,7 +40,7 @@ class ChatroomSection extends React.Component {
 
   render() {
     const {isOpen, sectionName} = this.state;
-    const {channels, isUserAdmin, category} = this.props;
+    const {isUserAdmin, category, channels} = this.props;
     const classes = isOpen ? '' : 'closed';
     const iconClass = isOpen ? 'fa-chevron-up' : 'fa-chevron-down';
     return (
