@@ -94,11 +94,10 @@ export const getChatroomCategories = (chatroomId) => {
       });
       allCategories.forEach(category => {
         firestore.collection(`chatrooms/${chatroomId}/categories/${category.id}/channels`).get().then(channels => {
-          let allChannels = [];
+          category.category.channels = [];
           channels.forEach(channel => {
-            allChannels.push({id: channel.id, channelData: channel.data()})
+            category.category.channels.push({id: channel.id, channelData: channel.data()})
           })
-          category.category.channels = allChannels
         }).catch(err => {
           dispatch({
             type: actionTypes.GET_CHATROOM_CATEGORIES_ERROR,

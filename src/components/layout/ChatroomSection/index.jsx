@@ -10,8 +10,8 @@ class ChatroomSection extends React.Component {
   toggleSection = () => this.setState({isOpen: !this.state.isOpen});
 
   displayChannels = (channels) => {
+    console.log(channels)
 
-    console.log(channels.channels)
     // return channels.map((channel, i) => {
     //   return (
     //     <section className="channel" key={i}><i className="fas fa-hashtag"></i> <p>{channel}</p></section>
