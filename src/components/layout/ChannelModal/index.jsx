@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const ChannelModal = (props) => {
-  const classes =  true ? 'open' : '';
-  // const classes =  props.isOpen ? 'open' : '';
+  // const classes =  true ? 'open' : '';
+  const classes =  props.display ? 'open' : '';
   return (
     <section className={`chatroom-modal ${classes}`}>
       <section className='modal'>
         <section className="exit">
-          <i className="fas fa-times fa-2x" onClick={props.onClickClose}></i>
+          <i className="fas fa-times fa-2x" onClick={props.toggle}></i>
         </section>
         <section className="input-group">
           <label htmlFor="chatroomName">Chatroom Name</label>

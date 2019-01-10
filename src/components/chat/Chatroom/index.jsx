@@ -80,7 +80,7 @@ class Chatroom extends React.Component {
   }
 
   render() {
-    const {displayChatSettings, displayCategoryModal} = this.state;
+    const {displayChatSettings, displayCategoryModal, displayChannelModal} = this.state;
     const {chatroomExists, chatroom, chatroomCategories, user} = this.props;
     return !chatroomExists ? (<section>Loading ...</section>) : (
       <section id="app">
@@ -100,7 +100,8 @@ class Chatroom extends React.Component {
           categoryOnChange={this.categoryOnChange}
         />
         <ChannelModal 
-          
+          display={displayChannelModal}
+          toggle={this.displayChannelModal}
         />
 
         <Userbar user={user} />
