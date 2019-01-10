@@ -20,12 +20,13 @@ class Chatroom extends React.Component {
     displayChatSettings: false,
     displayCategoryModal: false,
     changeChat: false,
+    isUserCreator: false,
+    ranIsUcerCreator: false,
+    displayChannelModal: false,
     categoryName: '',
     channelName: '',
     channelDescription: '',
-    isUserCreator: false,
-    ranIsUcerCreator: false,
-    displayChannelModal: false
+    categoryId: null
   }
 
   componentDidMount() {
@@ -55,8 +56,10 @@ class Chatroom extends React.Component {
   toggleSettings = () => this.setState({displayCategoryModal: !this.state.displayCategoryModal});
 
   displayChannelModal = (category) => {
-    this.setState({displayChannelModal: !this.state.displayChannelModal})
-    console.log(category)
+    this.setState({
+      displayChannelModal: !this.state.displayChannelModal,
+      categoryId: category.id
+    })
   }
 
   handleCategorySubmit = () => {
