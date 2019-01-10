@@ -50,7 +50,7 @@ class Chatroom extends React.Component {
     }
   }
 
-  categoryOnChange = (e) => this.setState({[e.target.name]: e.target.value});
+  modalOnChange = (e) => this.setState({[e.target.name]: e.target.value});
 
   toggleChatSettings = () => this.setState({displayChatSettings: !this.state.displayChatSettings});
   toggleSettings = () => this.setState({displayCategoryModal: !this.state.displayCategoryModal});
@@ -83,7 +83,7 @@ class Chatroom extends React.Component {
   }
 
   render() {
-    const {displayChatSettings, displayCategoryModal, displayChannelModal} = this.state;
+    const {displayChatSettings, displayCategoryModal, displayChannelModal, categoryId} = this.state;
     const {chatroomExists, chatroom, chatroomCategories, user} = this.props;
     return !chatroomExists ? (<section>Loading ...</section>) : (
       <section id="app">
@@ -100,11 +100,13 @@ class Chatroom extends React.Component {
           display={displayCategoryModal}
           handleCategorySubmit={this.handleCategorySubmit}
           toggle={this.toggleSettings}
-          categoryOnChange={this.categoryOnChange}
+          categoryOnChange={this.modalOnChange}
         />
         <ChannelModal 
           display={displayChannelModal}
           toggle={this.displayChannelModal}
+          onChange={this.modalOnChange}
+          categoryId={categoryId}
         />
 
         <Userbar user={user} />
