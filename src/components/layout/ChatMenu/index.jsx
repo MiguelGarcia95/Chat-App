@@ -31,7 +31,6 @@ class ChatMenu extends React.Component {
   }
 
   render() {
-    const chatroomChannel = ['rpg', 'stg', 'jrpg', 'metroidvania', 'retro'];
     const {user, chatroom, displaySettings} = this.state;
     const {categories} = this.props;
     return (
