@@ -22,7 +22,8 @@ class Chatroom extends React.Component {
     changeChat: false,
     categoryName: '',
     channelName: '',
-    channelDescription: ''
+    channelDescription: '',
+    isUserCreator: false
   }
 
   componentDidMount() {
@@ -57,9 +58,20 @@ class Chatroom extends React.Component {
     this.toggleSettings();
   }
 
+  isUserOpOrAdmin = (chatroom, user) => {
+    if (chatroom !== null && user !== null) {
+      if (chatroom.chatroom.creatorId === user.uid) {
+        this.setState({isUserCreator: true})
+      } else {
+        this.setState({isUserCreator: false})
+      }
+    }
+  }
+
   render() {
     const {user, displayChatSettings, displayCategoryModal} = this.state;
     const {chatroomExists, chatroom, chatroomCategories} = this.props;
+    console.log(this.isUserOpOrAdmin(chatroom, user))
     return !chatroomExists ? (<section>test</section>) : (
       <section id="app">
         <ChatMenu user={user} chatroom={chatroom} categories={chatroomCategories} />
