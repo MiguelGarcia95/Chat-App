@@ -84,12 +84,6 @@ export const createCategoryChannel = (channel) => {
       chatroomId: channel.chatroomID,
       categoryId: channel.categoryId
     });
-
-    // console.log(channel.categoryId)
-    //categoryname
-    // console.log(channel.chatroomID)
-    // console.log(channel.channelName)
-    // console.log(channel.channelDescription)
   }
 }
 
