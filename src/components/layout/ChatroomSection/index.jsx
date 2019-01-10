@@ -14,6 +14,10 @@ class ChatroomSection extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
+    if(this.props.newChannelMade) {
+      this.props.toggleChannelState();
+      this.props.getCategoryChannels(this.props.category.category.chatroomID, this.props.category.id);
+    }
   }
 
   toggleSection = () => this.setState({isOpen: !this.state.isOpen});
@@ -27,7 +31,7 @@ class ChatroomSection extends React.Component {
       })
     }
   }
-  
+
   render() {
     const {isOpen, sectionName} = this.state;
     const {channels, isUserAdmin, category} = this.props;

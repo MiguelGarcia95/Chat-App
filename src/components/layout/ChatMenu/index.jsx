@@ -26,6 +26,7 @@ class ChatMenu extends React.Component {
           isUserAdmin={this.props.isUserAdmin}
           toggleChannelModal={this.props.toggelChannel}
           newChannelMade={this.props.newChannelMade}
+          toggleChannelState={this.props.toggleChannelState}
         />
       )
     })

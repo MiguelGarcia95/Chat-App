@@ -55,6 +55,7 @@ class Chatroom extends React.Component {
 
   toggleChatSettings = () => this.setState({displayChatSettings: !this.state.displayChatSettings});
   toggleSettings = () => this.setState({displayCategoryModal: !this.state.displayCategoryModal});
+  toggleChannelState = () => this.setState({newChannelMade: !this.state.newChannelMade})
 
   displayChannelModal = (category) => {
     this.setState({
@@ -100,8 +101,9 @@ class Chatroom extends React.Component {
           isUserAdmin={this.isUserOpOrAdmin} 
           toggelChannel={this.displayChannelModal} 
           newChannelMade={newChannelMade}
+          toggleChannelState={this.toggleChannelState}
         />
-        
+
         <ChatTitle 
           user={user} 
           chatroom={chatroom} 
