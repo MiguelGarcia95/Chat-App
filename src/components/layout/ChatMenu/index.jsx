@@ -24,6 +24,8 @@ class ChatMenu extends React.Component {
           key={category.id} 
           sectionName={category.category.categoryName}
           category={category}
+          categoryId={category.id}
+          chatroomId={category.category.chatroomID}
         />
       )
     })

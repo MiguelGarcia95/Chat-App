@@ -10,12 +10,11 @@ class ChatroomSection extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.getCategoryChannels(this.props.category.category.chatroomId, this.props.category.id);
+    this.props.getCategoryChannels(this.props.category.category.chatroomID, this.props.category.id);
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    this.props.getCategoryChannels(nextProps.category.category.chatroomId, nextProps.category.id);
-
+    // this.props.getCategoryChannels(nextProps.category.category.chatroomID, nextProps.category.id);
   }
 
   toggleSection = () => this.setState({isOpen: !this.state.isOpen});
@@ -49,9 +48,9 @@ class ChatroomSection extends React.Component {
 };
 
 const mapStateToProps = state => {
-  // return {
-  //   currentChatroom: state.chatroom.currentChatroom
-  // }
+  return {
+    chatroomChannels: state.chatroom.chatroomChannels
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -60,5 +59,5 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps)(ChatroomSection);
+export default connect(mapStateToProps, mapDispatchToProps)(ChatroomSection);
 // export default ChatroomSection
