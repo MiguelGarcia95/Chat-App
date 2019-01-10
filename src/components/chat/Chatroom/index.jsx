@@ -75,7 +75,7 @@ class Chatroom extends React.Component {
   render() {
     const {displayChatSettings, displayCategoryModal} = this.state;
     const {chatroomExists, chatroom, chatroomCategories, user} = this.props;
-    return !chatroomExists ? (<section>test</section>) : (
+    return !chatroomExists ? (<section>Loading ...</section>) : (
       <section id="app">
         <ChatMenu user={user} chatroom={chatroom} categories={chatroomCategories} isUserAdmin={this.isUserOpOrAdmin} />
         <ChatTitle user={user} chatroom={chatroom} toggle={this.toggleChatSettings} />
