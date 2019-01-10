@@ -29,7 +29,7 @@ class ChatroomSection extends React.Component {
           <i className="fas fa-chevron-down"></i> <p>{sectionName}</p>
         </section>
         <section className={`channels ${classes}`}>
-          {this.displayChannels(channels)}
+          {/* {this.displayChannels(channels)} */}
         </section>
       </section> 
     )
