@@ -14,23 +14,24 @@ class ChatroomSection extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    // this.props.getCategoryChannels(nextProps.category.category.chatroomID, nextProps.category.id);
   }
 
   toggleSection = () => this.setState({isOpen: !this.state.isOpen});
 
   displayChannels = (channels) => {
-    // return channels.map((channel, i) => {
-    //   return (
-    //     <section className="channel" key={i}><i className="fas fa-hashtag"></i> <p>{channel}</p></section>
-    //   )
-    // })
+    if (channels.length > 0) {
+      console.log(channels)
+      return channels.map((channel) => {
+        return (
+          <section className="channel" key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
+        )
+      })
+    }
   } 
 
   render() {
     const {isOpen, sectionName} = this.state;
-    const {category} = this.props;
-    console.log(category)
+    const {channels} = this.props;
     const classes = isOpen ? '' : 'closed';
     return (
       <section className='chatroom-section'>
@@ -38,7 +39,7 @@ class ChatroomSection extends React.Component {
           <i className="fas fa-chevron-down"></i> <p>{sectionName}</p>
         </section>
         <section className={`channels ${classes}`}>
-          {/* {this.displayChannels(channels)} */}
+          {this.displayChannels(channels)}
         </section>
       </section> 
     )
@@ -47,7 +48,7 @@ class ChatroomSection extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    chatroomChannels: state.chatroom.chatroomChannels
+    channels: state.chatroom.chatroomChannels
   }
 }
 
