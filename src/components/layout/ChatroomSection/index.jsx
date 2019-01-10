@@ -9,6 +9,15 @@ class ChatroomSection extends React.Component {
     sectionName: this.props.sectionName
   }
 
+  componentDidMount() {
+    // this.props.getCategoryChannels(this.props.category.category.chatroomId, this.props.category.id);
+  }
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    this.props.getCategoryChannels(nextProps.category.category.chatroomId, nextProps.category.id);
+
+  }
+
   toggleSection = () => this.setState({isOpen: !this.state.isOpen});
 
   displayChannels = (channels) => {
@@ -23,7 +32,8 @@ class ChatroomSection extends React.Component {
 
   render() {
     const {isOpen, sectionName} = this.state;
-    const {channels} = this.props;
+    const {category} = this.props;
+    console.log(category)
     const classes = isOpen ? '' : 'closed';
     return (
       <section className='chatroom-section'>

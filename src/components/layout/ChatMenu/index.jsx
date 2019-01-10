@@ -17,12 +17,13 @@ class ChatMenu extends React.Component {
   closeSettings = () => this.setState({displaySettings: false});
 
   displayCategories = (categories) => {
+    console.log(categories)
     return categories.map((category) => {
       return (
         <ChatroomSection 
           key={category.id} 
-          sectionName={category.category.categoryName} 
-          // channels={category} 
+          sectionName={category.category.categoryName}
+          category={category}
         />
       )
     })
@@ -32,7 +33,6 @@ class ChatMenu extends React.Component {
     const chatroomChannel = ['rpg', 'stg', 'jrpg', 'metroidvania', 'retro'];
     const {user, chatroom, displaySettings} = this.state;
     const {categories} = this.props;
-    console.log(categories)
     return (
       <section className="menu-bar chatroom-menu">
         {this.displayCategories(categories)}
