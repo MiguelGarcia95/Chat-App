@@ -4,13 +4,14 @@ import './style.css';
 class ChatroomSection extends React.Component {
   state = {
     isOpen: true,
-    sectionName: this.props.sectionName,
-    channels: this.props.channels
+    sectionName: this.props.sectionName
   }
 
   toggleSection = () => this.setState({isOpen: !this.state.isOpen});
 
   displayChannels = (channels) => {
+
+    console.log(channels.channels)
     // return channels.map((channel, i) => {
     //   return (
     //     <section className="channel" key={i}><i className="fas fa-hashtag"></i> <p>{channel}</p></section>
@@ -19,9 +20,9 @@ class ChatroomSection extends React.Component {
   } 
 
   render() {
-    const {isOpen, sectionName, channels} = this.state;
+    const {isOpen, sectionName} = this.state;
+    const {channels} = this.props;
     const classes = isOpen ? '' : 'closed';
-    // console.log(channels)
     return (
       <section className='chatroom-section'>
         <section className='section-name' onClick={this.toggleSection}>
