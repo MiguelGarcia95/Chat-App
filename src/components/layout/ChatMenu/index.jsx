@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import './style.css';
 import ChatroomSection from '../ChatroomSection/';
+import { getCategoryChannels } from '../../../redux/actions/chatroomActions';
 
 class ChatMenu extends React.Component {
   state = {
@@ -44,11 +45,17 @@ ChatMenu.propTypes = {
   user: PropTypes.object.isRequired
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     currentChatroom: state.chatroom.currentChatroom
-//   }
-// }
+const mapStateToProps = state => {
+  // return {
+  //   currentChatroom: state.chatroom.currentChatroom
+  // }
+}
 
-export default ChatMenu;
-// export default connect(mapStateToProps)(ChatMenu);
+const mapDispatchToProps = dispatch => {
+  return {
+    getCategoryChannels: (chatroomId, categoryId) => dispatch(getCategoryChannels(chatroomId, categoryId))
+  }
+}
+
+// export default ChatMenu;
+export default connect(mapStateToProps)(ChatMenu);
