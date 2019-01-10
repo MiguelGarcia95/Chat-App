@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.css';
+import {connect} from 'react-redux';
+import { getCategoryChannels } from '../../../redux/actions/chatroomActions';
 
 class ChatroomSection extends React.Component {
   state = {
@@ -36,4 +38,17 @@ class ChatroomSection extends React.Component {
   }
 };
 
-export default ChatroomSection
+const mapStateToProps = state => {
+  // return {
+  //   currentChatroom: state.chatroom.currentChatroom
+  // }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getCategoryChannels: (chatroomId, categoryId) => dispatch(getCategoryChannels(chatroomId, categoryId))
+  }
+}
+
+export default connect(mapStateToProps)(ChatroomSection);
+// export default ChatroomSection

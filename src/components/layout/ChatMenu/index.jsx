@@ -45,17 +45,17 @@ ChatMenu.propTypes = {
   user: PropTypes.object.isRequired
 }
 
-const mapStateToProps = state => {
-  // return {
-  //   currentChatroom: state.chatroom.currentChatroom
-  // }
-}
+// const mapStateToProps = state => {
+//   // return {
+//   //   currentChatroom: state.chatroom.currentChatroom
+//   // }
+// }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getCategoryChannels: (chatroomId, categoryId) => dispatch(getCategoryChannels(chatroomId, categoryId))
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getCategoryChannels: (chatroomId, categoryId) => dispatch(getCategoryChannels(chatroomId, categoryId))
+//   }
+// }
 
-// export default ChatMenu;
-export default connect(mapStateToProps)(ChatMenu);
+export default ChatMenu;
+// export default connect(mapStateToProps)(ChatMenu);
