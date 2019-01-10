@@ -110,7 +110,7 @@ class Chatroom extends React.Component {
         <ChannelModal 
           display={displayChannelModal}
           toggle={this.displayChannelModal}
-          onChange={this.modalOnChange}
+          handleChange={this.modalOnChange}
           categoryId={categoryId}
           handleSubmit={this.channelSubmit}
         />
