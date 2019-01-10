@@ -27,11 +27,7 @@ class ChatroomSection extends React.Component {
       })
     }
   }
-
-  displayChannelModal = () => {
-    console.log('test')
-  }
-
+  
   render() {
     const {isOpen, sectionName} = this.state;
     const {channels, isUserAdmin, category} = this.props;
