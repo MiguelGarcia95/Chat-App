@@ -28,9 +28,6 @@ class ChatMenu extends React.Component {
   }
 
   render() {
-    // pull all chatroom sections,
-    // pull all channels within the chatroom, since only one will be active,
-    // sort all of the channels with their approriate section and pass them thru
     const chatroomChannel = ['rpg', 'stg', 'jrpg', 'metroidvania', 'retro'];
     const {user, chatroom, displaySettings} = this.state;
     // const {categories, channels} = this.props;

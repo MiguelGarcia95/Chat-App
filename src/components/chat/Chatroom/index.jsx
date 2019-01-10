@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getChatroom, redirectToHome, createChatroomCategory, chatClicked, getChatroomCategories} from '../../../redux/actions/chatroomActions';
+import {
+  getChatroom, redirectToHome, createChatroomCategory, chatClicked, getChatroomCategories
+} from '../../../redux/actions/chatroomActions';
 
 import ChatMenu from '../../layout/ChatMenu/';
 import ChatPanel from '../../layout/ChatPanel/';
@@ -42,8 +44,6 @@ class Chatroom extends React.Component {
       this.setState({changeChat: false})
       this.props.getChatroom(this.props.match.params.id);
       this.props.getChatroomCategories(this.props.match.params.id);
-    // this.props.getCategoryChannels('WuoVYqsHqxol7OQB4rhb', 'fXJlndWUo0H7rlyD9pBS')
-
     }
   }
 
@@ -60,7 +60,7 @@ class Chatroom extends React.Component {
 
   render() {
     const {user, displayChatSettings, displayCategoryModal} = this.state;
-    const {chatroomExists, chatroom, chatroomCategories, chatroomChannels} = this.props;
+    const {chatroomExists, chatroom, chatroomCategories} = this.props;
     return !chatroomExists ? (<section>test</section>) : (
       <section id="app">
         <ChatMenu user={user} chatroom={chatroom} categories={chatroomCategories} />
