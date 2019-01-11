@@ -2,14 +2,8 @@ import React from 'react';
 import './style.css';
 
 export class ChatroomSettings extends React.Component {
-  state  = {
-    // display: this.props.display,
-    // user: this.props.user,
-    // chatroom: this.props.chatroom
-  }
-
   render() {
-    const {display, user, chatroom, toggle} = this.props;
+    const {display} = this.props;
     const classes = display ? 'opened' : '';
     return (
       <section className={`chatroom-settings ${classes}` }>

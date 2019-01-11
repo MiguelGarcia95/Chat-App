@@ -27,7 +27,8 @@ class Chatroom extends React.Component {
     categoryId: null,
     categoryName: '',
     channelName: '',
-    channelDescription: ''
+    channelDescription: '',
+    currentChannelId: ''
   }
 
   componentDidMount() {
@@ -50,6 +51,11 @@ class Chatroom extends React.Component {
       this.props.getChatroomCategories(this.props.match.params.id);
     }
   }
+
+  setCurrentChannelId = (channelId) => {
+    this.setState({currentChannelId: channelId});
+    console.log(channelId)
+  } 
 
   modalOnChange = (e) => this.setState({[e.target.name]: e.target.value});
 
@@ -102,6 +108,9 @@ class Chatroom extends React.Component {
           toggelChannel={this.displayChannelModal} 
           newChannelMade={newChannelMade}
           toggleChannelState={this.toggleChannelState}
+          setCurrentChannelId={this.setCurrentChannelId}
+          currentChannelId={this.state.currentChannelId}
+          changeChat={this.state.changeChat}
         />
 
         <ChatTitle 

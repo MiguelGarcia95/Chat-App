@@ -10,13 +10,13 @@ class ChatMenu extends React.Component {
     user: this.props.user,
     chatroom: this.props.chatroom,
     categories: this.props.categories,
-    currentChannelId: ''
+    // currentChannelId: ''
   }
 
-  setCurrentChannelId = (channelId) => {
-    this.setState({currentChannelId: channelId});
-    console.log(channelId)
-  } 
+  // setCurrentChannelId = (channelId) => {
+  //   this.setState({currentChannelId: channelId});
+  //   console.log(channelId)
+  // } 
 
   displayCategories = (categories) => {
     return categories.map((category) => {
@@ -29,8 +29,9 @@ class ChatMenu extends React.Component {
           toggleChannelModal={this.props.toggelChannel}
           newChannelMade={this.props.newChannelMade}
           toggleChannelState={this.props.toggleChannelState}
-          setCurrentChannelId={this.setCurrentChannelId}
-          currentChannelId={this.state.currentChannelId}
+          setCurrentChannelId={this.props.setCurrentChannelId}
+          currentChannelId={this.props.currentChannelId}
+          changeChat={this.props.changeChat}
         />
       )
     })
