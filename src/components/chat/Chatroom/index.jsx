@@ -24,10 +24,10 @@ class Chatroom extends React.Component {
     ranIsUcerCreator: false,
     displayChannelModal: false,
     newChannelMade: false,
+    categoryId: null,
     categoryName: '',
     channelName: '',
-    channelDescription: '',
-    categoryId: null
+    channelDescription: ''
   }
 
   componentDidMount() {

@@ -10,6 +10,7 @@ class ChatMenu extends React.Component {
     user: this.props.user,
     chatroom: this.props.chatroom,
     categories: this.props.categories,
+    currentChannelId: ''
   }
 
   displayCategories = (categories) => {
