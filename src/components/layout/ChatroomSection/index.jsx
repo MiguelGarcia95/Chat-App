@@ -19,11 +19,14 @@ class ChatroomSection extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({channels: this.props.channels})
-    if (this.props.currentChannelId === '' && this.props.channels.length > 0 ) {
-      this.props.setCurrentChannelId(this.props.channels[0].channels[0].id);
+    if (this.props.currentChannelId === '') {
+      if (this.props.channels.length > 0) {
+        console.log(this.props.channels[0].channels.length)
+        this.props.setCurrentChannelId(this.props.channels[0].channels[0].id);
+      }
     } else if (this.props.changeChat) {
       // console.log(this.state.channels.length)
-      this.props.setCurrentChannelId(this.props.channels[0].channels[0].id);
+      // this.props.setCurrentChannelId(this.props.channels[0].channels[0].id);
     }
     if(this.props.newChannelMade) {
       this.props.toggleChannelState();
