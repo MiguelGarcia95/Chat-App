@@ -10,6 +10,7 @@ const initialState = {
   chatroomExists: false,
   chatroomCategories: [],
   chatrooms: [],
+  chatroomChannels: {},
   chatroomChannels: [],
   newChatClicked: false
 }
@@ -62,7 +63,8 @@ const chatroomReducer = (state = initialState, action) => {
       return {
         ...state,
         chatroomError: action.payload.chatroomError,
-        chatroomChannels: action.payload.chatroomChannels
+        chatroomChannels: state.chatroomChannels.concat(action.payload.chatroomChannels)
+        // chatroomChannels: action.payload.chatroomChannels
       }
     case actionTypes.GET_CATEGORY_CHANNELS_ERROR:
       return {

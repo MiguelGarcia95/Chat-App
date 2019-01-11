@@ -126,12 +126,15 @@ export const getCategoryChannels = (chatroomId, categoryId) => {
           allChannels.push({id: channel.id, channelData: channel.data()})
       })
       // console.log({id: categoryId, channels: allChannels})
+      let channelArray = [];
+      channelArray.push({id: categoryId, channels: allChannels});
       dispatch({
         type: actionTypes.GET_CATEGORY_CHANNELS,
         payload: {
           chatroomError: null,
-          chatroomChannels: {id: categoryId, channels: allChannels}
-          // chatroomChannels: allChannels
+          // chatroomChannels: {id: categoryId, channels: allChannels}
+          // chatroomChannels: allChannels,
+          chatroomChannels: channelArray
         }
       })
     }).catch(err => {
