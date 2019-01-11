@@ -28,7 +28,7 @@ class Chatroom extends React.Component {
     categoryName: '',
     channelName: '',
     channelDescription: '',
-    currentChannelId: ''
+    currentChannelId: null
   }
 
   componentDidMount() {

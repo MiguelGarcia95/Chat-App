@@ -19,15 +19,6 @@ class ChatroomSection extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({channels: this.props.channels})
-    if (this.props.currentChannelId === '') {
-      if (this.props.channels.length > 0) {
-        console.log(this.props.channels[0].channels.length)
-        this.props.setCurrentChannelId(this.props.channels[0].channels[0].id);
-      }
-    } else if (this.props.changeChat) {
-      // console.log(this.state.channels.length)
-      // this.props.setCurrentChannelId(this.props.channels[0].channels[0].id);
-    }
     if(this.props.newChannelMade) {
       this.props.toggleChannelState();
       this.props.getCategoryChannels(this.props.category.category.chatroomID, this.props.category.id);
@@ -39,6 +30,9 @@ class ChatroomSection extends React.Component {
   displayChannels = (channels) => {
     let categoryChannels = this.sortChannels(channels);
     if (categoryChannels.length > 0) {
+      if (this.props.currentChannelId === null) {
+        this.props.setCurrentChannelId(categoryChannels[0].id);
+      }
       return categoryChannels.map((channel) => {
         return (
           <ChatroomChannel key={channel.id} channel={channel} />
