@@ -13,6 +13,10 @@ class ChatMenu extends React.Component {
     currentChannelId: ''
   }
 
+  setCurrentChannelId = (channelId) => {
+    this.setState({currentChannelId: channelId});
+  } 
+
   displayCategories = (categories) => {
     return categories.map((category) => {
       return (
