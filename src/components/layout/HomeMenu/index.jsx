@@ -5,7 +5,7 @@ import './style.css';
 
 const HomeMenu = ({user}) => {
   return (
-    <section className="menu-bar">
+    <section className="menu-bar home-menu">
       <section className="top-menu">
         <section className="option first">
           <i className="fas fa-chart-line fa-2x"></i><p> Activities</p>
