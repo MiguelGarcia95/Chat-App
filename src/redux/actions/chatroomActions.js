@@ -84,6 +84,13 @@ export const createCategoryChannel = (channel) => {
       channelDescription: channel.channelDescription,
       chatroomId: channel.chatroomID,
       categoryId: channel.categoryId
+    }).then(channel => {
+      dispatch({
+        type: actionTypes.CREATE_CATEGORY_CHANNEL,
+        payload: {
+          
+        }
+      })
     });
   }
 }
