@@ -30,6 +30,7 @@ class ChatroomSection extends React.Component {
   displayChannels = (channels) => {
     let categoryChannels = this.sortChannels(channels);
     if (categoryChannels.length > 0) {
+      //only for testing
       if (this.props.currentChannelId === null) {
         this.props.setCurrentChannelId(categoryChannels[0].id);
       }
