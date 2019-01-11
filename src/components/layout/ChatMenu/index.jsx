@@ -10,11 +10,7 @@ class ChatMenu extends React.Component {
     user: this.props.user,
     chatroom: this.props.chatroom,
     categories: this.props.categories,
-    // displaySettings: true
   }
-
-  // toggleSettings = () => this.setState({displaySettings: !this.state.displaySettings});
-  // closeSettings = () => this.setState({displaySettings: false});
 
   displayCategories = (categories) => {
     return categories.map((category) => {
@@ -33,7 +29,6 @@ class ChatMenu extends React.Component {
   }
 
   render() {
-    // const {user, chatroom, displaySettings} = this.state;
     const {categories} = this.props;
     return (
       <section className="menu-bar chatroom-menu">
