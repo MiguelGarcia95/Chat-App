@@ -85,10 +85,20 @@ export const createCategoryChannel = (channel) => {
       chatroomId: channel.chatroomID,
       categoryId: channel.categoryId
     }).then(channel => {
+      const channelId = channel._key.path.segments[5];
       dispatch({
         type: actionTypes.CREATE_CATEGORY_CHANNEL,
         payload: {
-          
+          channelId: channelId,
+          chatroomError: null
+        }
+      })
+    }).catch(err => {
+      dispatch({
+        type: actionTypes.CREATE_CATEGORY_CHANNEL,
+        payload: {
+          channelId: '',
+          chatroomError: err.message
         }
       })
     });
