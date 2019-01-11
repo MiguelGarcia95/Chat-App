@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import './style.css';
+import { dispatch } from 'rxjs/internal/observable/range';
 
 class ChatPannel extends React.Component {
   render () {
@@ -46,5 +48,18 @@ class ChatPannel extends React.Component {
 ChatPannel.propTypes = {
   user: PropTypes.object.isRequired
 }
+
+// const mapStateToProps = state => {
+//   return {
+//     channel: state.chatroom.channel,
+//     comments: state.chatroom.comments
+//   }
+// }
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getChannelChat: (channelId) => dispatch(getChannelChat(channelId))
+//   }
+// }
 
 export default ChatPannel;
