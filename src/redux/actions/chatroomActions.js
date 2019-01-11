@@ -33,6 +33,7 @@ export const createChatroom = (newChatroom) => {
 export const createChatroomCategory = (category) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firestore = getFirestore();
+    console.log(category.chatroomID)
     firestore.add(`chatrooms/${category.chatroomID}/categories`, {
       chatroomID: category.chatroomID,
       categoryName: category.categoryName
