@@ -92,6 +92,8 @@ const chatroomReducer = (state = initialState, action) => {
         chatroomCategories: action.payload.chatroomCategories
       }
     case actionTypes.GET_CATEGORY_CHANNELS:
+    // console.log(`Channels coming in: ${action.payload.chatroomChannels}`);
+    // console.log(`Channels already in array ${state.chatroomChannels}`);
       return {
         ...state,
         chatroomError: action.payload.chatroomError,
