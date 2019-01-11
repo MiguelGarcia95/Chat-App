@@ -14,7 +14,7 @@ class ChatroomSection extends React.Component {
 
   componentDidMount() {
     this.props.getCategoryChannels(this.props.category.category.chatroomID, this.props.category.id);
-    // this.setState({channels: this.props.channels})
+    this.setState({channels: this.props.channels})
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -30,9 +30,9 @@ class ChatroomSection extends React.Component {
 
   displayChannels = (channels) => {
     if (channels.length > 0) {
-      return channels.map((channel) => {
+      return channels.map((channel, i) => {
         return (
-          <ChatroomChannel channel={channel} categoryId={this.state.categoryId}  />
+          <ChatroomChannel key={i} channel={channel} categoryId={this.state.categoryId}  />
         )
       })
     }
