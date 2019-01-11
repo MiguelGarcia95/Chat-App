@@ -17,7 +17,7 @@ class ChatroomChannel extends React.Component {
 
   render() {
     const {channel, categoryId} = this.state;
-    
+    console.log(channel.channelData)
     if (this.doesItbelongHere(channel)) {
       return (
         <section className={`channel ${categoryId}`} key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>

@@ -29,13 +29,25 @@ class ChatroomSection extends React.Component {
   toggleSection = () => this.setState({isOpen: !this.state.isOpen});
 
   displayChannels = (channels) => {
-    // if (channels.length > 0) {
-    //   return channels.map((channel, i) => {
-    //     return (
-    //       <ChatroomChannel key={i} channel={channel} categoryId={this.state.categoryId}  />
-    //     )
-    //   })
-    // }
+    let categoryChannels = this.sortChannels(channels);
+    if (categoryChannels.length > 0) {
+      // console.log(categoryChannels[0].channelData)
+      return categoryChannels.map((channel, i) => {
+        return (
+          <ChatroomChannel key={i} channel={channel} categoryId={this.state.categoryId}  />
+        )
+      })
+    }
+  }
+
+  sortChannels = (channels) => {
+    let matchingChannels = [];
+    channels.forEach(channel => {
+      if (channel.id === this.props.category.id) {
+        matchingChannels = channel.channels;
+      }
+    })
+    return matchingChannels;
   }
 
   render() {
