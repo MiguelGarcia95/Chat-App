@@ -5,6 +5,7 @@ const initialState = {
   currentChatroomId: null,
   chatroomError: null,
   categoryId: null,
+  channelId: null,
   redirectToHome: false,
   redirectToChat: false,
   chatroomExists: false,
@@ -47,12 +48,14 @@ const chatroomReducer = (state = initialState, action) => {
     case actionTypes.CREATE_CATEGORY_CHANNEL:
       return {
         ...state,
-
+        channelId: action.payload.channelId,
+        chatroomError: action.payload.chatroomError
       }
     case actionTypes.CREATE_CATEGORY_CHANNEL_ERROR:
       return {
         ...state,
-
+        channelId: action.payload.channelId,
+        chatroomError: action.payload.chatroomError
       }
     case actionTypes.GET_CHANNEL_CHAT:
       return {
