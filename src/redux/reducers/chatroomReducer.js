@@ -34,11 +34,15 @@ const chatroomReducer = (state = initialState, action) => {
       }
     case actionTypes.CREATE_CHATROOM_CATEGORY:
       return {
-        ...state
+        ...state,
+        categoyId: action.payload.categoyId,
+        chatroomError: action.payload.chatroomError
       }
     case actionTypes.CREATE_CHATROOM_CATEGORY_ERROR:
       return {
-        ...state
+        ...state,
+        categoyId: action.payload.categoyId,
+        chatroomError: action.payload.chatroomError
       }
     case actionTypes.CREATE_CATEGORY_CHANNEL:
       return {
