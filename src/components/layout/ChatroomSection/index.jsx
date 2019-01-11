@@ -31,10 +31,9 @@ class ChatroomSection extends React.Component {
   displayChannels = (channels) => {
     let categoryChannels = this.sortChannels(channels);
     if (categoryChannels.length > 0) {
-      // console.log(categoryChannels[0].channelData)
-      return categoryChannels.map((channel, i) => {
+      return categoryChannels.map((channel) => {
         return (
-          <ChatroomChannel key={i} channel={channel} categoryId={this.state.categoryId}  />
+          <ChatroomChannel key={channel.id} channel={channel} />
         )
       })
     }

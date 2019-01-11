@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const ChatroomChannel = (props) => {
-  const {channel, categoryId} = props;
+  const {channel} = props;
   return (
-    <section className={`channel ${categoryId}`} key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
+    <section className='channel' key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
   )
 }
 
