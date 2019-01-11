@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-export class ChatroomSettings extends React.Component {
+class ChatroomSettings extends React.Component {
   render() {
     const {display} = this.props;
     const classes = display ? 'opened' : '';

@@ -143,7 +143,7 @@ class Chatroom extends React.Component {
         />
 
         <Userbar user={user} />
-        <ChatPanel user={user} />
+        <ChatPanel user={user} currentChannelId={this.state.currentChannelId} />
       </section>
     )
   }
