@@ -15,6 +15,7 @@ class ChatMenu extends React.Component {
 
   setCurrentChannelId = (channelId) => {
     this.setState({currentChannelId: channelId});
+    console.log(channelId)
   } 
 
   displayCategories = (categories) => {
@@ -28,6 +29,8 @@ class ChatMenu extends React.Component {
           toggleChannelModal={this.props.toggelChannel}
           newChannelMade={this.props.newChannelMade}
           toggleChannelState={this.props.toggleChannelState}
+          setCurrentChannelId={this.setCurrentChannelId}
+          currentChannelId={this.state.currentChannelId}
         />
       )
     })

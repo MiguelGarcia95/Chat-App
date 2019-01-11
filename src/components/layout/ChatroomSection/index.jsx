@@ -19,7 +19,9 @@ class ChatroomSection extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({channels: this.props.channels})
-
+    if (this.props.currentChannelId === '' && this.props.channels.length > 0) {
+      this.props.setCurrentChannelId(this.props.channels[0].channels[0].id);
+    }
     if(this.props.newChannelMade) {
       this.props.toggleChannelState();
       this.props.getCategoryChannels(this.props.category.category.chatroomID, this.props.category.id);
