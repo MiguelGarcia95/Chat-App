@@ -58,7 +58,7 @@ ChatPannel.propTypes = {
 
 // const mapDispatchToProps = dispatch => {
 //   return {
-//     getChannelChat: (channelId) => dispatch(getChannelChat(channelId))
+//     getChannelChat: (categoryId, channelId) => dispatch(getChannelChat(categoryId, channelId))
 //   }
 // }
 

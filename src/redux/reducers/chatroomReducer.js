@@ -10,9 +10,10 @@ const initialState = {
   chatroomExists: false,
   chatroomCategories: [],
   chatrooms: [],
-  chatroomChannels: {},
   chatroomChannels: [],
-  newChatClicked: false
+  newChatClicked: false,
+  comments: [],
+  channel: null
 }
 
 const chatroomReducer = (state = initialState, action) => {
@@ -31,9 +32,24 @@ const chatroomReducer = (state = initialState, action) => {
         chatroomError: action.payload.chatroomError,
         redirectToChat: action.payload.redirectToChat
       }
-    case actionTypes.CREATE_CHATROOM_CATEGORY:
+    case actionTypes.CREATE_CHATROOM_CATEGORY_ERROR:
       return {
         ...state
+      }
+    case actionTypes.CREATE_CATEGORY_CHANNEL_ERROR:
+      return {
+        ...state,
+
+      }
+    case actionTypes.GET_CHANNEL_CHAT:
+      return {
+        ...state,
+
+      }
+    case actionTypes.GET_CHANNEL_CHAT_ERROR:
+      return {
+        ...state,
+        
       }
     case actionTypes.GET_CHATROOMS:
       return {
@@ -64,7 +80,6 @@ const chatroomReducer = (state = initialState, action) => {
         ...state,
         chatroomError: action.payload.chatroomError,
         chatroomChannels: state.chatroomChannels.concat(action.payload.chatroomChannels)
-        // chatroomChannels: action.payload.chatroomChannels
       }
     case actionTypes.GET_CATEGORY_CHANNELS_ERROR:
       return {

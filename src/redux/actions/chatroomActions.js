@@ -88,6 +88,10 @@ export const createCategoryChannel = (channel) => {
   }
 }
 
+export const getChannelChat = (categoryId, channelId) => {
+
+}
+
 // Get categories 
 
 export const getChatroomCategories = (chatroomId) => {
