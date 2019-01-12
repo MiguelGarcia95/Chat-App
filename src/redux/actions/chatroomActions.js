@@ -112,9 +112,19 @@ export const getChannelChat = (chatroomId, categoryId, channelId) => {
     firestore.collection(`chatrooms/${chatroomId}/categories/${categoryId}/channels/`).doc(channelId).get().then(channel => {
       if (channel.exists) {
         const newChannel = {id: channel.id, channel: channel.data()}
+        dispatch({
+
+        })
       } else {
         console.log('doesnt exist')
+        dispatch({
+
+        })
       }
+    }).catch(err => {
+      dispatch({
+
+      })
     })
   }
 }
