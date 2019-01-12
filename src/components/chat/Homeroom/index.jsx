@@ -18,19 +18,6 @@ const Homeroom = (props) => {
     )
 }
 
-// class Homeroom extends React.Component {
-//   render () {
-//     const {user} = this.props;
-//     return (
-//       <section id="app">
-//         <HomeMenu user={user} />
-//         <Userbar user={user} />
-//         <HomePanel user={user} />
-//       </section>
-//     )
-//   }
-// }
-
 Homeroom.propTypes = {
   user: PropTypes.object.isRequired
 }
