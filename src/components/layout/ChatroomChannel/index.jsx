@@ -11,10 +11,10 @@ const ChatroomChannel = (props) => {
   )
 }
 
-// ChatroomChannel.propTypes = {
-//   onClickClose: PropTypes.func.isRequired,
-//   handleChange: PropTypes.func.isRequired,
-//   handleChatroomSubmit: PropTypes.func.isRequired
-// }
+ChatroomChannel.propTypes = {
+  setCurrentChanneAndCategorylId: PropTypes.func.isRequired,
+  channel: PropTypes.object.isRequired,
+  categoryId: PropTypes.string.isRequired
+}
 
 export default ChatroomChannel;
