@@ -91,14 +91,18 @@ const chatroomReducer = (state = initialState, action) => {
         chatroomError: action.payload.chatroomError,
         chatroomCategories: action.payload.chatroomCategories
       }
-      case actionTypes.GET_CATEGORY_CHANNELS:
+    case actionTypes.GET_CATEGORY_CHANNELS:
       let channelCategories = state.chatroomChannels;
 
       // cycle thru all channelcategories
       if (channelCategories.length > 0) {
         console.log('more than zero');
+        channelCategories.forEach(category => {
+          console.log(category)
+        })
       } else {
         console.log('less than zero');
+        channelCategories = action.payload.chatroomChannels
       }
 
 
@@ -110,8 +114,8 @@ const chatroomReducer = (state = initialState, action) => {
       return {
         ...state,
         chatroomError: action.payload.chatroomError,
-        // chatroomChannels: channelCategories
-        chatroomChannels: state.chatroomChannels.concat(action.payload.chatroomChannels)
+        chatroomChannels: channelCategories
+        // chatroomChannels: state.chatroomChannels.concat(action.payload.chatroomChannels)
       }
     case actionTypes.GET_CATEGORY_CHANNELS_ERROR:
       return {
