@@ -3,10 +3,16 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import './style.css';
 import { dispatch } from 'rxjs/internal/observable/range';
+import { getChannelChat } from '../../../redux/actions/chatroomActions';
 
 class ChatPannel extends React.Component {
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.currentChannelId) {
+      console.log(nextProps.currentChannelId)
+    }
+  }
+
   render () {
-    console.log(this.props.currentChannelId)
     return (
       <section className="chat-panel">
         <nav className="chatroom-header">
@@ -50,17 +56,17 @@ ChatPannel.propTypes = {
   user: PropTypes.object.isRequired
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     channel: state.chatroom.channel,
-//     comments: state.chatroom.comments
-//   }
-// }
+const mapStateToProps = state => {
+  return {
+    channel: state.chatroom.channel,
+    comments: state.chatroom.comments
+  }
+}
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     getChannelChat: (categoryId, channelId) => dispatch(getChannelChat(categoryId, channelId))
-//   }
-// }
+const mapDispatchToProps = dispatch => {
+  return {
+    getChannelChat: (categoryId, channelId) => dispatch(getChannelChat(categoryId, channelId))
+  }
+}
 
-export default ChatPannel;
+export default connect(mapStateToProps, mapDispatchToProps)(ChatPannel);
