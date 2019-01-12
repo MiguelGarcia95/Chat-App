@@ -36,7 +36,7 @@ class ChatroomSection extends React.Component {
       }
       return categoryChannels.map((channel) => {
         return (
-          <ChatroomChannel key={channel.id} channel={channel} />
+          <ChatroomChannel key={channel.id} channel={channel} setCurrentChannelId={this.props.setCurrentChannelId} />
         )
       })
     }

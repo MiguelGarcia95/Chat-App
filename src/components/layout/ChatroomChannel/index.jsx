@@ -5,7 +5,7 @@ import './style.css';
 const ChatroomChannel = (props) => {
   const {channel} = props;
   return (
-    <section className='channel' key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
+    <section onClick={props.setCurrentChannelId.bind(null, channel.id)} className='channel' key={channel.id}><i className="fas fa-hashtag"></i> <p>{channel.channelData.channelName}</p></section>
   )
 }
 
