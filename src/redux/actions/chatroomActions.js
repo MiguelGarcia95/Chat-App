@@ -113,17 +113,26 @@ export const getChannelChat = (chatroomId, categoryId, channelId) => {
       if (channel.exists) {
         const newChannel = {id: channel.id, channel: channel.data()}
         dispatch({
-
+          type: actionTypes.GET_CHANNEL_CHAT,
+          payload: {
+            
+          }
         })
       } else {
         console.log('doesnt exist')
         dispatch({
-
+          type: actionTypes.GET_CHANNEL_CHAT_ERROR,
+          payload: {
+            
+          }
         })
       }
     }).catch(err => {
       dispatch({
-
+        type: actionTypes.GET_CHANNEL_CHAT_ERROR,
+          payload: {
+            
+          }
       })
     })
   }
