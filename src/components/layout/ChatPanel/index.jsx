@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import './style.css';
-import { dispatch } from 'rxjs/internal/observable/range';
 import { getChannelChat } from '../../../redux/actions/chatroomActions';
+import './style.css';
 
 class ChatPannel extends React.Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.currentChannelId) {
-      console.log(nextProps.currentChannelId)
+      nextProps.getChannelChat(nextProps.currentCategoryId, nextProps.currentChannelId)
     }
   }
 

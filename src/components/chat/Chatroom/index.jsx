@@ -28,7 +28,8 @@ class Chatroom extends React.Component {
     categoryName: '',
     channelName: '',
     channelDescription: '',
-    currentChannelId: null
+    currentChannelId: null,
+    currentCategoryId: null
   }
 
   componentDidMount() {
@@ -52,8 +53,8 @@ class Chatroom extends React.Component {
     }
   }
 
-  setCurrentChannelId = (channelId) => {
-    this.setState({currentChannelId: channelId});
+  setCurrentChanneAndCategorylId = (categoryId, channelId) => {
+    this.setState({currentChannelId: channelId, currentCategoryId: categoryId});
   } 
 
   modalOnChange = (e) => this.setState({[e.target.name]: e.target.value});
@@ -107,7 +108,7 @@ class Chatroom extends React.Component {
           toggelChannel={this.displayChannelModal} 
           newChannelMade={newChannelMade}
           toggleChannelState={this.toggleChannelState}
-          setCurrentChannelId={this.setCurrentChannelId}
+          setCurrentChanneAndCategorylId={this.setCurrentChanneAndCategorylId}
           currentChannelId={this.state.currentChannelId}
           changeChat={this.state.changeChat}
         />
@@ -142,7 +143,7 @@ class Chatroom extends React.Component {
         />
 
         <Userbar user={user} />
-        <ChatPanel user={user} currentChannelId={this.state.currentChannelId} />
+        <ChatPanel user={user} currentChannelId={this.state.currentChannelId} currentCategoryId={this.state.currentCategoryId}/>
       </section>
     )
   }

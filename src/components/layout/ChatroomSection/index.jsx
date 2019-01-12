@@ -32,11 +32,11 @@ class ChatroomSection extends React.Component {
     if (categoryChannels.length > 0) {
       //only for testing
       if (this.props.currentChannelId === null) {
-        this.props.setCurrentChannelId(categoryChannels[0].id);
+        this.props.setCurrentChanneAndCategorylId(this.props.category.id, categoryChannels[0].id);
       }
       return categoryChannels.map((channel) => {
         return (
-          <ChatroomChannel key={channel.id} channel={channel} setCurrentChannelId={this.props.setCurrentChannelId} />
+          <ChatroomChannel key={channel.id} categoryId={this.props.category.id} channel={channel} setCurrentChanneAndCategorylId={this.props.setCurrentChanneAndCategorylId} />
         )
       })
     }

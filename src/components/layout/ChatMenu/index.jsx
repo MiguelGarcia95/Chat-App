@@ -14,7 +14,7 @@ const displayCategories = (props) => {
         toggleChannelModal={props.toggelChannel}
         newChannelMade={props.newChannelMade}
         toggleChannelState={props.toggleChannelState}
-        setCurrentChannelId={props.setCurrentChannelId}
+        setCurrentChanneAndCategorylId={props.setCurrentChanneAndCategorylId}
         currentChannelId={props.currentChannelId}
         changeChat={props.changeChat}
       />
@@ -42,7 +42,7 @@ const ChatMenu = (props) => {
 //           toggleChannelModal={this.props.toggelChannel}
 //           newChannelMade={this.props.newChannelMade}
 //           toggleChannelState={this.props.toggleChannelState}
-//           setCurrentChannelId={this.props.setCurrentChannelId}
+//           setCurrentChanneAndCategorylId={this.props.setCurrentChanneAndCategorylId}
 //           currentChannelId={this.props.currentChannelId}
 //           changeChat={this.props.changeChat}
 //         />
