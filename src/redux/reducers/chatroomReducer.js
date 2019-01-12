@@ -92,30 +92,36 @@ const chatroomReducer = (state = initialState, action) => {
         chatroomCategories: action.payload.chatroomCategories
       }
     case actionTypes.GET_CATEGORY_CHANNELS:
-      let channelCategories = state.chatroomChannels;
 
-      // cycle thru all channelcategories
-      if (channelCategories.length > 0) {
-        console.log('more than zero');
-        channelCategories.forEach(category => {
-          console.log(category)
-        })
-      } else {
-        console.log('less than zero');
-        channelCategories = action.payload.chatroomChannels
-      }
+      // let channelCategories = state.chatroomChannels;
+      // // cycle thru all channelcategories
+      // if (channelCategories.length > 0) {
+      //   console.log('more than zero');
+      //   action.payload.chatroomChannels.forEach(incomingCategory => {
+      //     let isNotInState = true;
+      //     //check if current incoming category is in channelcategories
+      //     channelCategories.forEach(category => {
+      //       // console.log('Incoming Category: ', incomingCategory.id);
+      //       console.log('Category: ', category.id);
+      //       if (category.id === incomingCategory.id) {
+      //         console.log('equal')
+      //       }
+      //     })
+      //     if (isNotInState) {
+      //       channelCategories.push(incomingCategory)
+      //     }
+      //   })
+      // } else {
+      //   console.log('less than zero');
+      //   channelCategories = action.payload.chatroomChannels
+      // }
+      // console.log(channelCategories)
 
-
-
-
-      // console.log(`Channels coming in: `, action.payload.chatroomChannels);
-      // console.log(`Channels already in array: `, state.chatroomChannels);
-      // console.log('Channels: ', channelCategories);
       return {
         ...state,
         chatroomError: action.payload.chatroomError,
-        chatroomChannels: channelCategories
-        // chatroomChannels: state.chatroomChannels.concat(action.payload.chatroomChannels)
+        // chatroomChannels: channelCategories
+        chatroomChannels: state.chatroomChannels.concat(action.payload.chatroomChannels)
       }
     case actionTypes.GET_CATEGORY_CHANNELS_ERROR:
       return {
