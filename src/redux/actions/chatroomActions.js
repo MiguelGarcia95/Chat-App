@@ -106,7 +106,11 @@ export const createCategoryChannel = (channel) => {
 }
 
 export const getChannelChat = (categoryId, channelId) => {
-
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    const firestore = getFirestore();
+    console.log('Category Id: ', categoryId);
+    console.log('Channel Id: ', channelId);
+  }
 }
 
 // Get categories 
