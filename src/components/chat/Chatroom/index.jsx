@@ -54,7 +54,6 @@ class Chatroom extends React.Component {
 
   setCurrentChannelId = (channelId) => {
     this.setState({currentChannelId: channelId});
-    console.log(channelId)
   } 
 
   modalOnChange = (e) => this.setState({[e.target.name]: e.target.value});

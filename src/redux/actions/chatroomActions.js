@@ -154,8 +154,6 @@ export const getCategoryChannels = (chatroomId, categoryId) => {
         type: actionTypes.GET_CATEGORY_CHANNELS,
         payload: {
           chatroomError: null,
-          // chatroomChannels: {id: categoryId, channels: allChannels}
-          // chatroomChannels: allChannels,
           chatroomChannels: channelArray
         }
       })
