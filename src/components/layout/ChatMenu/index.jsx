@@ -30,34 +30,6 @@ const ChatMenu = (props) => {
   )
 }
 
-// class ChatMenu extends React.Component {
-//   displayCategories = (categories) => {
-//     return categories.map((category) => {
-//       return (
-//         <ChatroomSection 
-//           key={category.id} 
-//           sectionName={category.category.categoryName}
-//           category={category}
-//           isUserAdmin={this.props.isUserAdmin}
-//           toggleChannelModal={this.props.toggelChannel}
-//           newChannelMade={this.props.newChannelMade}
-//           toggleChannelState={this.props.toggleChannelState}
-//           setCurrentChanneAndCategorylId={this.props.setCurrentChanneAndCategorylId}
-//           currentChannelId={this.props.currentChannelId}
-//           changeChat={this.props.changeChat}
-//         />
-//       )
-//     })
-//   }
-//   render() {
-//     return (
-//       <section className="menu-bar chatroom-menu">
-//         {this.displayCategories(this.props.categories)}
-//       </section>
-//     )
-//   }
-// }
-
 ChatMenu.propTypes = {
   user: PropTypes.object.isRequired
 }
