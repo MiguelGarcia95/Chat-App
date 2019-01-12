@@ -93,40 +93,16 @@ const chatroomReducer = (state = initialState, action) => {
       }
       case actionTypes.GET_CATEGORY_CHANNELS:
       let channelCategories = state.chatroomChannels;
-      //cycle thru all incoming categories. 
-      //if category is in state, replace it.
-      action.payload.chatroomChannels.forEach(category => {
-        let notInState = true;
-        // console.log('new')
-        // console.log(channelCategories.length)
-        channelCategories.forEach(channelCategory => {
-          console.log(channelCategory.id)
-          console.log(category.id)
-          if (channelCategory.id == category.id) {
-            category = channelCategory;
-            notInState = false;
-          }
-        })
-        if (notInState) {
-          // console.log('added new one')
-          // console.log(category)
-          channelCategories.push(category)
-        }
-      })
 
-      // channels.forEach(category => {
-      //   if (channels.length > 0) {
-      //     channels.forEach(channel => {
-      //       if (channel.id === category.id) {
-      //         // channel = category
-      //         console.log(channel, category)
-      //       }
-      //     })
-      //   } else {
-      //     // channels.push(category)
-      //   }
-      //   // console.log(category.id)
-      // })
+      // cycle thru all channelcategories
+      if (channelCategories.length > 0) {
+        console.log('more than zero');
+      } else {
+        console.log('less than zero');
+      }
+
+
+
 
       // console.log(`Channels coming in: `, action.payload.chatroomChannels);
       // console.log(`Channels already in array: `, state.chatroomChannels);
