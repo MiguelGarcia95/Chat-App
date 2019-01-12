@@ -6,6 +6,7 @@ import { dispatch } from 'rxjs/internal/observable/range';
 
 class ChatPannel extends React.Component {
   render () {
+    console.log(this.props.currentChannelId)
     return (
       <section className="chat-panel">
         <nav className="chatroom-header">

@@ -4,11 +4,11 @@ import './style.css';
 import ChatroomSection from '../ChatroomSection/';
 
 class ChatMenu extends React.Component {
-  state = {
-    user: this.props.user,
-    chatroom: this.props.chatroom,
-    categories: this.props.categories
-  }
+  // state = {
+  //   user: this.props.user,
+  //   chatroom: this.props.chatroom,
+  //   categories: this.props.categories
+  // }
 
   displayCategories = (categories) => {
     return categories.map((category) => {
@@ -43,3 +43,4 @@ ChatMenu.propTypes = {
 }
 
 export default ChatMenu;
+

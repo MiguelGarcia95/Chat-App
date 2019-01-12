@@ -7,12 +7,8 @@ import HomePanel from '../../layout/HomePanel/';
 import Userbar from '../../layout/Userbar';
 
 
-class Homeroom extends React.Component {
-  // Todo
-  // Build Chat Console, chat format
-  // Create and Display Sections & Comments
-  render () {
-    const {user} = this.props;
+const Homeroom = (props) => {
+    const {user} = props;
     return (
       <section id="app">
         <HomeMenu user={user} />
@@ -20,8 +16,20 @@ class Homeroom extends React.Component {
         <HomePanel user={user} />
       </section>
     )
-  }
 }
+
+// class Homeroom extends React.Component {
+//   render () {
+//     const {user} = this.props;
+//     return (
+//       <section id="app">
+//         <HomeMenu user={user} />
+//         <Userbar user={user} />
+//         <HomePanel user={user} />
+//       </section>
+//     )
+//   }
+// }
 
 Homeroom.propTypes = {
   user: PropTypes.object.isRequired
