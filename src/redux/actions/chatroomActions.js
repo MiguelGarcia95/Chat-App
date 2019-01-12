@@ -115,7 +115,8 @@ export const getChannelChat = (chatroomId, categoryId, channelId) => {
         dispatch({
           type: actionTypes.GET_CHANNEL_CHAT,
           payload: {
-            
+            channel: newChannel,
+            chatroomError: null
           }
         })
       } else {
@@ -123,7 +124,8 @@ export const getChannelChat = (chatroomId, categoryId, channelId) => {
         dispatch({
           type: actionTypes.GET_CHANNEL_CHAT_ERROR,
           payload: {
-            
+            channel: null,
+            chatroomError: 'Channel Does not exist.'
           }
         })
       }
@@ -131,7 +133,8 @@ export const getChannelChat = (chatroomId, categoryId, channelId) => {
       dispatch({
         type: actionTypes.GET_CHANNEL_CHAT_ERROR,
           payload: {
-            
+            channel: null,
+            chatroomError: err.message
           }
       })
     })
