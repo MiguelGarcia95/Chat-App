@@ -7,7 +7,10 @@ import './style.css';
 class ChatPannel extends React.Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.currentChannelId) {
-      nextProps.getChannelChat(nextProps.currentCategoryId, nextProps.currentChannelId)
+      // console.log(nextProps.currentChannelId)
+      // console.log(nextProps.currentCategoryId)
+      // console.log(nextProps.chatroomId)
+      nextProps.getChannelChat(nextProps.chatroomId, nextProps.currentCategoryId, nextProps.currentChannelId)
     }
   }
 
@@ -64,7 +67,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getChannelChat: (categoryId, channelId) => dispatch(getChannelChat(categoryId, channelId))
+    getChannelChat: (chatroomId, categoryId, channelId) => dispatch(getChannelChat(chatroomId, categoryId, channelId))
   }
 }
 

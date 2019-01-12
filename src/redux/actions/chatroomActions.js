@@ -105,11 +105,17 @@ export const createCategoryChannel = (channel) => {
   }
 }
 
-export const getChannelChat = (categoryId, channelId) => {
+export const getChannelChat = (chatroomId, categoryId, channelId) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firestore = getFirestore();
-    console.log('Category Id: ', categoryId);
-    console.log('Channel Id: ', channelId);
+
+    firestore.collection(`chatrooms/${chatroomId}/categories/${categoryId}/channels/`).doc(channelId).get().then(channel => {
+      if (channel.exists) {
+        const newChannel = {id: channel.id, channel: channel.data()}
+      } else {
+        console.log('doesnt exist')
+      }
+    })
   }
 }
 
