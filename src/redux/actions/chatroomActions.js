@@ -157,10 +157,10 @@ export const getChannelChat = (chatroomId, categoryId, channelId) => {
     }).catch(err => {
       dispatch({
         type: actionTypes.GET_CHANNEL_CHAT_ERROR,
-          payload: {
-            channel: null,
-            chatroomError: err.message
-          }
+        payload: {
+          channel: null,
+          chatroomError: err.message
+        }
       })
     })
   }
@@ -176,13 +176,19 @@ export const getChannelComments = (chatroomId, categoryId, channelId) => {
           allComments.push({id: doc.id, comment: doc.data()})
         });
         dispatch({
-          comments: allComments,
-          chatroomError: null
+          type: actionTypes.GET_CHANNEL_COMMENTS,
+          payload: {
+            comments: allComments,
+            chatroomError: null
+          }
         })
       }).catch(err => {
         dispatch({
-          comments: [],
-          chatroomError: err.message
+          type: actionTypes.GET_CHANNEL_COMMENTS_ERROR,
+          payload: {
+            comments: [],
+            chatroomError: err.message
+          }
         })
       })
   }
