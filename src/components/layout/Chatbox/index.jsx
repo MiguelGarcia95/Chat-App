@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import { createChannelComment } from '../../../redux/actions/chatroomActions';
 
 import './style.css';
 
 class Chatbox extends React.Component {
   state = {
-    content: ''
+    content: '',
+    username: '',
+    userAvatar: ''
   }
   onFormSubmit = (e) => {
     e.preventDefault();
@@ -32,4 +36,10 @@ Chatbox.propTypes = {
   
 }
 
-export default Chatbox;
+const mapDispatchToProps = dispatch => {
+  return {
+    createChannelComment: (comment) => dispatch(createChannelComment(comment))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Chatbox);
