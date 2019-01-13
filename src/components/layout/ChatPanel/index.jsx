@@ -23,7 +23,7 @@ class ChatPannel extends React.Component {
   }
   
   render () {
-    const {channel, chatroomId, currentCategoryId, user} = this.props;
+    const {channel, chatroomId, currentCategoryId, user, comments} = this.props;
 
     if (!channel) {
       return <section className="chat-panel"></section>
@@ -35,7 +35,7 @@ class ChatPannel extends React.Component {
             <i className="fas fa-hashtag"></i> <p>{channelData.channelName} - {channelData.channelDescription}</p>
           </nav>
   
-          <Comments />
+          <Comments comments={comments} />
           <Chatbox chatroomId={chatroomId} categoryId={currentCategoryId} channelId={channel.id} user={user} />   
   
         </section>

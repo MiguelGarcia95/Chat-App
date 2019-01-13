@@ -39,7 +39,10 @@ class Chatbox extends React.Component {
 }
 
 Chatbox.propTypes = {
-  
+  user: PropTypes.object.isRequired,
+  chatroomId: PropTypes.string.isRequired,
+  categoryId: PropTypes.string.isRequired,
+  channelId: PropTypes.string.isRequired
 }
 
 const mapDispatchToProps = dispatch => {
