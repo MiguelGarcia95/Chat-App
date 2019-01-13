@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { createChannelComment } from '../../../redux/actions/chatroomActions';
-
 import './style.css';
 
 class Chatbox extends React.Component {
