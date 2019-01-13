@@ -76,7 +76,6 @@ export const createChatroomCategory = (category) => {
 }
 
 export const createChannelComment = (comment) => {
-  // chatroomId, categoryId, channelId
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
     firestore.add(`chatrooms/${comment.chatroomId}/categories/${comment.categoryId}/channels/${comment.channelId}/comments`, {
@@ -84,8 +83,21 @@ export const createChannelComment = (comment) => {
       username: comment.username,
       userId: comment.userId,
       userAvatar: comment.userAvatar
+    }).then(comment => {
+      dispatch({
+        type: actionTypes.CREATE_CHANNEL_COMMENT,
+        payload: {
+          chatroomError: null
+        }
+      })
+    }).catch(err => {
+      dispatch({
+        type: actionTypes.CREATE_CHANNEL_COMMENT_ERROR,
+        payload: {
+          chatroomError: err.message
+        }
+      })
     })
-    // console.log(comment)
   }
 }
 
