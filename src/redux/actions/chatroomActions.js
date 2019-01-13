@@ -75,9 +75,11 @@ export const createChatroomCategory = (category) => {
   }
 }
 
-export const createChannelComment = (chatroomId, categoryId, channelId) => {
+export const createChannelComment = (comment) => {
+  // chatroomId, categoryId, channelId
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
+    console.log(comment)
   }
 }
 

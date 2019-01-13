@@ -9,11 +9,16 @@ class Chatbox extends React.Component {
   state = {
     content: '',
     username: '',
-    userAvatar: ''
+    userAvatar: '',
+    chatroomId: this.props.chatroomId,
+    categoryId: this.props.categoryId,
+    channelId: this.props.channelId
   }
+
+
   onFormSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.content)
+    this.props.createChannelComment(this.state);
   }
 
   onChange = e => this.setState({[e.target.name]: e.target.value})
