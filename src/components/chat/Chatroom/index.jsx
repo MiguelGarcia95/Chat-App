@@ -15,7 +15,6 @@ import ChannelModal from '../../layout/ChannelModal/';
 
 class Chatroom extends React.Component {
   state = {
-    chatroomID: this.props.match.params.id,
     redirect: this.props.redirect,
     displayChatSettings: false,
     displayCategoryModal: false,
@@ -132,6 +131,8 @@ class Chatroom extends React.Component {
           handleCategorySubmit={this.categorySubmit}
           toggle={this.toggleSettings}
           categoryOnChange={this.modalOnChange}
+          chatToggle={this.toggleChatSettings} 
+
         />
 
         <ChannelModal 

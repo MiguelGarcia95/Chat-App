@@ -15,7 +15,6 @@ const ChatroomModal = (props) => {
           <input type="text" name='chatroomName' placeholder='Chatroom Name' onChange={props.handleChange}/>
         </section>
         <section className="input-group">
-          {/* <input type='file' name='chatroom-avatar' className='custom-file-upload' /> */}
             <label className="custom-file-upload">
               <input type="file"/> Upload Avatar
             </label>
