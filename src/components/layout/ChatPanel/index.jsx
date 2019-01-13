@@ -5,9 +5,16 @@ import { getChannelChat } from '../../../redux/actions/chatroomActions';
 import './style.css';
 
 class ChatPannel extends React.Component {
+  state = {
+    channelId: ''
+  }
+
   UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.currentChannelId && nextProps.channel === null) {
-      nextProps.getChannelChat(nextProps.chatroomId, nextProps.currentCategoryId, nextProps.currentChannelId)
+    if (nextProps.currentChannelId) {
+      if (nextProps.channel === null || nextProps.currentChannelId !== this.state.channelId) {
+        this.setState({channelId: nextProps.currentChannelId});
+        nextProps.getChannelChat(nextProps.chatroomId, nextProps.currentCategoryId, nextProps.currentChannelId)
+      }
     }
   }
 
