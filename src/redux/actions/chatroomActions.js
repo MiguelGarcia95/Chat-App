@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/types';
 
 export const createChatroom = (newChatroom) => {
-  return (dispatch, getState, {getFirebase, getFirestore}) => {
+  return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
     firestore.add('chatrooms', {
       avatar: newChatroom.avatar,
@@ -31,7 +31,7 @@ export const createChatroom = (newChatroom) => {
 }
 
 export const createChatroomCategory = (category) => {
-  return (dispatch, getState, {getFirebase, getFirestore}) => {
+  return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
     console.log(category.chatroomID)
     firestore.add(`chatrooms/${category.chatroomID}/categories`, {
@@ -75,9 +75,14 @@ export const createChatroomCategory = (category) => {
   }
 }
 
+export const createChannelComment = (chatroomId, categoryId, channelId) => {
+  return (dispatch, getState, {getFirestore}) => {
+    const firestore = getFirestore();
+  }
+}
+
 export const createCategoryChannel = (channel) => {
-  return (dispatch, getState, {getFirebase, getFirestore}) => {
-    // CREATE_CATEGORY_CHANNEL
+  return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
     firestore.add(`chatrooms/${channel.chatroomID}/categories/${channel.categoryId}/channels`, {
       channelName: channel.channelName,
@@ -106,7 +111,7 @@ export const createCategoryChannel = (channel) => {
 }
 
 export const getChannelChat = (chatroomId, categoryId, channelId) => {
-  return (dispatch, getState, {getFirebase, getFirestore}) => {
+  return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
 
     firestore.collection(`chatrooms/${chatroomId}/categories/${categoryId}/channels/`).doc(channelId).get().then(channel => {
@@ -144,7 +149,7 @@ export const getChannelChat = (chatroomId, categoryId, channelId) => {
 // Get categories 
 
 export const getChatroomCategories = (chatroomId) => {
-  return (dispatch, getState, {getFirebase, getFirestore}) => {
+  return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
 
     firestore.collection(`chatrooms/${chatroomId}/categories`).get().then(categories => {
@@ -172,7 +177,7 @@ export const getChatroomCategories = (chatroomId) => {
 }
 
 export const getCategoryChannels = (chatroomId, categoryId) => {
-  return(dispatch, getState, {getFirebase, getFirestore}) => {
+  return(dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
     firestore.collection(`chatrooms/${chatroomId}/categories/${categoryId}/channels`).get().then(channels => {
       let allChannels = [];
@@ -205,7 +210,7 @@ export const getCategoryChannels = (chatroomId, categoryId) => {
 // Get Chatroom actions 
 
 export const getChatrooms = () => {
-  return (dispatch, getState, {getFirebase, getFirestore}) => {
+  return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
     //Should get chatrooms user is a part of, not yet implemented
     firestore.collection('chatrooms').get().then(data => {
@@ -233,7 +238,7 @@ export const getChatrooms = () => {
 }
 
 export const getChatroom = (chatroomID) => {
-  return (dispatch, getState, {getFirebase, getFirestore}) => {
+  return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
     const chatRef = firestore.collection(`chatrooms`).doc(chatroomID);
     chatRef.get().then(doc => {
