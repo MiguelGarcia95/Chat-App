@@ -9,15 +9,18 @@ class Chatbox extends React.Component {
   }
   onFormSubmit = (e) => {
     e.preventDefault();
-    console.log('test')
+    console.log(this.state.content)
   }
+
+  onChange = e => this.setState({[e.target.name]: e.target.value})
+
+
   render() {
     return (
       <section className="chat-box">
         <section className="input-group">
           <form onSubmit={this.onFormSubmit}>
-            <input name="comment" id="" />
-            {/* <textarea name="comment" id="" ></textarea> */}
+            <input name="content" id="" onChange={this.onChange} value={this.state.content} />
           </form>
         </section>
       </section>
