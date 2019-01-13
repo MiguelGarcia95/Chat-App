@@ -169,9 +169,14 @@ export const getChannelChat = (chatroomId, categoryId, channelId) => {
 export const getChannelComments = (chatroomId, categoryId, channelId) => {
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
-    console.log(chatroomId)
-    console.log(categoryId)
-    console.log(channelId)
+    firestore.collection(`chatrooms/${chatroomId}/categories/${categoryId}/channels/${channelId}/comments`)
+      .get().then(comments => {
+        let allComments = [];
+        comments.forEach(doc => {
+          allComments.push({id: doc.id, comment: doc.data()})
+        });
+        console.log(allComments)
+      })
   }
 }
 
