@@ -22,7 +22,7 @@ class ChatPannel extends React.Component {
   }
   
   render () {
-    const {channel, chatroomId, currentCategoryId} = this.props;
+    const {channel, chatroomId, currentCategoryId, user} = this.props;
 
     if (!channel) {
       return <section className="chat-panel"></section>
@@ -35,7 +35,7 @@ class ChatPannel extends React.Component {
           </nav>
   
           <Comments />
-          <Chatbox chatroomId={chatroomId} categoryId={currentCategoryId} channelId={channel.id} />   
+          <Chatbox chatroomId={chatroomId} categoryId={currentCategoryId} channelId={channel.id} user={user} />   
   
         </section>
       )

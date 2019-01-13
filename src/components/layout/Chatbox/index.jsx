@@ -8,8 +8,9 @@ import './style.css';
 class Chatbox extends React.Component {
   state = {
     content: '',
-    username: '',
-    userAvatar: '',
+    username: this.props.user.displayName,
+    userId: this.props.user.uid,
+    userAvatar: this.props.user.photoURL,
     chatroomId: this.props.chatroomId,
     categoryId: this.props.categoryId,
     channelId: this.props.channelId
