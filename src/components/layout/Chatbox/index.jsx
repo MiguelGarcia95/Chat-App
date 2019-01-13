@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
-const Chatbox = (props) => {
-  return (
-    <section className="chat-box">
-      <section className="input-group">
-        <textarea name="comment" id="" ></textarea>
+class Chatbox extends React.Component {
+  render() {
+    return (
+      <section className="chat-box">
+        <section className="input-group">
+          <textarea name="comment" id="" ></textarea>
+        </section>
       </section>
-    </section>
-  )
+    )
+  }
 }
 
 Chatbox.propTypes = {
