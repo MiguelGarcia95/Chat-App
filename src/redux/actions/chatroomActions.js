@@ -166,10 +166,12 @@ export const getChannelChat = (chatroomId, categoryId, channelId) => {
   }
 }
 
-export const getChannelComments = (channelData) => {
+export const getChannelComments = (chatroomId, categoryId, channelId) => {
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
-    console.log(channelData)
+    console.log(chatroomId)
+    console.log(categoryId)
+    console.log(channelId)
   }
 }
 

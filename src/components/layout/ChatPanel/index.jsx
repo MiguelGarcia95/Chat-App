@@ -17,6 +17,7 @@ class ChatPannel extends React.Component {
       if (nextProps.channel === null || nextProps.currentChannelId !== this.state.channelId) {
         this.setState({channelId: nextProps.currentChannelId});
         nextProps.getChannelChat(nextProps.chatroomId, nextProps.currentCategoryId, nextProps.currentChannelId)
+        nextProps.getChannelComments(nextProps.chatroomId, nextProps.currentCategoryId, nextProps.currentChannelId)
       }
     }
   }
@@ -57,7 +58,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getChannelChat: (chatroomId, categoryId, channelId) => dispatch(getChannelChat(chatroomId, categoryId, channelId)),
-    getChannelComments: (channelData) => dispatch(getChannelComments(channelData))
+    getChannelComments: (chatroomId, categoryId, channelId) => dispatch(getChannelComments(chatroomId, categoryId, channelId))
   }
 }
 
