@@ -175,7 +175,15 @@ export const getChannelComments = (chatroomId, categoryId, channelId) => {
         comments.forEach(doc => {
           allComments.push({id: doc.id, comment: doc.data()})
         });
-        console.log(allComments)
+        dispatch({
+          comments: allComments,
+          chatroomError: null
+        })
+      }).catch(err => {
+        dispatch({
+          comments: [],
+          chatroomError: err.message
+        })
       })
   }
 }
