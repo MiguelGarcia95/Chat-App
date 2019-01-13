@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import { getChannelChat } from '../../../redux/actions/chatroomActions';
+import { getChannelChat, getChannelComments } from '../../../redux/actions/chatroomActions';
 
 import Comments from '../Comments/';
 import Chatbox from '../Chatbox/';
@@ -56,7 +56,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getChannelChat: (chatroomId, categoryId, channelId) => dispatch(getChannelChat(chatroomId, categoryId, channelId))
+    getChannelChat: (chatroomId, categoryId, channelId) => dispatch(getChannelChat(chatroomId, categoryId, channelId)),
+    getChannelComments: (channelData) => dispatch(getChannelComments(channelData))
   }
 }
 

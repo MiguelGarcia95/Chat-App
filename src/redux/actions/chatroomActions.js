@@ -166,6 +166,13 @@ export const getChannelChat = (chatroomId, categoryId, channelId) => {
   }
 }
 
+export const getChannelComments = (channelData) => {
+  return (dispatch, getState, {getFirestore}) => {
+    const firestore = getFirestore();
+    console.log(channelData)
+  }
+}
+
 // Get categories 
 
 export const getChatroomCategories = (chatroomId) => {
