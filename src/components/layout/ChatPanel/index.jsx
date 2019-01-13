@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import { getChannelChat } from '../../../redux/actions/chatroomActions';
 
 import Comments from '../Comments/';
+import Chatbox from '../Chatbox/';
 import './style.css';
 
 class ChatPannel extends React.Component {
@@ -19,12 +20,12 @@ class ChatPannel extends React.Component {
       }
     }
   }
-
+  
   render () {
     const {channel} = this.props;
 
     if (!channel) {
-      return <p></p>
+      return <section className="chat-panel"></section>
     } else {
       const channelData = channel.channel
       return (
@@ -33,13 +34,9 @@ class ChatPannel extends React.Component {
             <i className="fas fa-hashtag"></i> <p>{channelData.channelName} - {channelData.channelDescription}</p>
           </nav>
   
+          <Comments />
+          <Chatbox />
           
-   
-           <section className="chat-box">
-             <section className="input-group">
-               <textarea name="comment" id="" ></textarea>
-             </section>
-           </section>
   
         </section>
       )
