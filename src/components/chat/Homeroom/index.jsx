@@ -9,13 +9,15 @@ import Userbar from '../../layout/Userbar';
 
 const Homeroom = (props) => {
     const {user} = props;
-    return (
+
+    return !user ? <section id="app"></section> : (
       <section id="app">
         <HomeMenu user={user} />
         <Userbar user={user} />
         <HomePanel user={user} />
       </section>
     )
+
 }
 
 Homeroom.propTypes = {
