@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {login} from '../../../redux/actions/authActions';
+import {login, setUser} from '../../../redux/actions/authActions';
 import firebase from '../../../redux/firebase';
 import './style.css';
 
@@ -86,7 +86,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (userData) => dispatch(login(userData))
+    login: (userData) => dispatch(login(userData)),
+    setUser: (user) => dispatch(setUser(user))
   }
 }
 
