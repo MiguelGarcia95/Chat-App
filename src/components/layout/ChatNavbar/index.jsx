@@ -19,7 +19,7 @@ class ChatNavbar extends React.Component {
     if (nextProps.redirect) {
       this.props.getChatrooms();
       this.props.redirectToChat();
-      setTimeout( nextProps.history.push(`/chatroom/${nextProps.currentChatroomID}`), 1500);
+      setTimeout( nextProps.history.push(`/chatroom/${nextProps.currentChatroomId}`), 1500);
     } 
   }
   
@@ -85,7 +85,7 @@ ChatNavbar.propTypes = {
 const mapStateToProps = state => {
   return {
     chatrooms: state.chatroom.chatrooms,
-    currentChatroomID: state.chatroom.currentChatroomID,
+    currentChatroomId: state.chatroom.currentChatroomId,
     redirect: state.chatroom.redirectToChat,
     user: state.auth.currentUser
   }

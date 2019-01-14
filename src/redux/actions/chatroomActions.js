@@ -6,7 +6,7 @@ export const createChatroom = (newChatroom) => {
     firestore.add('chatrooms', {
       avatar: newChatroom.avatar,
       name: newChatroom.chatroomName,
-      creatorId: newChatroom.us er.uid 
+      creatorId: newChatroom.user.uid 
     }).then(docRef => {
       dispatch({
         type: actionTypes.CHATROOM_CREATED,
