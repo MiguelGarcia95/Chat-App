@@ -16,6 +16,7 @@ class AppWithRoutes extends Component {
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
+      console.log(user)
       if (user) {
         this.props.setUser(user);
       } else {
@@ -44,7 +45,8 @@ class AppWithRoutes extends Component {
 
 const mapStateToProps = state => {
   return {
-    isLoading: state.auth.isLoading
+    isLoading: state.auth.isLoading,
+    user: state.auth.currentUser
   }
 }
 
