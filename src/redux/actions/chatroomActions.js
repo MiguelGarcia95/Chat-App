@@ -6,12 +6,12 @@ export const createChatroom = (newChatroom) => {
     firestore.add('chatrooms', {
       avatar: newChatroom.avatar,
       name: newChatroom.chatroomName,
-      creatorId: newChatroom.user.uid 
+      creatorId: newChatroom.us er.uid 
     }).then(docRef => {
       dispatch({
         type: actionTypes.CHATROOM_CREATED,
         payload: {
-          currentChatroomID: docRef._key.path.segments[1],
+          currentChatroomId: docRef._key.path.segments[1],
           chatroomError: null,
           redirectToChat: true
         }
@@ -20,7 +20,7 @@ export const createChatroom = (newChatroom) => {
       dispatch({
         type: actionTypes.CHATROOM_CREATED_ERROR,
         payload: {
-          currentChatroomID: null,
+          currentChatroomId: null,
           chatroomError: err.message,
           redirectToChat: false
         }
